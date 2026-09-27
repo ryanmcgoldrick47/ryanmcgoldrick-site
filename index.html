@@ -9,163 +9,251 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="icon" type="image/svg+xml" href="favicon-3a.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500;800&display=swap" rel="stylesheet">
 <style>
   body{margin:0;background:#fff}
   a{color:oklch(16% 0 0)}
   a:hover{color:oklch(45% 0.16 320)}
 </style>
-<script src="./make-3a.js"></script>
+<style>@keyframes rmMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}[data-fadein]{opacity:0;transform:translateY(12px);transition:opacity 2.4s ease,transform 2.4s ease}[data-fadein].on{opacity:1;transform:none}</style>
+<script>(function(){function chk(){document.querySelectorAll('[data-fadein]').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight-40)el.classList.add('on');else el.classList.remove('on');});}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);setInterval(chk,800);})();</script>
+<script src="radio-card.js"></script>
+<script src="snitch-3a.js"></script>
+<style>html,body{overflow-x:clip}</style>
 </helmet>
-<div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
-  {{ snake }}
-
-  <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-    <a href="#" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
-    <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
-      <a href="projects" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">projects</a>
-      <a href="about" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
-      <a href="shop" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
-      <a href="contact" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
-    </nav>
-  </header>
-
-  <section style="position:relative;height:min(78vh,720px);min-height:460px;margin:0 clamp(20px,5vw,48px);overflow:hidden;background:oklch(93% 0 0)">
-    <img src="images/work/step-1.webp" alt="step chair" style="width:100%;height:100%;object-fit:cover;display:block" />
-    <div data-snake="1" style="position:absolute;left:32px;top:32px;max-width:calc(100% - 64px);width:460px;box-sizing:border-box;background:oklch(84% 0 0);padding:18px 20px;font-family:'Martian Mono',monospace;font-size:13px;line-height:1.65">a focus in honest, products that look to function, <span style="background:oklch(78% 0.08 300);padding:0 3px">material use</span> and playful spirit for inspiration.</div>
-    <a data-snake="1" href="project?item=step" style="position:absolute;right:0;bottom:0;background:oklch(84% 0 0);padding:14px 20px;font-family:'DotGothic16',monospace;font-size:16px;text-decoration:none">01 step / aluminium, kvadrat leather</a>
-  </section>
-
-  <section id="studio" style="padding:110px clamp(20px,5vw,48px) 0">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:36px">
-      <h2 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(clamp(20px,5vw,48px),7vw,96px);line-height:0.9;margin:0">studio</h2>
-      <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:400px">independent work under rye. <span style="background:oklch(78% 0.08 300);padding:0 3px">designed, prototyped and made in wollongong.</span></p>
+<div ref="{{ rootRef }}" style="position:relative;box-sizing:border-box;min-height:100vh;padding:30px;color:oklch(16% 0 0);font-family:'Martian Mono',monospace">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible" aria-hidden="true">
+    <path ref="{{ pathRef }}" id="rm-snake-path" d="" fill="none" stroke="none"></path>
+    <text style="font-family:'Martian Mono',monospace;font-size:14px;fill:oklch(16% 0 0)" dominant-baseline="central"><textPath ref="{{ tpRef }}" href="#rm-snake-path" startOffset="0">honest and playful product design hailing from Wollongong, Australia. Furniture &amp; Product design</textPath></text>
+  </svg>
+  <div ref="{{ wrapRef }}" style="position:relative;display:flex;flex-direction:column;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px;border:1px solid oklch(88% 0.02 250)">
+    <div ref="{{ topRef }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;font-size:13px">
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><button data-radio-btn="1" style="font-family:'Martian Mono',monospace;font-size:13px;padding:8px 12px;border:none;cursor:pointer;background:oklch(16% 0 0);color:#fff" style-hover="background:oklch(45% 0.16 320)"><span style="display:inline-flex;align-items:center;gap:8px"><span>▶</span><span style="display:block;width:110px;overflow:hidden;white-space:nowrap"><span style="display:inline-block;animation:rmMarq 7s linear infinite">radio player · rm studio radio · radio player · rm studio radio · </span></span></span></button><span ref="{{ readRef }}" style="background:oklch(84% 0 0);padding:8px 10px">hover a piece, click to see it big</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{ sortBtns }}" as="m" hint-placeholder-count="4">
+          <button onClick="{{ m.go }}" style="{{ m.style }}">{{ m.label }}</button>
+        </sc-for>
+      </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
-      <sc-for list="{{ studio }}" as="p" hint-placeholder-count="0">
-        <a data-snake="1" href="{{ p.href }}" style="text-decoration:none;display:block">
-          <div style="aspect-ratio:4/5;overflow:hidden;background:oklch(93% 0 0)">
-            <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
-          </div>
-          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
-          <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0 0);margin-top:3px">{{ p.meta }}</div>
-        </a>
+    <div ref="{{ sortRef }}" style="position:relative;height:60vh;overflow:hidden;transition:height 700ms cubic-bezier(.2,.7,.2,1)">
+      <sc-for list="{{ sortLabels }}" as="l" hint-placeholder-count="0">
+        <div style="position:absolute;left:{{ l.x }}px;top:{{ l.y }}px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:22px;line-height:1;text-transform:uppercase;white-space:nowrap;display:flex;align-items:baseline;gap:8px;pointer-events:none"><span>{{ l.text }}</span></div>
+      </sc-for>
+      <sc-for list="{{ sortCards }}" as="c" hint-placeholder-count="0">
+        <div data-card="{{ $index }}" data-slug="{{ c.slug }}" style="position:absolute;left:0;top:0;width:var(--cs,120px);cursor:grab;user-select:none;touch-action:none;will-change:transform">
+          <div style="position:relative;width:var(--cs,120px);height:var(--cs,120px);background:#fff;overflow:hidden;box-shadow:0 1px 0 oklch(80% 0 0)"><img src="{{ c.src }}" alt="{{ c.title }}" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none" /><img data-alt="1" src="{{ c.alt }}" alt="" draggable="false" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;opacity:0;transition:opacity 350ms ease" /></div>
+          <div data-tag="1" style="position:absolute;left:-6px;top:-32px;background:oklch(78% 0.08 300);color:oklch(16% 0 0);font-size:12px;padding:5px 8px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity 200ms ease, transform 200ms ease">{{ c.tag }}</div>
+          <div style="font-size:13px;line-height:1.3;margin-top:5px;color:oklch(22% 0 0);pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.num }} {{ c.title }}</div>
+        </div>
       </sc-for>
     </div>
-    <a data-snake="1" href="projects" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
-  </section>
-
-  <section id="industry" style="padding:120px clamp(20px,5vw,48px) 0">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:36px">
-      <h2 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(clamp(20px,5vw,48px),7vw,96px);line-height:0.9;margin:0">industry</h2>
-      <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:400px">products designed and developed in-house as an industrial designer, from furniture to <span style="background:oklch(78% 0.08 300);padding:0 3px">audio hardware and underwater robotics.</span></p>
+    <div ref="{{ botRef }}" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:16px">
+      <h1 style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:0;text-transform:lowercase;font-size:clamp(28px,4.4vw,64px);line-height:0.95;margin:0">RYAN MCGOLDRICK</h1>
+      <nav style="display:flex;flex-wrap:wrap;gap:4px;font-size:14px">
+        <a href="projects#products" style="padding:12px 11px;text-decoration:none;background:#fff" style-hover="background:oklch(84% 0 0)">products</a>
+        <a href="projects#projects" style="padding:12px 11px;text-decoration:none;background:#fff" style-hover="background:oklch(84% 0 0)">projects</a>
+        <a href="about" style="padding:12px 11px;text-decoration:none;background:#fff" style-hover="background:oklch(84% 0 0)">about</a>
+        <a href="shop" style="padding:12px 11px;text-decoration:none;background:#fff" style-hover="background:oklch(84% 0 0)">shop</a>
+        <a href="contact" style="padding:12px 11px;text-decoration:none;background:#fff" style-hover="background:oklch(84% 0 0)">contact</a>
+      </nav>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
-      <sc-for list="{{ industry }}" as="p" hint-placeholder-count="0">
-        <a data-snake="1" href="{{ p.href }}" style="text-decoration:none;display:block">
-          <div style="aspect-ratio:4/5;overflow:hidden;background:oklch(93% 0 0)">
-            <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
-          </div>
-          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
-          <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0 0);margin-top:3px">{{ p.meta }}</div>
-        </a>
-      </sc-for>
+  </div>
+  <div onClick="{{ closeFeat }}" style="position:fixed;inset:0;z-index:40;background:oklch(16% 0 0 / 0.25);transition:opacity 400ms ease;opacity:{{ scrimOp }};pointer-events:{{ scrimPe }}"></div>
+  <aside style="position:fixed;top:0;right:0;bottom:0;z-index:41;width:min(100vw,max(50vw,560px));background:#fff;display:flex;flex-direction:column;transition:transform 650ms cubic-bezier(.2,.7,.2,1);transform:{{ panelT }};box-shadow:-1px 0 0 oklch(16% 0 0)">
+    <div onClick="{{ nextImg }}" style="position:relative;flex:1;min-height:0;cursor:pointer;background:oklch(96% 0 0)">
+      <div ref="{{ featImgRef }}" role="img" aria-label="{{ feat.title }}" style="position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat"></div>
+      <button onClick="{{ closeFeat }}" style="position:absolute;top:16px;right:16px;font-family:'Martian Mono',monospace;font-size:14px;padding:10px 14px;border:none;cursor:pointer;background:#fff;color:oklch(16% 0 0)">close ✕</button>
+      <span style="position:absolute;left:16px;bottom:16px;background:#fff;font-size:13px;padding:8px 10px">{{ feat.count }}</span>
     </div>
-    <a data-snake="1" href="projects" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
-  </section>
-
-  <section style="padding:120px clamp(20px,5vw,48px) 80px">
-    <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:24px 28px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px 44px;font-family:'Martian Mono',monospace;font-size:12px;line-height:1.6">
-      <span style="font-family:'DotGothic16',monospace;font-size:14px">2022→</span><span>king living, sydney / shanghai, industrial designer</span>
-      <span style="font-family:'DotGothic16',monospace;font-size:14px">2020–22</span><span>rode microphones, sydney, industrial designer</span>
-      <span style="font-family:'DotGothic16',monospace;font-size:14px">2019–20</span><span>blue sky design group, sydney, industrial designer</span>
-      <span style="font-family:'DotGothic16',monospace;font-size:14px">2017–19</span><span>hullbot, sydney, industrial designer</span>
-      <span style="font-family:'DotGothic16',monospace;font-size:14px">2017</span><span>bauhaus university, weimar, B. product design (exchange)</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:20px">
+      <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:20px;font-weight:500;letter-spacing:-0.02em">{{ feat.num }} {{ feat.title }}</div><div style="font-size:14px;line-height:1.5;color:oklch(30% 0 0)">{{ feat.mat }}</div></div>
+      <a href="{{ feat.href }}" style="font-size:14px;padding:12px 14px;background:oklch(78% 0.08 300);text-decoration:none">view project →</a>
     </div>
-  </section>
-
-  <footer style="padding:24px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
-    <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
-    <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
-  </footer>
+  </aside>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showSnake&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;snakeSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:420,&quot;min&quot;:100,&quot;max&quot;:1200,&quot;step&quot;:20,&quot;unit&quot;:&quot;px/s&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;snakeLength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:280,&quot;min&quot;:60,&quot;max&quot;:800,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { works: [] };
-  rootRef = React.createRef();
-  svgRef = React.createRef();
-  pathRef = React.createRef();
-  headRef = React.createRef();
-  pts = []; cum = []; total = 0; pos = 0; lastNode = -1;
+  state = { feat: null, featI: 0, ready: false, sortBy: 'all', sortLabels: [] };
+  featImgRef = React.createRef(); rootRef = React.createRef(); readRef = React.createRef(); sortRef = React.createRef(); wrapRef = React.createRef(); topRef = React.createRef(); botRef = React.createRef(); pathRef = React.createRef(); tpRef = React.createRef();
 
   componentDidMount() {
-    fetch('content/works.json').then(r => r.json()).then(works => this.setState({ works }, () => setTimeout(() => this.layout(), 300)));
-    this.ro = new ResizeObserver(() => this.layout());
-    if (this.rootRef.current) this.ro.observe(this.rootRef.current);
-    const tick = (t) => {
-      const dt = this.last ? Math.min(t - this.last, 50) : 16; this.last = t;
-      this.step(dt); this.raf = requestAnimationFrame(tick);
+    fetch('content/works.json').then(r => r.json()).then(w => {
+      this.list = w; this.by = {}; w.forEach((x, i) => { x.num = String(i + 1).padStart(2, '0'); this.by[x.slug] = x; });
+      this.setState({ ready: true }, () => this.waitCards());
+    });
+    const root = this.rootRef.current;
+    this.onOver = e => { const el = e.target.closest && e.target.closest('[data-slug]'); if (el && el.dataset.slug !== this.lastSlug) { this.lastSlug = el.dataset.slug; this.readout(el.dataset.slug); } };
+    root.addEventListener('pointerover', this.onOver);
+    this.setupSnake();
+    this.onKey = e => { if (e.key === 'Escape') this.closeFeat(); }; window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach(f => f()); this.rootRef.current && this.rootRef.current.removeEventListener('pointerover', this.onOver); clearInterval(this.typer); cancelAnimationFrame(this.snakeRaf); this.ro && this.ro.disconnect(); }
+
+  setupSnake() {
+    const root = this.rootRef.current, path = this.pathRef.current, tp = this.tpRef.current;
+    if (!root || !path || !tp) return;
+    let P = 1, off = 0, last = performance.now();
+    const strip = document.createElement('div'), txt = tp.textContent.trim();
+    strip.setAttribute('aria-hidden', 'true');
+    strip.style.cssText = 'display:none;overflow:hidden;white-space:nowrap;font-size:14px;padding:0 0 12px;margin-top:-18px';
+    strip.innerHTML = '<span style="display:inline-block;animation:rmMarq 40s linear infinite">' + (txt + ' &nbsp;·&nbsp; ').repeat(2) + '</span>';
+    root.insertBefore(strip, root.children[1] || null);
+    const build = () => {
+      const w = root.clientWidth, h = root.clientHeight, m = 15, r = 12, mob = w < 700;
+      strip.style.display = mob ? 'block' : 'none'; tp.parentNode.style.display = mob ? 'none' : '';
+      const loop = `H${w - m - r} Q${w - m},${m} ${w - m},${m + r} V${h - m - r} Q${w - m},${h - m} ${w - m - r},${h - m} H${m + r} Q${m},${h - m} ${m},${h - m - r} V${m + r} Q${m},${m} ${m + r},${m} `;
+      path.setAttribute('d', `M${m + r},${m} ` + loop + loop);
+      P = path.getTotalLength() / 2 || 1;
     };
-    this.raf = requestAnimationFrame(tick);
-  }
-  componentWillUnmount() { cancelAnimationFrame(this.raf); this.ro && this.ro.disconnect(); }
-
-  layout() {
-    const root = this.rootRef.current, svg = this.svgRef.current; if (!root || !svg) return;
-    const rb = root.getBoundingClientRect();
-    svg.setAttribute('width', root.scrollWidth); svg.setAttribute('height', root.scrollHeight);
-    this.nodes = [...root.querySelectorAll('[data-snake]')];
-    const anchors = this.nodes.map(n => { const r = n.getBoundingClientRect(); return [Math.round(r.left - rb.left - 12), Math.round(r.top - rb.top - 12)]; });
-    const pts = [];
-    anchors.forEach((a, i) => { if (i) { const p = pts[pts.length - 1]; pts.push([a[0], p[1]]); } pts.push(a); });
-    this.nodeAt = []; this.pts = pts; this.cum = [0];
-    for (let i = 1; i < pts.length; i++) this.cum.push(this.cum[i - 1] + Math.abs(pts[i][0] - pts[i - 1][0]) + Math.abs(pts[i][1] - pts[i - 1][1]));
-    this.total = this.cum[this.cum.length - 1] || 1;
-    anchors.forEach((a, i) => this.nodeAt.push(this.cum[i === 0 ? 0 : i * 2]));
-    this.pathRef.current.setAttribute('d', 'M' + pts.map(p => p.join(' ')).join(' L'));
+    build();
+    this.ro = new ResizeObserver(build); this.ro.observe(root);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const tick = t => {
+      const dt = Math.min(0.05, (t - last) / 1000); last = t;
+      if (!reduce) off = (off + 32 * dt) % P;
+      tp.setAttribute('startOffset', off.toFixed(1));
+      this.snakeRaf = requestAnimationFrame(tick);
+    };
+    this.snakeRaf = requestAnimationFrame(tick);
   }
 
-  pointAt(d) {
-    const c = this.cum, p = this.pts; let i = 1;
-    while (i < c.length && c[i] < d) i++;
-    if (i >= c.length) return p[p.length - 1];
-    const seg = c[i] - c[i - 1] || 1, t = (d - c[i - 1]) / seg;
-    return [p[i - 1][0] + (p[i][0] - p[i - 1][0]) * t, p[i - 1][1] + (p[i][1] - p[i - 1][1]) * t];
+  waitCards() { let n = 0; const go = () => { const b = this.sortRef.current; if (b && b.querySelector('[data-card]')) this.setupSort(); else if (n++ < 60) requestAnimationFrame(go); }; requestAnimationFrame(go); }
+  href(s) { return 'project?item=' + s; }
+  mat(p) { return (p.specs && p.specs.materials) || p.category || ''; }
+  readout(slug) {
+    const p = this.by && this.by[slug]; if (!p || !this.readRef.current) return;
+    const text = p.num + ' ' + p.title + ' / ' + this.mat(p);
+    clearInterval(this.typer); let i = 0; const el = this.readRef.current;
+    this.typer = setInterval(() => { i += 2; el.textContent = text.slice(0, i); if (i >= text.length) clearInterval(this.typer); }, 16);
   }
-
-  step(dt) {
-    if (!this.pts.length || !this.pathRef.current) return;
-    const speed = this.props.snakeSpeed ?? 420, L = this.props.snakeLength ?? 280;
-    this.pos = (this.pos + speed * dt / 1000) % (this.total + L);
-    const path = this.pathRef.current;
-    path.setAttribute('stroke-dasharray', `${L} ${this.total + L}`);
-    path.setAttribute('stroke-dashoffset', String(-(this.pos - L)));
-    const h = this.pointAt(Math.min(this.pos, this.total));
-    this.headRef.current.setAttribute('x', h[0] - 5); this.headRef.current.setAttribute('y', h[1] - 5);
-    this.headRef.current.setAttribute('opacity', this.pos > this.total ? 0 : 1);
-    const idx = this.nodeAt.findIndex(n => Math.abs(n - this.pos) < 14);
-    if (idx >= 0 && idx !== this.lastNode) {
-      this.lastNode = idx; const el = this.nodes[idx];
-      if (el) { el.style.transition = 'outline-color 0.6s'; el.style.outline = '2px solid oklch(88% 0.18 105)'; el.style.outlineOffset = '4px';
-        setTimeout(() => { el.style.outlineColor = 'transparent'; }, 500); }
+  groupOf(p, by) {
+    if (by === 'type') return p.category || 'other';
+    if (by === 'client') return p.client || 'own studio';
+    if (by === 'origin') return p.client ? 'for clients' : 'own studio';
+    return '';
+  }
+  benchHeight(W) {
+    const chrome = (this.topRef.current ? this.topRef.current.offsetHeight : 0) + (this.botRef.current ? this.botRef.current.offsetHeight : 0) + 62;
+    const avail = Math.max(260, window.innerHeight - chrome), hk = W >= 700 ? 2.3 : 1.6, n = this.cards.length + (this.heroIdx || []).length * (hk * hk + 1);
+    let cs = Math.floor(Math.sqrt(W * avail / (n * 1.6)) - 22);
+    if (W >= 700) { cs = Math.max(72, Math.min(150, cs)); this.setCard(cs, hk); return Math.max(avail, Math.ceil(n * (cs + 8) * (cs + 28) * 1.5 / W)); }
+    cs = Math.max(72, Math.min(96, cs)); this.setCard(cs, hk);
+    return Math.max(avail, Math.ceil(n * (cs + 8) * (cs + 24) * 1.7 / Math.max(1, W)));
+  }
+  setCard(cs, hk) { this.cs = cs; this.sortRef.current.style.setProperty('--cs', cs + 'px'); const H = new Set(this.heroIdx || []);
+    this.sz = this.cards.map((el, i) => { const big = hk && H.has(i); const s = big ? Math.round(cs * hk) : cs; if (big) { el.style.setProperty('--cs', s + 'px'); el.style.zIndex = el.style.zIndex || 5; } else el.style.removeProperty('--cs'); return s; }); }
+  layoutSort(animate) {
+    const box = this.sortRef.current; if (!box || !this.cards) return;
+    const W = box.clientWidth, G = 24, CW = 144, CH = 168, by = this.state.sortBy, n = this.cards.length;
+    const pos = [], labels = [];
+    if (by === 'all') {
+      const H = this.benchHeight(W); box.style.height = H + 'px';
+      const cs = this.cs, ch = cs + 20, cols = Math.max(2, Math.floor(W / (cs + 30))), rows = Math.ceil(n / cols);
+      const hs = this.heroIdx || [], rest = this.cards.map((e, i) => i).filter(i => !hs.includes(i)), rr = Math.ceil(rest.length / cols);
+      rest.forEach((i, k) => { const c = k % cols, r = Math.floor(k / cols); pos[i] = { x: Math.max(0, Math.min(W - cs, c * (W - cs) / (cols - 1) + ((i * 37) % 3 - 1) * 8)), y: Math.max(0, Math.min(H - ch, rr > 1 ? r * (H - ch) / (rr - 1) : 0)), r: ((i * 29) % 9) - 4 }; });
+      hs.forEach((i, j) => { const s = this.sz[i]; pos[i] = { x: Math.max(0, Math.min(W - s, (j + 0.5) * W / hs.length - s / 2)), y: Math.max(0, Math.min(H - s - 20, (j % 2) * s * 0.35 + 10)), r: [-3, 2, -1, 3][j % 4] }; });
+    } else {
+      const groups = {}; this.cards.forEach((el, i) => { const g = this.groupOf(this.by[el.dataset.slug], by); (groups[g] = groups[g] || []).push(i); });
+      const order = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
+      let x = G, y = G, rowH = 0;
+      order.forEach(g => {
+        const k0 = groups[g].length, maxCols = Math.max(1, Math.floor((W - 2 * G) / CW));
+        const cols = Math.min(maxCols, k0 > 4 ? Math.ceil(k0 / 2) : k0), rows = Math.ceil(k0 / cols);
+        const lw = Math.min(W - 2 * G, g.length * 15.5 + 40), bw = Math.max(cols * CW, lw), bh = G * 2 + rows * CH;
+        if (x + bw > W - G && x > G) { x = G; y += rowH + G; rowH = 0; }
+        labels.push({ text: g, n: String(k0), x, y });
+        groups[g].forEach((i, k) => { pos[i] = { x: x + (k % cols) * CW, y: y + G * 2 + Math.floor(k / cols) * CH, r: 0 }; });
+        x += bw + G * 2; rowH = Math.max(rowH, bh);
+      });
+      const bh0 = this.benchHeight(W); this.setCard(120, 0); box.style.height = Math.max(y + rowH + G, bh0) + 'px';
     }
+    this.sortPos = pos;
+    this.cards.forEach((el, i) => { const p = pos[i]; el.style.transition = animate ? `transform 800ms cubic-bezier(.2,.7,.2,1) ${(i % 12) * 25}ms` : 'none'; el.style.transform = `translate(${p.x}px,${p.y}px) rotate(${p.r}deg)`; });
+    this.setState({ sortLabels: labels });
   }
+  setupSort() {
+    const box = this.sortRef.current; if (!box) return;
+    this.cleanups = [];
+    this.cards = [...box.querySelectorAll('[data-card]')];
+    this.heroIdx = ['step', 'marly', 'kleingeld', 'umbra'].map(s => this.cards.findIndex(el => el.dataset.slug === s)).filter(i => i >= 0);
+    this.layoutSort(false);
+    let drag = null, z = 10;
+    const down = e => { const el = e.target.closest('[data-card]'); if (!el) return; const i = +el.dataset.card; el.setPointerCapture(e.pointerId); el.style.zIndex = ++z; el.style.cursor = 'grabbing'; el.style.transition = 'none'; drag = { el, i, sx: e.clientX, sy: e.clientY, ox: this.sortPos[i].x, oy: this.sortPos[i].y, moved: 0 }; };
+    const move = e => { if (!drag) return; const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy; drag.moved = Math.max(drag.moved, Math.hypot(dx, dy)); const p = this.sortPos[drag.i], now = performance.now(), dtm = Math.max(1, now - (drag.t || now - 16)) / 1000; drag.vx = (drag.ox + dx - p.x) / dtm; drag.vy = (drag.oy + dy - p.y) / dtm; drag.t = now; p.x = drag.ox + dx; p.y = drag.oy + dy; drag.el.style.transform = `translate(${p.x}px,${p.y}px) rotate(${p.r}deg) scale(1.05)`; };
+    const up = () => { if (!drag) return; const d = drag; drag = null; d.el.style.cursor = 'grab'; if (d.moved < 5) { this.openFeat(d.el.dataset.slug); return; } if (this.state.sortBy === 'all') { const v = this.sortVel[d.i]; v.x = Math.max(-260, Math.min(260, d.vx || 0)); v.y = Math.max(-260, Math.min(260, d.vy || 0)); return; } const p = this.sortPos[d.i]; p.x = Math.round(p.x / 24) * 24; p.y = Math.round(p.y / 24) * 24; p.r = 0; d.el.style.transition = 'transform 260ms cubic-bezier(.2,.7,.2,1)'; d.el.style.transform = `translate(${p.x}px,${p.y}px)`; };
+    const base = this.cards.map((el, i) => { const a = (i * 2.399) % (Math.PI * 2), s = 8 + (i * 7) % 7, cx = Math.cos(a), cy = Math.sin(a); return { x: (Math.abs(cx) < 0.35 ? Math.sign(cx || 1) * 0.35 : cx) * s, y: (Math.abs(cy) < 0.35 ? Math.sign(cy || 1) * 0.35 : cy) * s, vr: ((i % 5) - 2) * 0.3 }; });
+    this.sortVel = base.map(b => ({ ...b }));
+    let hov = -1, last = performance.now(), raf, hovEl = null;
+    const show = (el, on) => { if (!el) return; const a = el.querySelector('[data-alt]'), g = el.querySelector('[data-tag]'); if (a) a.style.opacity = on ? '1' : '0'; if (g) { g.style.opacity = on ? '1' : '0'; g.style.transform = on ? 'translateY(0)' : 'translateY(4px)'; } if (on) el.style.zIndex = 999; else if (el.style.zIndex === '999') el.style.zIndex = ''; };
+    const over = e => { const el = e.target.closest('[data-card]'); if (el !== hovEl) { show(hovEl, false); hovEl = el; show(el, true); } hov = el ? +el.dataset.card : -1; };
+    const out = () => { show(hovEl, false); hovEl = null; hov = -1; };
+    const PAD = 8;
+    const tick = t => {
+      const dt = Math.min(0.05, (t - last) / 1000); last = t;
+      if (this.state.sortBy === 'all' && !this.sortHold) {
+        const SZ = this.sz, BW = box.clientWidth, BH = box.clientHeight, n = this.cards.length, MW = i => BW - SZ[i], MH = i => BH - SZ[i] - 20;
+        const fixed = i => (drag && drag.i === i) || i === hov;
+        for (let i = 0; i < n; i++) {
+          if (fixed(i)) continue;
+          const p = this.sortPos[i], v = this.sortVel[i], b = base[i], k = Math.min(1, dt * 0.35);
+          v.x += (b.x - v.x) * k; v.y += (b.y - v.y) * k;
+          p.x += v.x * dt; p.y += v.y * dt; p.r += v.vr * dt;
+          const mw = MW(i), mh = MH(i);
+          if (p.x < 0) { p.x = 0; v.x = b.x = Math.abs(b.x); } if (p.x > mw) { p.x = mw; v.x = b.x = -Math.abs(b.x); }
+          if (p.y < 0) { p.y = 0; v.y = b.y = Math.abs(b.y); } if (p.y > mh) { p.y = mh; v.y = b.y = -Math.abs(b.y); }
+          if (p.r > 6 || p.r < -6) v.vr = -v.vr;
+        }
+        
+        for (let it = 0; it < 4; it++) for (let a = 0; a < n; a++) for (let c = a + 1; c < n; c++) {
+          const A = this.sortPos[a], B = this.sortPos[c], sa = SZ[a], sb = SZ[c], dx = (B.x + sb / 2) - (A.x + sa / 2), dy = (B.y + sb / 2) - (A.y + sa / 2), ox = (sa + sb) / 2 + PAD - Math.abs(dx), oy = (sa + sb) / 2 + 20 + PAD - Math.abs(dy);
+          if (ox <= 0 || oy <= 0) continue;
+          const fa = fixed(a), fb = fixed(c); if (fa && fb) continue;
+          let axis = ox < oy ? 'x' : 'y';
+          const s = axis === 'x' ? (Math.sign(dx) || 1) : (Math.sign(dy) || 1), la = axis === 'x' ? MW(a) : MH(a), lb = axis === 'x' ? MW(c) : MH(c);
+          const aStuck = fa || (s > 0 ? A[axis] <= 0 : A[axis] >= la), bStuck = fb || (s > 0 ? B[axis] >= lb : B[axis] <= 0);
+          if (aStuck && bStuck) axis = axis === 'x' ? 'y' : 'x';
+          const S = axis === 'x' ? (Math.sign(dx) || 1) : (Math.sign(dy) || 1), ov = axis === 'x' ? ox : oy, LA = axis === 'x' ? MW(a) : MH(a), LB = axis === 'x' ? MW(c) : MH(c);
+          const aS = fa || (S > 0 ? A[axis] <= 0 : A[axis] >= LA), bS = fb || (S > 0 ? B[axis] >= LB : B[axis] <= 0);
+          const wa = aS ? 0 : bS ? 1 : 0.5, wb = bS ? 0 : aS ? 1 : 0.5;
+          A[axis] = Math.max(0, Math.min(LA, A[axis] - S * ov * wa)); B[axis] = Math.max(0, Math.min(LB, B[axis] + S * ov * wb));
+          if (it === 0) {
+            const va = this.sortVel[a], vb = this.sortVel[c], ba = base[a], bb = base[c];
+            if (!fa && va[axis] * S > 0) { va[axis] = -va[axis]; ba[axis] = -S * Math.abs(ba[axis]); }
+            if (!fb && vb[axis] * S < 0) { vb[axis] = -vb[axis]; bb[axis] = S * Math.abs(bb[axis]); }
+          }
+        }
+        for (let i = 0; i < n; i++) { if (drag && drag.i === i) continue; const p = this.sortPos[i]; this.cards[i].style.transition = 'none'; this.cards[i].style.transform = `translate(${p.x}px,${p.y}px) rotate(${p.r}deg)`; }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    const rs = () => this.layoutSort(false);
+    box.addEventListener('pointerover', over); box.addEventListener('pointerleave', out);
+    box.addEventListener('pointerdown', down); box.addEventListener('pointermove', move); box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up); window.addEventListener('resize', rs);
+    this.cleanups.push(() => { cancelAnimationFrame(raf); box.removeEventListener('pointerover', over); box.removeEventListener('pointerleave', out); box.removeEventListener('pointerdown', down); box.removeEventListener('pointermove', move); box.removeEventListener('pointerup', up); box.removeEventListener('pointercancel', up); window.removeEventListener('resize', rs); });
+  }
+  sortTo(by) { this.sortHold = true; clearTimeout(this.sortHoldT); this.setState({ sortBy: by }, () => { this.layoutSort(true); this.sortHoldT = setTimeout(() => { this.sortHold = false; }, 1400); }); }
 
+  componentDidUpdate() { const el = this.featImgRef.current, lp = this.lastFeat; if (!el || !lp) return; const src = lp.images[(this.state.featI || 0) % lp.images.length]; if (el._src !== src) { el._src = src; el.style.backgroundImage = 'url("' + src + '")'; } }
+  openFeat(slug) { this.setState({ feat: slug, featI: 0 }); }
+  closeFeat = e => { if (e) e.stopPropagation(); this.setState({ feat: null }); };
+  nextImg = () => { const p = this.by && this.by[this.state.feat]; if (p) this.setState(s => ({ featI: (s.featI + 1) % p.images.length })); };
+  openRadio = () => { const w = window.open('radio', 'rmradio', 'width=400,height=420'); if (w) w.focus(); };
   renderVals() {
-    const w = this.state.works;
-    let n = 0;
-    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project?item=' + x.slug, index: String(++n).padStart(2, '0'),
-      meta: x.category + (x.group === 'industry' ? ' / for ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
-    const studio = w.filter(x => x.group === 'studio' && x.images[0]).map(card).slice(0, 4);
-    const industry = ['rodecasterpro2', 'xdm-100', 'hullbot-autonomous-robot', 'heritage-oval-extension-dining-table'].map(s => w.find(x => x.slug === s)).filter(x => x && x.images[0]).map(card);
-    const Y = 'oklch(88% 0.18 105)';
-    const snake = (this.props.showSnake ?? true) ? React.createElement('svg', { ref: this.svgRef, style: { position: 'absolute', left: 0, top: 0, pointerEvents: 'none', zIndex: 20, overflow: 'visible' } },
-      React.createElement('path', { ref: this.pathRef, fill: 'none', stroke: Y, strokeWidth: 4, strokeLinejoin: 'miter', strokeLinecap: 'square' }),
-      React.createElement('rect', { ref: this.headRef, width: 10, height: 10, fill: Y })) : null;
-    return { rootRef: this.rootRef, studio, industry, snake };
+    const fp = this.state.feat && this.by ? this.by[this.state.feat] : null;
+    if (fp) this.lastFeat = fp;
+    const lp = this.lastFeat, fi = this.state.featI || 0;
+    const feat = lp ? { src: lp.images[fi % lp.images.length], title: lp.title, num: lp.num, mat: this.mat(lp), href: this.href(lp.slug), count: (fi % lp.images.length + 1) + ' / ' + lp.images.length + (lp.images.length > 1 ? '  click for next' : '') } : { src: '', title: '', num: '', mat: '', href: '#', count: '' };
+    const sortCards = this.state.ready ? this.list.map(p => { const src = p.thumb || p.images[0], alt = p.images.find(x => x !== src) || src; return { slug: p.slug, title: p.title, num: p.num, src, alt, tag: [p.category, p.client].filter(Boolean).join(' / ') }; }) : [];
+    return {
+      rootRef: this.rootRef, readRef: this.readRef, sortRef: this.sortRef, wrapRef: this.wrapRef, topRef: this.topRef, botRef: this.botRef, pathRef: this.pathRef, tpRef: this.tpRef,
+      sortCards, sortLabels: this.state.sortLabels, feat, closeFeat: this.closeFeat, nextImg: this.nextImg, openRadio: this.openRadio,
+      featImgRef: this.featImgRef, panelT: fp ? 'translateX(0)' : 'translateX(101%)', scrimOp: fp ? 1 : 0, scrimPe: fp ? 'auto' : 'none',
+      sortBtns: [['all', 'everything'], ['type', 'by type'], ['client', 'by client'], ['origin', 'studio / client']].map(([k, label]) => ({ label, go: () => this.sortTo(k), style: `font-family:'Martian Mono',monospace;font-size:13px;padding:8px 12px;border:none;cursor:pointer;background:${this.state.sortBy === k ? 'oklch(78% 0.08 300)' : 'oklch(93% 0 0)'};color:oklch(16% 0 0)` })),
+    };
   }
 }
 </script>

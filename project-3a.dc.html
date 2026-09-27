@@ -8,62 +8,60 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="icon" type="image/svg+xml" href="favicon-3a.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;background:#fff}
+  body{margin:0;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px}
   a{color:oklch(16% 0 0)}
   a:hover{color:oklch(45% 0.16 320)}
 </style>
 <script src="./make-3a.js"></script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-radio]');if(a){e.preventDefault();var w=window.open('radio','rmradio','width=400,height=420');if(w)w.focus();}});</script>
+<style>@media (max-width:760px){[data-pgrid]{grid-template-columns:minmax(0,1fr) !important}[data-pside]{order:0 !important;position:static !important}}</style>
+<style>@keyframes rmMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}[data-fadein]{opacity:0;transform:translateY(12px);transition:opacity 2.4s ease,transform 2.4s ease}[data-fadein].on{opacity:1;transform:none}</style>
+<script>(function(){function chk(){document.querySelectorAll('[data-fadein]').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight-40)el.classList.add('on');else el.classList.remove('on');});}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);setInterval(chk,800);})();</script>
+<script src="radio-card.js"></script>
+<style>html,body{overflow-x:clip}</style>
 </helmet>
 <div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
   {{ snake }}
 
-  <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-    <a href="./" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
-    <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
-      <a href="projects" style="background:oklch(84% 0 0);padding:6px 11px;text-decoration:none">projects</a>
-      <a href="about" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
-      <a href="shop" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
-      <a href="contact" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+  <header style="position:relative;z-index:10;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="./" style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:0;text-transform:lowercase;font-size:20px;line-height:1;padding:12px 0;text-decoration:none">RYAN MCGOLDRICK</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;font-family:'Martian Mono',monospace;font-size:14px">
+      <a href="projects#products" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">products</a>
+      <a href="projects#projects" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">projects</a>
+      <a href="about" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">about</a>
+      <a href="shop" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">shop</a>
+      <a href="contact" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">contact</a>
+      <a href="radio" data-radio-btn="1" style="background:oklch(16% 0 0);color:#fff;padding:12px 11px;text-decoration:none" style-hover="background:oklch(45% 0.16 320)"><span style="display:inline-flex;align-items:center;gap:8px"><span>▶</span><span style="display:block;width:110px;overflow:hidden;white-space:nowrap"><span style="display:inline-block;animation:rmMarq 7s linear infinite">radio player · rm studio radio · radio player · rm studio radio · </span></span></span></a>
     </nav>
   </header>
 
   <section style="padding:40px clamp(20px,5vw,48px) 0">
-    <a href="{{ backHref }}" style="font-family:'Martian Mono',monospace;font-size:12px;text-decoration:none">← {{ groupLabel }}</a>
+    <a href="{{ backHref }}" style="display:inline-block;padding:12px 0;font-family:'Martian Mono',monospace;font-size:14px;text-decoration:none">← {{ groupLabel }}</a>
   </section>
 
-  <section style="padding:40px clamp(20px,5vw,48px) 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
-    <div style="position:sticky;top:110px;display:flex;flex-direction:column;gap:24px">
+  <section style="padding:40px clamp(20px,5vw,48px) 100px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);gap:40px;align-items:start" data-pgrid="1">
+    <div data-pside="1" style="order:2;min-width:0;position:sticky;top:24px;display:flex;flex-direction:column;gap:20px">
       <div data-snake="1">
         <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-bottom:10px">{{ index }} / {{ eyebrow }}</div>
-        <h1 style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(40px,5.5vw,76px);line-height:0.95;margin:0;overflow-wrap:anywhere">{{ title }}</h1>
+        <h1 style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:-0.03em;text-transform:lowercase;font-size:clamp(32px,3.6vw,54px);line-height:1;margin:0;overflow-wrap:anywhere">{{ title }}</h1>
       </div>
       <div data-snake="1" style="background:oklch(84% 0 0);padding:18px 20px;font-family:'Martian Mono',monospace;font-size:12.5px;line-height:1.7;text-wrap:pretty">{{ description }}</div>
-      <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:18px 22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 28px;font-family:'Martian Mono',monospace;font-size:11.5px;line-height:1.6">
+      <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:18px 22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 28px;font-family:'Martian Mono',monospace;font-size:13px;line-height:1.6">
         <sc-for list="{{ specs }}" as="s" hint-placeholder-count="0">
           <span style="font-family:'DotGothic16',monospace;font-size:13px">{{ s.k }}</span><span>{{ s.v }}</span>
         </sc-for>
       </div>
       <sc-if value="{{ credit }}" hint-placeholder-val="{{ false }}">
-        <p style="margin:0;font-family:'Martian Mono',monospace;font-size:11px;line-height:1.7;color:oklch(35% 0 0)"><span style="background:oklch(78% 0.08 300);padding:0 3px">{{ credit }}</span></p>
+        <p style="margin:0;font-family:'Martian Mono',monospace;font-size:13px;line-height:1.7;color:oklch(35% 0 0)"><span style="background:oklch(78% 0.08 300);padding:0 3px">{{ credit }}</span></p>
       </sc-if>
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:24px">
-      <sc-if value="{{ hasExploded }}" hint-placeholder-val="{{ false }}">
-        <div data-snake="1" onMouseEnter="{{ explodeOn }}" onMouseLeave="{{ explodeOff }}" onClick="{{ explodeToggle }}" style="background:#fff;border:1px solid oklch(85% 0 0);padding:72px clamp(12px,2vw,24px) 18px;cursor:crosshair;display:flex;flex-direction:column;gap:56px">
-          <div style="position:relative;aspect-ratio:{{ exRatio }}">
-            <sc-for list="{{ exParts }}" as="b" hint-placeholder-count="0">
-              <img src="{{ b.src }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;display:block;clip-path:inset({{ b.a }}% 0 {{ b.b }}% 0);transform:translateY({{ b.dy }}px);transition:transform 0.55s cubic-bezier(.2,.8,.2,1)" />
-              <div style="position:absolute;right:0;top:{{ b.mid }}%;display:flex;align-items:center;gap:6px;font-family:'DotGothic16',monospace;font-size:13px;opacity:{{ b.op }};transform:translateY({{ b.dy }}px);transition:opacity 0.3s,transform 0.55s cubic-bezier(.2,.8,.2,1);pointer-events:none"><span style="width:48px;border-top:1px dashed oklch(16% 0 0)"></span><span style="background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:2px 7px;margin-top:-12px">{{ b.label }}</span></div>
-            </sc-for>
-          </div>
-          <div style="display:flex;justify-content:space-between;gap:16px;font-family:'DotGothic16',monospace;font-size:13px"><span>exploded view / {{ exCount }} parts</span><span>{{ exHint }}</span></div>
-        </div>
-      </sc-if>
+    <div style="order:1;min-width:0;display:flex;flex-direction:column;gap:24px">
+      
       <sc-for list="{{ images }}" as="img" hint-placeholder-count="0">
         <div data-reveal="1" data-snake="1" onMouseEnter="{{ img.enter }}" onMouseLeave="{{ img.leave }}" onClick="{{ img.tap }}" style="position:relative;min-height:240px;background:oklch(84% 0 0);overflow:hidden;padding:{{ img.pad }}px 0;transition:padding 0.55s cubic-bezier(.2,.8,.2,1)">
           <div onMouseMove="{{ img.move }}" style="position:relative;cursor:none">
@@ -104,9 +102,20 @@
     </a>
   </section>
 
-  <footer style="padding:24px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+  <footer style="padding:14px clamp(20px,5vw,48px) 14px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:13px">
     <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
     <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+  </footer>
+  <footer data-fadein="1" style="position:relative;z-index:10;padding:14px clamp(20px,5vw,48px) 64px;margin-top:0;border-top:1px solid oklch(16% 0 0);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="./" style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:0;text-transform:lowercase;font-size:20px;line-height:1;padding:12px 0;text-decoration:none">RYAN MCGOLDRICK</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;font-family:'Martian Mono',monospace;font-size:14px">
+      <a href="projects#products" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">products</a>
+      <a href="projects#projects" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">projects</a>
+      <a href="about" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">about</a>
+      <a href="shop" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">shop</a>
+      <a href="contact" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">contact</a>
+      <a href="radio" data-radio-btn="1" style="background:oklch(16% 0 0);color:#fff;padding:12px 11px;text-decoration:none" style-hover="background:oklch(45% 0.16 320)"><span style="display:inline-flex;align-items:center;gap:8px"><span>▶</span><span style="display:block;width:110px;overflow:hidden;white-space:nowrap"><span style="display:inline-block;animation:rmMarq 7s linear infinite">radio player · rm studio radio · radio player · rm studio radio · </span></span></span></a>
+    </nav>
   </footer>
 </div>
 </x-dc>
@@ -207,8 +216,9 @@ class Component extends DCLogic {
   renderVals() {
     const all = this.state.works;
     const snake = React.createElement('svg', { ref: this.svgRef, style: { position: 'absolute', left: 0, top: 0, pointerEvents: 'none', zIndex: 20, overflow: 'visible' } },
-      React.createElement('path', { ref: this.pathRef, fill: 'none', stroke: this.Y, strokeWidth: 4, strokeLinecap: 'square' }),
-      React.createElement('rect', { ref: this.headRef, width: 10, height: 10, fill: this.Y }));
+      React.createElement('defs', { dangerouslySetInnerHTML: { __html: '<filter id="rmPencilP" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/><feComponentTransfer in="n" result="g"><feFuncA type="linear" slope="1.6" intercept="-0.25"/></feComponentTransfer><feComposite in="d" in2="g" operator="in"/></filter>' } }),
+      React.createElement('path', { ref: this.pathRef, fill: 'none', stroke: 'oklch(42% 0.005 260)', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', opacity: 0.75, filter: 'url(#rmPencilP)' }),
+      React.createElement('rect', { ref: this.headRef, width: 3, height: 3, rx: 1.5, fill: 'oklch(42% 0.005 260)', transform: 'translate(3.5,3.5)' }));
     const base = { rootRef: this.rootRef, snake, images: [], specs: [], honest: [], exParts: [] };
     if (!all.length) return base;
     const slug = new URLSearchParams(location.search).get('item') || 'step';
@@ -238,7 +248,7 @@ class Component extends DCLogic {
     const pad = v => String(Math.max(0, Math.round(v))).padStart(4, '0');
     const images = w.images.map((src, idx) => {
       const mm = meas[src] || baseMM;
-      const gen = idx === 0 && !ex, on = gen && st.exImg;
+      const gen = false, on = false;
       const hMM = mm * st.r0;
       const slices = gen ? [[0, 33], [33, 67], [67, 100]].map(([a, b], j) => ({ a, b: 100 - b, dy: on ? (j - 1) * 40 : 0, op: on ? 1 : 0,
         label: String(j + 1).padStart(2, '0') + ' / ' + pad(hMM * a / 100) + '–' + pad(hMM * b / 100) + 'MM' })) : [];
@@ -251,7 +261,7 @@ class Component extends DCLogic {
     });
     return {
       ...base, specs, honest, hasHonest: honest.length > 0,
-      hasExploded: !!ex, exRatio: ex ? ex.ratio : '2/1', exParts, exCount: ex ? ex.parts.length : 0, exHint: st.explode ? (this.hover() ? 'assembled on exit' : 'tap to assemble') : (this.hover() ? 'hover to explode' : 'tap to explode'),
+      hasExploded: false, exRatio: ex ? ex.ratio : '2/1', exParts, exCount: ex ? ex.parts.length : 0, exHint: st.explode ? (this.hover() ? 'assembled on exit' : 'tap to assemble') : (this.hover() ? 'hover to explode' : 'tap to explode'),
       explodeOn: () => this.hover() && this.setState({ explode: true }), explodeOff: () => this.hover() && this.setState({ explode: false }), explodeToggle: () => !this.hover() && this.setState(s => ({ explode: !s.explode })),
       images, calLeave: () => this.setState({ cal: null }),
       cx: cal ? cal.x : 0, cy: cal ? cal.y : 0, boxX: cal ? cal.x - 5 : 0, boxY: cal ? cal.y - 5 : 0,

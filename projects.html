@@ -9,35 +9,38 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="icon" type="image/svg+xml" href="favicon-3a.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;background:#fff}
+  body{margin:0;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px}
   a{color:oklch(16% 0 0)}
   a:hover{color:oklch(45% 0.16 320)}
 </style>
 <script src="./snake-3a.js"></script>
 <script src="./make-3a.js"></script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-radio]');if(a){e.preventDefault();var w=window.open('radio','rmradio','width=400,height=420');if(w)w.focus();}});</script>
+<style>@keyframes rmMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}[data-fadein]{opacity:0;transform:translateY(12px);transition:opacity 2.4s ease,transform 2.4s ease}[data-fadein].on{opacity:1;transform:none}</style>
+<script>(function(){function chk(){document.querySelectorAll('[data-fadein]').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight-40)el.classList.add('on');else el.classList.remove('on');});}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);setInterval(chk,800);})();</script>
+<script src="radio-card.js"></script>
+<style>html,body{overflow-x:clip}</style>
 </helmet>
 <div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
-  <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-    <a href="./" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
-    <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
-      <a href="projects" style="background:oklch(84% 0 0);padding:6px 11px;text-decoration:none">projects</a>
-      <a href="about" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
-      <a href="shop" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
-      <a href="contact" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+  <header style="position:relative;z-index:10;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="./" style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:0;text-transform:lowercase;font-size:20px;line-height:1;padding:12px 0;text-decoration:none">RYAN MCGOLDRICK</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;font-family:'Martian Mono',monospace;font-size:14px">
+      <a href="projects#products" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">products</a>
+      <a href="projects#projects" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">projects</a>
+      <a href="about" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">about</a>
+      <a href="shop" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">shop</a>
+      <a href="contact" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">contact</a>
+      <a href="radio" data-radio-btn="1" style="background:oklch(16% 0 0);color:#fff;padding:12px 11px;text-decoration:none" style-hover="background:oklch(45% 0.16 320)"><span style="display:inline-flex;align-items:center;gap:8px"><span>▶</span><span style="display:block;width:110px;overflow:hidden;white-space:nowrap"><span style="display:inline-block;animation:rmMarq 7s linear infinite">radio player · rm studio radio · radio player · rm studio radio · </span></span></span></a>
     </nav>
   </header>
-  <section style="padding:70px clamp(20px,5vw,48px) 50px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
-    <h1 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(56px,10vw,140px);line-height:0.85;margin:0">projects</h1>
-    <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:420px">studio work, collaborations and industry design.</p>
-  </section>
-  <section id="studio" style="padding:30px clamp(20px,5vw,48px) 0">
+  
+  <section id="products" style="padding:60px clamp(20px,5vw,48px) 0">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:32px">
-      <h2 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(40px,6vw,72px);line-height:0.9;margin:0">studio</h2>
-      <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:400px">independent work under rye. <span style="background:oklch(78% 0.08 300);padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone">designed, prototyped and made in wollongong.</span></p>
+      <h2 data-snake="1" style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:-0.03em;text-transform:lowercase;font-size:clamp(40px,6vw,72px);line-height:0.9;margin:0">products</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
       <sc-for list="{{ studio }}" as="p" hint-placeholder-count="0">
@@ -46,16 +49,15 @@
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
           </div>
-          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
-          <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0 0);margin-top:3px">{{ p.meta }}</div>
+          <div style="margin-top:12px;line-height:1.5"><span style="font-family:'DotGothic16',monospace;font-size:16px;background:oklch(78% 0.08 300);padding:1px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.index }} {{ p.name }}</span></div>
+          
         </a>
       </sc-for>
     </div>
   </section>
-  <section id="industry" style="padding:110px clamp(20px,5vw,48px) 110px">
+  <section id="projects" style="padding:110px clamp(20px,5vw,48px) 110px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:32px">
-      <h2 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(40px,6vw,72px);line-height:0.9;margin:0">industry</h2>
-      <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:400px">products designed and developed in-house as an industrial designer.</p>
+      <h2 data-snake="1" style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:-0.03em;text-transform:lowercase;font-size:clamp(40px,6vw,72px);line-height:0.9;margin:0">projects</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
       <sc-for list="{{ industry }}" as="p" hint-placeholder-count="0">
@@ -64,17 +66,28 @@
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
           </div>
-          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
-          <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0 0);margin-top:3px">{{ p.meta }}</div>
+          <div style="margin-top:12px;line-height:1.5"><span style="font-family:'DotGothic16',monospace;font-size:16px;background:oklch(78% 0.08 300);padding:1px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.index }} {{ p.name }}</span></div>
+          
         </a>
       </sc-for>
     </div>
   </section>
   <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:11px clamp(20px,5vw,48px);font-family:'DotGothic16',monospace;font-size:14px;letter-spacing:0.04em;display:flex;justify-content:flex-end;gap:2px;white-space:nowrap;overflow:hidden"><span style="overflow:hidden;text-overflow:ellipsis;max-width:60%">{{ typed }}</span><span style="opacity:{{ caretOp }}">█</span></div>
-  <footer style="padding:24px clamp(20px,5vw,48px) 80px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+  <footer style="padding:14px clamp(20px,5vw,48px) 14px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:13px">
     <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
     <span>wollongong, nsw</span>
     <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+  </footer>
+  <footer data-fadein="1" style="position:relative;z-index:10;padding:14px clamp(20px,5vw,48px) 64px;margin-top:0;border-top:1px solid oklch(16% 0 0);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="./" style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:0;text-transform:lowercase;font-size:20px;line-height:1;padding:12px 0;text-decoration:none">RYAN MCGOLDRICK</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:4px;font-family:'Martian Mono',monospace;font-size:14px">
+      <a href="projects#products" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">products</a>
+      <a href="projects#projects" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">projects</a>
+      <a href="about" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">about</a>
+      <a href="shop" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">shop</a>
+      <a href="contact" style="background:oklch(84% 0 0);padding:12px 11px;text-decoration:none" style-hover="background:oklch(78% 0.08 300)">contact</a>
+      <a href="radio" data-radio-btn="1" style="background:oklch(16% 0 0);color:#fff;padding:12px 11px;text-decoration:none" style-hover="background:oklch(45% 0.16 320)"><span style="display:inline-flex;align-items:center;gap:8px"><span>▶</span><span style="display:block;width:110px;overflow:hidden;white-space:nowrap"><span style="display:inline-block;animation:rmMarq 7s linear infinite">radio player · rm studio radio · radio player · rm studio radio · </span></span></span></a>
+    </nav>
   </footer>
 </div>
 </x-dc>
@@ -112,8 +125,9 @@ class Component extends DCLogic {
     const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project?item=' + x.slug, index: String(++n).padStart(2, '0'),
       read: this.readout(x), onEnter: () => { const t = this.readout(x); if (t !== this.state.read) this.setState({ read: t, n: 0 }); },
       meta: x.category + (x.group === 'industry' ? ' / for ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
-    const studio = w.filter(x => x.group === 'studio' && x.images[0]).map(card);
-    const industry = w.filter(x => x.group === 'industry' && x.images[0]).map(card);
+    const prod = w.filter(x => x.section !== 'projects' && x.images[0]);
+    const studio = [...prod.filter(x => x.group === 'studio'), ...prod.filter(x => x.group !== 'studio')].map(card);
+    const industry = w.filter(x => x.section === 'projects' && x.images[0]).map(card);
     return { typed: this.state.read.slice(0, this.state.n), caretOp: this.state.caret ? 1 : 0, rootRef: this.rootRef, studio, industry, studioPreview: studio.slice(0, 4), academia: cv.academia, experience: cv.experience, awards: cv.awards };
   }
 }

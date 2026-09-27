@@ -1,5 +1,5 @@
 (function () {
-  const Y = 'oklch(88% 0.18 105)', G = 'oklch(84% 0 0)';
+  const Y = 'oklch(42% 0.005 260)', YEL = 'oklch(88% 0.18 105)', G = 'oklch(84% 0 0)';
   const NS = 'http://www.w3.org/2000/svg';
   function Snake3A(root, opts) {
     opts = opts || {};
@@ -7,9 +7,13 @@
     const svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('style', 'position:absolute;left:0;top:0;pointer-events:none;z-index:20;overflow:visible');
     const path = document.createElementNS(NS, 'path');
-    path.setAttribute('fill', 'none'); path.setAttribute('stroke', Y); path.setAttribute('stroke-width', '4'); path.setAttribute('stroke-linecap', 'square');
+    const PB = 'oklch(42% 0.005 260)', fid = 'rmPencil' + Math.random().toString(36).slice(2, 7);
+    const defs = document.createElementNS(NS, 'defs');
+    defs.innerHTML = '<filter id="' + fid + '" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/><feComponentTransfer in="n" result="g"><feFuncA type="linear" slope="1.6" intercept="-0.25"/></feComponentTransfer><feComposite in="d" in2="g" operator="in"/></filter>';
+    svg.appendChild(defs);
+    path.setAttribute('fill', 'none'); path.setAttribute('stroke', PB); path.setAttribute('stroke-width', '1.8'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round'); path.setAttribute('opacity', '0.75'); path.setAttribute('filter', 'url(#' + fid + ')');
     const head = document.createElementNS(NS, 'rect');
-    head.setAttribute('width', '10'); head.setAttribute('height', '10'); head.setAttribute('fill', Y);
+    head.setAttribute('width', '3'); head.setAttribute('height', '3'); head.setAttribute('rx', '1.5'); head.setAttribute('fill', PB); head.setAttribute('transform', 'translate(3.5,3.5)');
     svg.appendChild(path); svg.appendChild(head); root.appendChild(svg);
     let pts = [], cum = [], total = 1, pos = 0, nodes = [], nodeAt = [], lastNode = -1, last = 0, raf, t;
 
@@ -45,7 +49,7 @@
         const idx = nodeAt.findIndex(n => Math.abs(n - pos) < 14);
         if (idx >= 0 && idx !== lastNode) {
           lastNode = idx; const el = nodes[idx];
-          if (el) { el.style.transition = 'outline-color 0.6s'; el.style.outline = '2px solid ' + Y; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outlineColor = 'transparent'; }, 500); }
+          if (el) { el.style.transition = 'outline-color 0.8s'; el.style.outline = '3px solid ' + YEL; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outlineColor = 'transparent'; }, 700); }
         }
       }
       raf = requestAnimationFrame(tick);
@@ -68,7 +72,7 @@
         body.forEach(([x, y]) => c.clearRect(x * cell, y * cell, cell, cell));
         for (let s = 0; s < per && k < order.length; s++, k++) { const p = order[k]; c.clearRect(p[0] * cell, p[1] * cell, cell, cell); body.push(p); if (body.length > len) body.shift(); }
         if (k >= order.length && body.length) body.splice(0, per);
-        c.fillStyle = Y;
+        c.fillStyle = YEL;
         body.forEach(([x, y], i) => { const g = i === body.length - 1 ? 1 : 3; c.fillRect(x * cell + g, y * cell + g, cell - g * 2, cell - g * 2); });
         if (k < order.length || body.length) requestAnimationFrame(frame); else cv.style.display = 'none';
       })();

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="radio-3a.dc.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#fff} a{color:oklch(16% 0 0)} a:hover{color:oklch(45% 0.16 320)}</style>
+</helmet>
+<div style="box-sizing:border-box;min-height:100vh;padding:16px;display:flex;flex-direction:column;gap:14px;color:oklch(16% 0 0);font-family:'Martian Mono',monospace;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+    <div style="font-size:18px">rm radio</div>
+    <span style="font-size:12px;background:oklch(78% 0.08 300);padding:4px 8px">{{ status }}</span>
+  </div>
+  <p style="font-size:13px;line-height:1.6;margin:0">pick a station. keep this window open while you browse.</p>
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <sc-for list="{{ stations }}" as="s" hint-placeholder-count="3">
+      <button onClick="{{ s.go }}" style="{{ s.style }}">{{ s.label }}</button>
+    </sc-for>
+  </div>
+  <sc-if value="{{ hasEmbed }}" hint-placeholder-val="{{ false }}">
+    <iframe src="{{ embed }}" title="rm radio player" allow="autoplay; encrypted-media; clipboard-write" style="width:100%;height:{{ frameH }}px;border:0;background:#fff"></iframe>
+  </sc-if>
+  <sc-if value="{{ noEmbed }}" hint-placeholder-val="{{ true }}">
+    <div style="min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;background:#fff;border:1px dashed oklch(70% 0 0);font-size:13px;line-height:1.6;padding:20px">tuning in…</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mixes: [], i: 0 };
+  componentDidMount() {
+    document.title = 'rm radio';
+    fetch('content/radio.json').then(r => r.json()).then(j => this.setState({ mixes: j.mixes || (j.url ? [{ name: 'studio mix', url: j.url }] : []) })).catch(() => {});
+  }
+  toEmbed(u) {
+    if (!u) return '';
+    try {
+      const x = new URL(u);
+      if (x.hostname.includes('mixcloud.com')) return 'https://player-widget.mixcloud.com/widget/iframe/?light=1&hide_cover=1&feed=' + encodeURIComponent(x.pathname);
+      if (x.hostname.includes('soundcloud.com')) return 'https://w.soundcloud.com/player/?visual=false&color=%23161616&url=' + encodeURIComponent(u);
+      if (x.hostname.includes('spotify.com')) return 'https://open.spotify.com/embed' + x.pathname.replace(/^\/embed/, '');
+      return u;
+    } catch (e) { return ''; }
+  }
+  renderVals() {
+    const { mixes, i } = this.state, cur = mixes[i];
+    const embed = cur ? this.toEmbed(cur.url) : '';
+    const stations = mixes.map((m, k) => ({
+      label: (k === i ? '▶ ' : '') + String(k + 1).padStart(2, '0') + '  ' + m.name,
+      go: () => this.setState({ i: k }),
+      style: `font-family:'Martian Mono',monospace;font-size:13px;text-align:left;padding:10px 12px;border:none;cursor:pointer;background:${k === i ? 'oklch(16% 0 0)' : '#fff'};color:${k === i ? '#fff' : 'oklch(16% 0 0)'}`,
+    }));
+    const spotify = cur && cur.url.includes('spotify');
+    return { stations, embed, hasEmbed: !!embed, noEmbed: !embed, frameH: spotify ? 352 : 120, status: embed ? 'on air' : 'off air' };
+  }
+}
+</script>
+</body>
+</html>
