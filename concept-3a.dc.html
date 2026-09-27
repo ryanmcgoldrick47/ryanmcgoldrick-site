@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="favicon-3a.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#fff}
+  a{color:oklch(16% 0 0)}
+  a:hover{color:oklch(45% 0.16 320)}
+</style>
+<script src="./make-3a.js"></script>
+</helmet>
+<div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
+  {{ snake }}
+
+  <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="#" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
+      <a href="projects-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">projects</a>
+      <a href="about-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
+      <a href="shop-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
+      <a href="contact-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+    </nav>
+  </header>
+
+  <section style="position:relative;height:min(78vh,720px);min-height:460px;margin:0 clamp(20px,5vw,48px);overflow:hidden;background:oklch(93% 0 0)">
+    <img src="images/work/step-1.webp" alt="step chair" style="width:100%;height:100%;object-fit:cover;display:block" />
+    <div data-snake="1" style="position:absolute;left:32px;top:32px;max-width:calc(100% - 64px);width:460px;box-sizing:border-box;background:oklch(84% 0 0);padding:18px 20px;font-family:'Martian Mono',monospace;font-size:13px;line-height:1.65">a focus in honest, products that look to function, <span style="background:oklch(78% 0.08 300);padding:0 3px">material use</span> and playful spirit for inspiration.</div>
+    <a data-snake="1" href="project-3a.dc.html?item=step" style="position:absolute;right:0;bottom:0;background:oklch(84% 0 0);padding:14px 20px;font-family:'DotGothic16',monospace;font-size:16px;text-decoration:none">01 step / aluminium, kvadrat leather</a>
+  </section>
+
+  <section id="studio" style="padding:110px clamp(20px,5vw,48px) 0">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:36px">
+      <h2 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(clamp(20px,5vw,48px),7vw,96px);line-height:0.9;margin:0">studio</h2>
+      <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:400px">independent work under rye. <span style="background:oklch(78% 0.08 300);padding:0 3px">designed, prototyped and made in wollongong.</span></p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
+      <sc-for list="{{ studio }}" as="p" hint-placeholder-count="0">
+        <a data-snake="1" href="{{ p.href }}" style="text-decoration:none;display:block">
+          <div style="aspect-ratio:4/5;overflow:hidden;background:oklch(93% 0 0)">
+            <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+          </div>
+          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
+          <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0 0);margin-top:3px">{{ p.meta }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <a data-snake="1" href="projects-3a.dc.html" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
+  </section>
+
+  <section id="industry" style="padding:120px clamp(20px,5vw,48px) 0">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:36px">
+      <h2 data-snake="1" style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(clamp(20px,5vw,48px),7vw,96px);line-height:0.9;margin:0">industry</h2>
+      <p style="font-family:'Martian Mono',monospace;font-size:12px;line-height:1.75;margin:0;max-width:400px">products designed and developed in-house as an industrial designer, from furniture to <span style="background:oklch(78% 0.08 300);padding:0 3px">audio hardware and underwater robotics.</span></p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
+      <sc-for list="{{ industry }}" as="p" hint-placeholder-count="0">
+        <a data-snake="1" href="{{ p.href }}" style="text-decoration:none;display:block">
+          <div style="aspect-ratio:4/5;overflow:hidden;background:oklch(93% 0 0)">
+            <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+          </div>
+          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
+          <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0 0);margin-top:3px">{{ p.meta }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <a data-snake="1" href="projects-3a.dc.html" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
+  </section>
+
+  <section style="padding:120px clamp(20px,5vw,48px) 80px">
+    <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:24px 28px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px 44px;font-family:'Martian Mono',monospace;font-size:12px;line-height:1.6">
+      <span style="font-family:'DotGothic16',monospace;font-size:14px">2022→</span><span>king living, sydney / shanghai, industrial designer</span>
+      <span style="font-family:'DotGothic16',monospace;font-size:14px">2020–22</span><span>rode microphones, sydney, industrial designer</span>
+      <span style="font-family:'DotGothic16',monospace;font-size:14px">2019–20</span><span>blue sky design group, sydney, industrial designer</span>
+      <span style="font-family:'DotGothic16',monospace;font-size:14px">2017–19</span><span>hullbot, sydney, industrial designer</span>
+      <span style="font-family:'DotGothic16',monospace;font-size:14px">2017</span><span>bauhaus university, weimar, B. product design (exchange)</span>
+    </div>
+  </section>
+
+  <footer style="padding:24px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+    <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
+    <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSnake&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;snakeSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:420,&quot;min&quot;:100,&quot;max&quot;:1200,&quot;step&quot;:20,&quot;unit&quot;:&quot;px/s&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;snakeLength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:280,&quot;min&quot;:60,&quot;max&quot;:800,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { works: [] };
+  rootRef = React.createRef();
+  svgRef = React.createRef();
+  pathRef = React.createRef();
+  headRef = React.createRef();
+  pts = []; cum = []; total = 0; pos = 0; lastNode = -1;
+
+  componentDidMount() {
+    fetch('content/works.json').then(r => r.json()).then(works => this.setState({ works }, () => setTimeout(() => this.layout(), 300)));
+    this.ro = new ResizeObserver(() => this.layout());
+    if (this.rootRef.current) this.ro.observe(this.rootRef.current);
+    const tick = (t) => {
+      const dt = this.last ? Math.min(t - this.last, 50) : 16; this.last = t;
+      this.step(dt); this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); this.ro && this.ro.disconnect(); }
+
+  layout() {
+    const root = this.rootRef.current, svg = this.svgRef.current; if (!root || !svg) return;
+    const rb = root.getBoundingClientRect();
+    svg.setAttribute('width', root.scrollWidth); svg.setAttribute('height', root.scrollHeight);
+    this.nodes = [...root.querySelectorAll('[data-snake]')];
+    const anchors = this.nodes.map(n => { const r = n.getBoundingClientRect(); return [Math.round(r.left - rb.left - 12), Math.round(r.top - rb.top - 12)]; });
+    const pts = [];
+    anchors.forEach((a, i) => { if (i) { const p = pts[pts.length - 1]; pts.push([a[0], p[1]]); } pts.push(a); });
+    this.nodeAt = []; this.pts = pts; this.cum = [0];
+    for (let i = 1; i < pts.length; i++) this.cum.push(this.cum[i - 1] + Math.abs(pts[i][0] - pts[i - 1][0]) + Math.abs(pts[i][1] - pts[i - 1][1]));
+    this.total = this.cum[this.cum.length - 1] || 1;
+    anchors.forEach((a, i) => this.nodeAt.push(this.cum[i === 0 ? 0 : i * 2]));
+    this.pathRef.current.setAttribute('d', 'M' + pts.map(p => p.join(' ')).join(' L'));
+  }
+
+  pointAt(d) {
+    const c = this.cum, p = this.pts; let i = 1;
+    while (i < c.length && c[i] < d) i++;
+    if (i >= c.length) return p[p.length - 1];
+    const seg = c[i] - c[i - 1] || 1, t = (d - c[i - 1]) / seg;
+    return [p[i - 1][0] + (p[i][0] - p[i - 1][0]) * t, p[i - 1][1] + (p[i][1] - p[i - 1][1]) * t];
+  }
+
+  step(dt) {
+    if (!this.pts.length || !this.pathRef.current) return;
+    const speed = this.props.snakeSpeed ?? 420, L = this.props.snakeLength ?? 280;
+    this.pos = (this.pos + speed * dt / 1000) % (this.total + L);
+    const path = this.pathRef.current;
+    path.setAttribute('stroke-dasharray', `${L} ${this.total + L}`);
+    path.setAttribute('stroke-dashoffset', String(-(this.pos - L)));
+    const h = this.pointAt(Math.min(this.pos, this.total));
+    this.headRef.current.setAttribute('x', h[0] - 5); this.headRef.current.setAttribute('y', h[1] - 5);
+    this.headRef.current.setAttribute('opacity', this.pos > this.total ? 0 : 1);
+    const idx = this.nodeAt.findIndex(n => Math.abs(n - this.pos) < 14);
+    if (idx >= 0 && idx !== this.lastNode) {
+      this.lastNode = idx; const el = this.nodes[idx];
+      if (el) { el.style.transition = 'outline-color 0.6s'; el.style.outline = '2px solid oklch(88% 0.18 105)'; el.style.outlineOffset = '4px';
+        setTimeout(() => { el.style.outlineColor = 'transparent'; }, 500); }
+    }
+  }
+
+  renderVals() {
+    const w = this.state.works;
+    let n = 0;
+    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project-3a.dc.html?item=' + x.slug, index: String(++n).padStart(2, '0'),
+      meta: x.category + (x.group === 'industry' ? ' / for ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
+    const studio = w.filter(x => x.group === 'studio' && x.images[0]).map(card).slice(0, 4);
+    const industry = w.filter(x => x.group === 'industry' && x.images[0]).map(card).slice(0, 4);
+    const Y = 'oklch(88% 0.18 105)';
+    const snake = (this.props.showSnake ?? true) ? React.createElement('svg', { ref: this.svgRef, style: { position: 'absolute', left: 0, top: 0, pointerEvents: 'none', zIndex: 20, overflow: 'visible' } },
+      React.createElement('path', { ref: this.pathRef, fill: 'none', stroke: Y, strokeWidth: 4, strokeLinejoin: 'miter', strokeLinecap: 'square' }),
+      React.createElement('rect', { ref: this.headRef, width: 10, height: 10, fill: Y })) : null;
+    return { rootRef: this.rootRef, studio, industry, snake };
+  }
+}
+</script>
+</body>
+</html>

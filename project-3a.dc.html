@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="favicon-3a.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#fff}
+  a{color:oklch(16% 0 0)}
+  a:hover{color:oklch(45% 0.16 320)}
+</style>
+<script src="./make-3a.js"></script>
+</helmet>
+<div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
+  {{ snake }}
+
+  <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="concept-3a.dc.html" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
+      <a href="projects-3a.dc.html" style="background:oklch(84% 0 0);padding:6px 11px;text-decoration:none">projects</a>
+      <a href="about-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
+      <a href="shop-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
+      <a href="contact-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+    </nav>
+  </header>
+
+  <section style="padding:40px clamp(20px,5vw,48px) 0">
+    <a href="{{ backHref }}" style="font-family:'Martian Mono',monospace;font-size:12px;text-decoration:none">← {{ groupLabel }}</a>
+  </section>
+
+  <section style="padding:40px clamp(20px,5vw,48px) 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
+    <div style="position:sticky;top:110px;display:flex;flex-direction:column;gap:24px">
+      <div data-snake="1">
+        <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-bottom:10px">{{ index }} / {{ eyebrow }}</div>
+        <h1 style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(40px,5.5vw,76px);line-height:0.95;margin:0;overflow-wrap:anywhere">{{ title }}</h1>
+      </div>
+      <div data-snake="1" style="background:oklch(84% 0 0);padding:18px 20px;font-family:'Martian Mono',monospace;font-size:12.5px;line-height:1.7;text-wrap:pretty">{{ description }}</div>
+      <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:18px 22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 28px;font-family:'Martian Mono',monospace;font-size:11.5px;line-height:1.6">
+        <sc-for list="{{ specs }}" as="s" hint-placeholder-count="0">
+          <span style="font-family:'DotGothic16',monospace;font-size:13px">{{ s.k }}</span><span>{{ s.v }}</span>
+        </sc-for>
+      </div>
+      <sc-if value="{{ credit }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;font-family:'Martian Mono',monospace;font-size:11px;line-height:1.7;color:oklch(35% 0 0)"><span style="background:oklch(78% 0.08 300);padding:0 3px">{{ credit }}</span></p>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <sc-if value="{{ hasExploded }}" hint-placeholder-val="{{ false }}">
+        <div data-snake="1" onMouseEnter="{{ explodeOn }}" onMouseLeave="{{ explodeOff }}" onClick="{{ explodeToggle }}" style="background:#fff;border:1px solid oklch(85% 0 0);padding:72px clamp(12px,2vw,24px) 18px;cursor:crosshair;display:flex;flex-direction:column;gap:56px">
+          <div style="position:relative;aspect-ratio:{{ exRatio }}">
+            <sc-for list="{{ exParts }}" as="b" hint-placeholder-count="0">
+              <img src="{{ b.src }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;display:block;clip-path:inset({{ b.a }}% 0 {{ b.b }}% 0);transform:translateY({{ b.dy }}px);transition:transform 0.55s cubic-bezier(.2,.8,.2,1)" />
+              <div style="position:absolute;right:0;top:{{ b.mid }}%;display:flex;align-items:center;gap:6px;font-family:'DotGothic16',monospace;font-size:13px;opacity:{{ b.op }};transform:translateY({{ b.dy }}px);transition:opacity 0.3s,transform 0.55s cubic-bezier(.2,.8,.2,1);pointer-events:none"><span style="width:48px;border-top:1px dashed oklch(16% 0 0)"></span><span style="background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:2px 7px;margin-top:-12px">{{ b.label }}</span></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-family:'DotGothic16',monospace;font-size:13px"><span>exploded view / {{ exCount }} parts</span><span>{{ exHint }}</span></div>
+        </div>
+      </sc-if>
+      <sc-for list="{{ images }}" as="img" hint-placeholder-count="0">
+        <div data-reveal="1" data-snake="1" onMouseEnter="{{ img.enter }}" onMouseLeave="{{ img.leave }}" style="position:relative;min-height:240px;background:oklch(84% 0 0);overflow:hidden;padding:{{ img.pad }}px 0;transition:padding 0.55s cubic-bezier(.2,.8,.2,1)">
+          <div onMouseMove="{{ img.move }}" style="position:relative;cursor:none">
+          <img loading="lazy" src="{{ img.src }}" alt="{{ title }}" onLoad="{{ img.onLoad }}" style="width:100%;display:block;opacity:{{ img.baseOp }}" />
+          <sc-for list="{{ img.slices }}" as="b" hint-placeholder-count="0">
+            <img src="{{ img.src }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;display:block;clip-path:inset({{ b.a }}% 0 {{ b.b }}% 0);transform:translateY({{ b.dy }}px);transition:transform 0.55s cubic-bezier(.2,.8,.2,1);pointer-events:none" />
+            <div style="position:absolute;left:10px;top:{{ b.a }}%;margin-top:8px;background:oklch(16% 0 0);color:oklch(88% 0.18 105);font-family:'DotGothic16',monospace;font-size:12px;padding:2px 7px;opacity:{{ b.op }};transform:translateY({{ b.dy }}px);transition:opacity 0.3s,transform 0.55s cubic-bezier(.2,.8,.2,1);pointer-events:none">{{ b.label }}</div>
+          </sc-for>
+          <sc-if value="{{ img.calOn }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;left:0;right:0;top:{{ cy }}px;height:1px;background:oklch(16% 0 0);pointer-events:none"></div>
+            <div style="position:absolute;top:0;bottom:0;left:{{ cx }}px;width:1px;background:oklch(16% 0 0);pointer-events:none"></div>
+            <div style="position:absolute;left:0;top:0;height:6px;width:{{ cx }}px;pointer-events:none;background:repeating-linear-gradient(90deg,oklch(16% 0 0) 0 1px,transparent 1px 10px)"></div>
+            <div style="position:absolute;left:{{ boxX }}px;top:{{ boxY }}px;width:9px;height:9px;background:oklch(88% 0.18 105);border:1px solid oklch(16% 0 0);pointer-events:none"></div>
+            <div style="position:absolute;left:{{ tagX }}px;top:{{ tagY }}px;background:oklch(16% 0 0);color:oklch(88% 0.18 105);font-family:'DotGothic16',monospace;font-size:12px;padding:3px 7px;white-space:nowrap;pointer-events:none">X {{ mmX }}MM / Y {{ mmY }}MM</div>
+          </sc-if>
+          </div>
+          <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasHonest }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:0 clamp(20px,5vw,48px) 100px">
+      <div data-snake="1" style="background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:28px clamp(20px,3vw,36px) 20px;display:flex;flex-direction:column">
+        <div style="font-family:'Silkscreen',monospace;font-size:clamp(20px,2.4vw,28px);margin-bottom:18px;overflow-wrap:anywhere">honest specs // {{ title }}</div>
+        <sc-for list="{{ honest }}" as="r" hint-placeholder-count="0">
+          <div style="display:grid;grid-template-columns:minmax(110px,200px) minmax(0,1fr);gap:20px;padding:11px 0;border-top:1px dashed oklch(55% 0.1 105);font-family:'DotGothic16',monospace;font-size:15px;line-height:1.5"><span style="color:oklch(76% 0.14 105)">{{ r.k }}</span><span>{{ r.v }}</span></div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <section style="padding:0 clamp(20px,5vw,48px) 100px">
+    <a data-snake="1" href="{{ nextHref }}" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;text-decoration:none;border-top:1px solid oklch(85% 0 0);padding-top:28px">
+      <span style="font-family:'Silkscreen',monospace;font-size:clamp(36px,5vw,64px);line-height:1">next →</span>
+      <span style="font-family:'DotGothic16',monospace;font-size:18px">{{ nextLabel }}</span>
+    </a>
+  </section>
+
+  <footer style="padding:24px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+    <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
+    <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;revealFrames&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:55,&quot;min&quot;:20,&quot;max&quot;:180,&quot;step&quot;:5,&quot;unit&quot;:&quot;frames&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;snakeSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:420,&quot;min&quot;:100,&quot;max&quot;:1200,&quot;step&quot;:20,&quot;unit&quot;:&quot;px/s&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;snakeLength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:280,&quot;min&quot;:60,&quot;max&quot;:800,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { works: [], explode: false, exImg: false, cal: null, r0: 0.75 };
+  rootRef = React.createRef(); svgRef = React.createRef(); pathRef = React.createRef(); headRef = React.createRef();
+  pts = []; cum = []; total = 0; pos = 0; lastNode = -1;
+  Y = 'oklch(88% 0.18 105)';
+
+  componentDidMount() {
+    fetch('content/works.json').then(r => r.json()).then(works => this.setState({ works }));
+    this.ro = new ResizeObserver(() => this.layout());
+    if (this.rootRef.current) this.ro.observe(this.rootRef.current);
+    this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { this.io.unobserve(e.target); this.whenLoaded(e.target); } }), { threshold: 0.15 });
+    const tick = t => { const dt = this.last ? Math.min(t - this.last, 50) : 16; this.last = t; this.step(dt); this.raf = requestAnimationFrame(tick); };
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.works === this.state.works && ps.explode === this.state.explode) return;
+    const root = this.rootRef.current; if (!root) return;
+    root.querySelectorAll('[data-reveal]').forEach(w => { if (!w.dataset.watch) { w.dataset.watch = 1; this.cover(w); this.io.observe(w); } });
+    setTimeout(() => this.layout(), 200);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); this.ro && this.ro.disconnect(); this.io && this.io.disconnect(); }
+
+  cover(w) {
+    const cv = w.querySelector('canvas'), r = w.getBoundingClientRect();
+    cv.width = Math.max(1, r.width); cv.height = Math.max(1, r.height);
+    const c = cv.getContext('2d'); c.fillStyle = getComputedStyle(w).backgroundColor; c.fillRect(0, 0, cv.width, cv.height);
+  }
+  whenLoaded(w) {
+    const img = w.querySelector('img');
+    const go = () => requestAnimationFrame(() => this.reveal(w));
+    if (img.complete && img.naturalHeight) go(); else img.addEventListener('load', go, { once: true });
+  }
+  reveal(w) {
+    w.style.minHeight = '0';
+    const cv = w.querySelector('canvas'), r = w.getBoundingClientRect(), W = r.width, H = r.height;
+    cv.width = W; cv.height = H;
+    const c = cv.getContext('2d'), bg = 'oklch(84% 0 0)';
+    c.fillStyle = bg; c.fillRect(0, 0, W, H);
+    const cell = Math.max(24, Math.round(W / 18)), cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
+    const order = [];
+    for (let y = 0; y < rows; y++) for (let i = 0; i < cols; i++) order.push([y % 2 ? cols - 1 - i : i, y]);
+    const perFrame = Math.max(1, Math.ceil(order.length / (this.props.revealFrames ?? 55)));
+    const len = Math.max(6, Math.round(cols * 0.8));
+    const body = []; let k = 0;
+    const frame = () => {
+      body.forEach(([x, y]) => c.clearRect(x * cell, y * cell, cell, cell));
+      for (let s = 0; s < perFrame && k < order.length; s++, k++) { const p = order[k]; c.clearRect(p[0] * cell, p[1] * cell, cell, cell); body.push(p); if (body.length > len) body.shift(); }
+      if (k >= order.length && body.length) body.splice(0, perFrame);
+      c.fillStyle = this.Y;
+      body.forEach(([x, y], i) => { const g = i === body.length - 1 ? 1 : 3; c.fillRect(x * cell + g, y * cell + g, cell - g * 2, cell - g * 2); });
+      if (k < order.length || body.length) requestAnimationFrame(frame); else cv.style.display = 'none';
+    };
+    requestAnimationFrame(frame);
+  }
+
+  layout() {
+    const root = this.rootRef.current, svg = this.svgRef.current; if (!root || !svg || !this.pathRef.current) return;
+    const rb = root.getBoundingClientRect();
+    svg.setAttribute('width', root.scrollWidth); svg.setAttribute('height', root.scrollHeight);
+    this.nodes = [...root.querySelectorAll('[data-snake]')];
+    const anchors = this.nodes.map(n => { const r = n.getBoundingClientRect(); return [Math.round(r.left - rb.left - 12), Math.round(r.top - rb.top - 12)]; });
+    const pts = [];
+    anchors.forEach((a, i) => { if (i) { const p = pts[pts.length - 1]; pts.push([a[0], p[1]]); } pts.push(a); });
+    this.pts = pts; this.cum = [0];
+    for (let i = 1; i < pts.length; i++) this.cum.push(this.cum[i - 1] + Math.abs(pts[i][0] - pts[i - 1][0]) + Math.abs(pts[i][1] - pts[i - 1][1]));
+    this.total = this.cum[this.cum.length - 1] || 1;
+    this.nodeAt = anchors.map((a, i) => this.cum[i === 0 ? 0 : i * 2]);
+    if (pts.length) this.pathRef.current.setAttribute('d', 'M' + pts.map(p => p.join(' ')).join(' L'));
+  }
+  pointAt(d) {
+    const c = this.cum, p = this.pts; let i = 1;
+    while (i < c.length && c[i] < d) i++;
+    if (i >= c.length) return p[p.length - 1];
+    const t = (d - c[i - 1]) / (c[i] - c[i - 1] || 1);
+    return [p[i - 1][0] + (p[i][0] - p[i - 1][0]) * t, p[i - 1][1] + (p[i][1] - p[i - 1][1]) * t];
+  }
+  step(dt) {
+    if (this.pts.length < 2 || !this.pathRef.current) return;
+    const speed = this.props.snakeSpeed ?? 420, L = this.props.snakeLength ?? 280;
+    this.pos = (this.pos + speed * dt / 1000) % (this.total + L);
+    this.pathRef.current.setAttribute('stroke-dasharray', `${L} ${this.total + L}`);
+    this.pathRef.current.setAttribute('stroke-dashoffset', String(-(this.pos - L)));
+    const h = this.pointAt(Math.min(this.pos, this.total));
+    this.headRef.current.setAttribute('x', h[0] - 5); this.headRef.current.setAttribute('y', h[1] - 5);
+    this.headRef.current.setAttribute('opacity', this.pos > this.total ? 0 : 1);
+    const idx = this.nodeAt.findIndex(n => Math.abs(n - this.pos) < 14);
+    if (idx >= 0 && idx !== this.lastNode) {
+      this.lastNode = idx; const el = this.nodes[idx];
+      if (el) { el.style.transition = 'outline-color 0.6s'; el.style.outline = '2px solid ' + this.Y; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outlineColor = 'transparent'; }, 500); }
+    }
+  }
+
+  renderVals() {
+    const all = this.state.works;
+    const snake = React.createElement('svg', { ref: this.svgRef, style: { position: 'absolute', left: 0, top: 0, pointerEvents: 'none', zIndex: 20, overflow: 'visible' } },
+      React.createElement('path', { ref: this.pathRef, fill: 'none', stroke: this.Y, strokeWidth: 4, strokeLinecap: 'square' }),
+      React.createElement('rect', { ref: this.headRef, width: 10, height: 10, fill: this.Y }));
+    const base = { rootRef: this.rootRef, snake, images: [], specs: [], honest: [], exParts: [] };
+    if (!all.length) return base;
+    const slug = new URLSearchParams(location.search).get('item') || 'step';
+    const shown = all.filter(x => x.images && x.images[0]);
+    const ordered = [...shown.filter(x => x.group === 'studio'), ...shown.filter(x => x.group === 'industry')];
+    const w = all.find(x => x.slug === slug) || ordered[0];
+    const i = ordered.findIndex(x => x.slug === w.slug);
+    const next = ordered[(i + 1) % ordered.length];
+    const ind = w.group === 'industry';
+    const specs = [{ k: 'category', v: w.category }];
+    if (w.client) specs.push({ k: ind ? 'client' : 'with', v: w.client.toLowerCase() });
+    Object.entries(w.specs || {}).forEach(([k, v]) => specs.push({ k, v }));
+    const h = w.honest || {}, sp = w.specs || {};
+    const hk = { 'made of': h['made of'] || sp.materials, 'made in': h['made in'], finish: h.finish || sp.finishes };
+    Object.keys(h).forEach(k => { if (!(k in hk)) hk[k] = h[k]; });
+    const honest = Object.entries(hk).filter(([, v]) => v).map(([k, v]) => ({ k, v: String(v).toLowerCase() }));
+    const ex = w.exploded, st = this.state;
+    let exParts = [];
+    if (ex) {
+      let prev = 0; const n = ex.parts.length;
+      exParts = ex.parts.map((p, j) => { const a = prev; prev = p.to; const dy = st.explode ? Math.round((j - (n - 1) / 2) * 48) : 0;
+        return { src: ex.image, label: p.label, a, b: 100 - p.to, mid: (a + p.to) / 2, dy, op: st.explode ? 1 : 0 }; });
+    }
+    const cal = st.cal, meas = w.measure || {};
+    const dm = String(sp.dimensions || '').match(/\d{3,5}/);
+    const baseMM = dm ? +dm[0] : 1000;
+    const pad = v => String(Math.max(0, Math.round(v))).padStart(4, '0');
+    const images = w.images.map((src, idx) => {
+      const mm = meas[src] || baseMM;
+      const gen = idx === 0 && !ex, on = gen && st.exImg;
+      const hMM = mm * st.r0;
+      const slices = gen ? [[0, 33], [33, 67], [67, 100]].map(([a, b], j) => ({ a, b: 100 - b, dy: on ? (j - 1) * 40 : 0, op: on ? 1 : 0,
+        label: String(j + 1).padStart(2, '0') + ' / ' + pad(hMM * a / 100) + '–' + pad(hMM * b / 100) + 'MM' })) : [];
+      return { src, slices, baseOp: gen ? 0 : 1, pad: on ? 48 : 0, calOn: !!(cal && cal.i === idx),
+        onLoad: gen ? (e => { const t = e.currentTarget; if (t.naturalWidth) this.setState({ r0: t.naturalHeight / t.naturalWidth }); }) : null,
+        enter: gen ? (() => this.setState({ exImg: true })) : null,
+        leave: () => this.setState(gen ? { cal: null, exImg: false } : { cal: null }),
+        move: e => { const r = e.currentTarget.getBoundingClientRect(); this.setState({ cal: { i: idx, x: Math.round(e.clientX - r.left), y: Math.round(e.clientY - r.top), w: r.width, s: mm / r.width } }); } };
+    });
+    return {
+      ...base, specs, honest, hasHonest: honest.length > 0,
+      hasExploded: !!ex, exRatio: ex ? ex.ratio : '2/1', exParts, exCount: ex ? ex.parts.length : 0, exHint: st.explode ? 'assembled on exit' : 'hover to explode',
+      explodeOn: () => this.setState({ explode: true }), explodeOff: () => this.setState({ explode: false }), explodeToggle: () => this.setState(s => ({ explode: !s.explode })),
+      images, calLeave: () => this.setState({ cal: null }),
+      cx: cal ? cal.x : 0, cy: cal ? cal.y : 0, boxX: cal ? cal.x - 5 : 0, boxY: cal ? cal.y - 5 : 0,
+      tagX: cal ? Math.min(cal.x + 12, cal.w - 180) : 0, tagY: cal ? (cal.y > 40 ? cal.y - 30 : cal.y + 14) : 0,
+      mmX: cal ? pad(cal.x * cal.s) : '0000', mmY: cal ? pad(cal.y * cal.s) : '0000',
+      title: w.title, description: w.description || '',
+      index: String(i + 1).padStart(2, '0'), eyebrow: ind ? 'industry' : 'studio',
+      groupLabel: ind ? 'industry' : 'studio', backHref: 'projects-3a.dc.html#' + (ind ? 'industry' : 'studio'),
+      credit: w.credit ? w.credit.toLowerCase() : '',
+      nextHref: 'project-3a.dc.html?item=' + next.slug, nextLabel: String((i + 1) % ordered.length + 1).padStart(2, '0') + ' ' + next.title,
+    };
+  }
+}
+</script>
+</body>
+</html>

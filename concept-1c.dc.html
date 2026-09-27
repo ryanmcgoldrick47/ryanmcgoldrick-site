@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="favicon-1c.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:oklch(97% 0.006 80)}
+  a{color:oklch(18% 0.01 60)}
+  a:hover{color:oklch(50% 0.11 40)}
+</style>
+<script src="./tactile-1c.js"></script>
+</helmet>
+<div style="max-width:1440px;margin:0 auto;color:oklch(18% 0.01 60)">
+  <header style="position:sticky;top:0;z-index:10;background:oklch(97% 0.006 80);padding:22px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid oklch(86% 0.006 80)">
+    <a href="#" style="font-family:'Martian Mono',monospace;font-weight:500;font-size:15px;letter-spacing:-0.02em;text-decoration:none">RYAN_MCGOLDRICK</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:28px;font-family:'Martian Mono',monospace;font-size:11px">
+      <a href="projects-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">01</span>projects</a>
+      <a href="about-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">02</span>about</a>
+      <a href="shop-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">03</span>shop</a>
+      <a href="contact-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">04</span>contact</a>
+    </nav>
+  </header>
+
+  <section style="padding:90px clamp(20px,5vw,48px) 70px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:60px;align-items:end">
+    <h1 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:clamp(40px,5.2vw,76px);line-height:1.03;letter-spacing:-0.03em;margin:0;text-wrap:pretty">Honest products that look to function, material use and playful spirit.</h1>
+    <div style="font-family:'Martian Mono',monospace;font-size:11px;line-height:1.9;color:oklch(40% 0.01 60)">object / furniture / product / lighting<br>wollongong, nsw, australia<br>studio@ryanmcgoldrick.com</div>
+  </section>
+
+  <section style="margin:0 clamp(20px,5vw,48px);height:min(72vh,680px);min-height:420px;overflow:hidden;background:oklch(92% 0.006 80)">
+    <img src="images/work/umbra-1.webp" alt="umbra" style="width:100%;height:100%;object-fit:cover;display:block" />
+  </section>
+  <div style="padding:12px clamp(20px,5vw,48px) 0;display:flex;justify-content:space-between;font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0.01 60)"><span>04 umbra, with kate banazi</span><span>milan design week 2017</span></div>
+
+  <section id="studio" style="padding:110px clamp(20px,5vw,48px) 0">
+    <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:24px;border-top:1px solid oklch(18% 0.01 60);padding-top:14px;margin-bottom:40px">
+      <span style="font-family:'Martian Mono',monospace;font-size:11px">A</span>
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:baseline">
+        <h2 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:40px;letter-spacing:-0.02em;margin:0">Studio</h2>
+        <p style="font-family:'Martian Mono',monospace;font-size:11px;line-height:1.8;color:oklch(40% 0.01 60);margin:0;max-width:380px">independent work under rye. designed, prototyped and made in wollongong.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:40px 24px">
+      <sc-for list="{{ studio }}" as="p" hint-placeholder-count="0">
+        <a href="{{ p.href }}" style="text-decoration:none;display:block">
+          <div style="aspect-ratio:4/5;overflow:hidden;background:oklch(92% 0.006 80)">
+            <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-family:'Martian Mono',monospace;font-size:12px"><span>{{ p.index }} {{ p.name }}</span></div>
+          <div style="font-family:'Martian Mono',monospace;font-size:10px;color:oklch(46% 0.01 60);margin-top:4px">{{ p.meta }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <a href="projects-1c.dc.html" style="display:inline-block;margin-top:32px;font-family:'Martian Mono',monospace;font-size:11px;text-decoration:none;border-bottom:1px solid oklch(18% 0.01 60);padding-bottom:3px">all projects →</a>
+  </section>
+
+  <section id="industry" style="padding:120px clamp(20px,5vw,48px) 0">
+    <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:24px;border-top:1px solid oklch(18% 0.01 60);padding-top:14px;margin-bottom:40px">
+      <span style="font-family:'Martian Mono',monospace;font-size:11px">B</span>
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:baseline">
+        <h2 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:40px;letter-spacing:-0.02em;margin:0">Industry</h2>
+        <p style="font-family:'Martian Mono',monospace;font-size:11px;line-height:1.8;color:oklch(40% 0.01 60);margin:0;max-width:380px">products designed and developed in-house as an industrial designer.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:40px 24px">
+      <sc-for list="{{ industry }}" as="p" hint-placeholder-count="0">
+        <a href="{{ p.href }}" style="text-decoration:none;display:block">
+          <div style="aspect-ratio:4/5;overflow:hidden;background:oklch(92% 0.006 80)">
+            <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
+          </div>
+          <div style="margin-top:12px;font-family:'Martian Mono',monospace;font-size:12px">{{ p.index }} {{ p.name }}</div>
+          <div style="font-family:'Martian Mono',monospace;font-size:10px;color:oklch(46% 0.01 60);margin-top:4px">{{ p.meta }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <a href="projects-1c.dc.html" style="display:inline-block;margin-top:32px;font-family:'Martian Mono',monospace;font-size:11px;text-decoration:none;border-bottom:1px solid oklch(18% 0.01 60);padding-bottom:3px">all projects →</a>
+  </section>
+
+  <footer style="margin-top:140px;padding:22px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(18% 0.01 60);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+    <a href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
+    <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+    <span style="color:oklch(46% 0.01 60)">© 2026 ryan mcgoldrick</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { works: [] };
+  componentDidMount() {
+    fetch('content/works.json').then(r => r.json()).then(works => this.setState({ works }));
+  }
+  renderVals() {
+    const w = this.state.works;
+    let n = 0;
+    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project-1c.dc.html?item=' + x.slug, index: String(++n).padStart(2, '0'),
+      meta: x.category + (x.group === 'industry' ? ' / ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
+    return {
+      studio: w.filter(x => x.group === 'studio' && x.images[0]).map(card).slice(0, 4),
+      industry: w.filter(x => x.group === 'industry' && x.images[0]).map(card).slice(0, 4),
+    };
+  }
+}
+</script>
+</body>
+</html>
