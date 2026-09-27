@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="../about-1c.dc.html">
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="favicon-1c.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:oklch(97% 0.006 80)}
+  a{color:oklch(18% 0.01 60)}
+  a:hover{color:oklch(50% 0.11 40)}
+</style>
+<script src="./tactile-1c.js"></script>
+</helmet>
+<div style="max-width:1440px;margin:0 auto;color:oklch(18% 0.01 60)">
+  <header style="position:sticky;top:0;z-index:10;background:oklch(97% 0.006 80);padding:22px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid oklch(86% 0.006 80)">
+    <a href="1c/" style="font-family:'Martian Mono',monospace;font-weight:500;font-size:15px;letter-spacing:-0.02em;text-decoration:none">RYAN_MCGOLDRICK</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:28px;font-family:'Martian Mono',monospace;font-size:11px">
+      <a href="1c/projects" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">01</span>projects</a>
+      <a href="1c/about" style="text-decoration:none;display:flex;gap:8px;align-items:center"><span style="width:7px;height:7px;background:oklch(50% 0.11 40)"></span>about</a>
+      <a href="1c/shop" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">03</span>shop</a>
+      <a href="1c/contact" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">04</span>contact</a>
+    </nav>
+  </header>
+  <section style="padding:90px clamp(20px,5vw,48px) 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:48px;align-items:end">
+    <h1 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:clamp(44px,6vw,88px);line-height:1;letter-spacing:-0.03em;margin:0">A focus in honest products that look to function, material use and playful spirit.</h1>
+    <div style="font-family:'Martian Mono',monospace;font-size:11px;line-height:1.9;color:oklch(40% 0.01 60)">industrial designer<br>wollongong, nsw, australia<br>studio@ryanmcgoldrick.com</div>
+  </section>
+  <section style="padding:0 clamp(20px,5vw,48px) 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:48px;align-items:start">
+    <div>
+      <div style="overflow:hidden;background:oklch(92% 0.006 80)"><img loading="lazy" src="images/ryan-mcgoldrick.jpg" alt="Ryan McGoldrick" style="width:100%;display:block" /></div>
+      <div style="font-family:'Martian Mono',monospace;font-size:10.5px;color:oklch(40% 0.01 60);margin-top:10px">ryan mcgoldrick, wollongong</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;font-family:'Instrument Sans',sans-serif;font-size:18px;line-height:1.6">
+      <p style="margin:0">Ryan McGoldrick is a Wollongong based industrial designer working across object, furniture, lighting and product. The work begins with an honest look at material and function, and always leaves room for a little play.</p>
+      <p style="margin:0;color:oklch(40% 0.01 60)">Alongside his own studio pieces, including folded brass lamps, extruded aluminium seating and coasters pressed from malt rootlets, Ryan has designed furniture, audio hardware and robotics for leading Australian companies including King Living, RØDE and Hullbot.</p>
+      <p style="margin:0;color:oklch(40% 0.01 60)">His work has been exhibited at Milan Design Week and Sculptures by the Sea, and recognised by Core77 and the Good Design Awards Australia. For commissions and collaborations, get in touch via email or Instagram.</p>
+    </div>
+  </section>
+  <section style="padding:0 clamp(20px,5vw,48px)">
+    <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:24px;border-top:1px solid oklch(18% 0.01 60);padding-top:14px;margin-bottom:40px">
+      <span style="font-family:'Martian Mono',monospace;font-size:11px">A</span>
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:baseline">
+        <h2 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:40px;letter-spacing:-0.02em;margin:0">Experience</h2>
+        
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ experience }}" as="r" hint-placeholder-count="0">
+          <div style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:20px;padding:11px 0;border-bottom:1px solid oklch(86% 0.006 80);font-family:'Martian Mono',monospace;font-size:11.5px;line-height:1.6"><span style="color:oklch(46% 0.01 60)">{{ r.y }}</span><span>{{ r.t }}</span></div>
+        </sc-for>
+      </div>
+  </section>
+  <section style="padding:90px clamp(20px,5vw,48px) 0">
+    <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:24px;border-top:1px solid oklch(18% 0.01 60);padding-top:14px;margin-bottom:40px">
+      <span style="font-family:'Martian Mono',monospace;font-size:11px">B</span>
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:baseline">
+        <h2 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:40px;letter-spacing:-0.02em;margin:0">Academia</h2>
+        
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ academia }}" as="r" hint-placeholder-count="0">
+          <div style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:20px;padding:11px 0;border-bottom:1px solid oklch(86% 0.006 80);font-family:'Martian Mono',monospace;font-size:11.5px;line-height:1.6"><span style="color:oklch(46% 0.01 60)">{{ r.y }}</span><span>{{ r.t }}</span></div>
+        </sc-for>
+      </div>
+  </section>
+  <section style="padding:90px clamp(20px,5vw,48px) 0">
+    <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:24px;border-top:1px solid oklch(18% 0.01 60);padding-top:14px;margin-bottom:40px">
+      <span style="font-family:'Martian Mono',monospace;font-size:11px">C</span>
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:baseline">
+        <h2 style="font-family:'Instrument Sans',sans-serif;font-weight:400;font-size:40px;letter-spacing:-0.02em;margin:0">Awards & exhibitions</h2>
+        
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ awards }}" as="r" hint-placeholder-count="0">
+          <div style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:20px;padding:11px 0;border-bottom:1px solid oklch(86% 0.006 80);font-family:'Martian Mono',monospace;font-size:11.5px;line-height:1.6"><span style="color:oklch(46% 0.01 60)">{{ r.y }}</span><span>{{ r.t }}</span></div>
+        </sc-for>
+      </div>
+  </section>
+  <footer style="margin-top:120px;padding:22px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(18% 0.01 60);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+    <a href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
+    <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+    <span style="color:oklch(46% 0.01 60)">wollongong, nsw · © 2026 ryan mcgoldrick</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { works: [], cv: null };
+  componentDidMount() {
+    fetch('content/works.json').then(r => r.json()).then(works => this.setState({ works }));
+    fetch('content/cv.json').then(r => r.json()).then(cv => this.setState({ cv }));
+  }
+  renderVals() {
+    const w = this.state.works, cv = this.state.cv || { academia: [], experience: [], awards: [] };
+    let n = 0;
+    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: '1c/project?item=' + x.slug, index: String(++n).padStart(2, '0'),
+      meta: x.category + (x.group === 'industry' ? ' / ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
+    const studio = w.filter(x => x.group === 'studio' && x.images[0]).map(card);
+    const industry = w.filter(x => x.group === 'industry' && x.images[0]).map(card);
+    return { studio, industry, studioPreview: studio.slice(0, 4), academia: cv.academia, experience: cv.experience, awards: cv.awards };
+  }
+}
+</script>
+</body>
+</html>
