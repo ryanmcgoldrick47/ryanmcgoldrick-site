@@ -8,6 +8,8 @@
 <body>
 <x-dc>
 <helmet>
+<meta name="color-scheme" content="light only">
+<style>html{background:#fff;color-scheme:light only}</style>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500;800&display=swap" rel="stylesheet">
@@ -182,7 +184,7 @@ class Component extends DCLogic {
     let drag = null, z = 10;
     const down = e => { const el = e.target.closest('[data-card]'); if (!el) return; const i = +el.dataset.card; el.setPointerCapture(e.pointerId); el.style.zIndex = ++z; el.style.cursor = 'grabbing'; el.style.transition = 'none'; drag = { el, i, sx: e.clientX, sy: e.clientY, ox: this.sortPos[i].x, oy: this.sortPos[i].y, moved: 0 }; };
     const move = e => { if (!drag) return; const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy; drag.moved = Math.max(drag.moved, Math.hypot(dx, dy)); const p = this.sortPos[drag.i], now = performance.now(), dtm = Math.max(1, now - (drag.t || now - 16)) / 1000; drag.vx = (drag.ox + dx - p.x) / dtm; drag.vy = (drag.oy + dy - p.y) / dtm; drag.t = now; p.x = drag.ox + dx; p.y = drag.oy + dy; drag.el.style.transform = `translate(${p.x}px,${p.y}px) rotate(${p.r}deg) scale(1.05)`; };
-    const up = () => { if (!drag) return; const d = drag; drag = null; d.el.style.cursor = 'grab'; if (d.moved < 5) { this.openFeat(d.el.dataset.slug); return; } if (this.state.sortBy === 'all') { const v = this.sortVel[d.i]; v.x = Math.max(-260, Math.min(260, d.vx || 0)); v.y = Math.max(-260, Math.min(260, d.vy || 0)); return; } const p = this.sortPos[d.i]; p.x = Math.round(p.x / 24) * 24; p.y = Math.round(p.y / 24) * 24; p.r = 0; d.el.style.transition = 'transform 260ms cubic-bezier(.2,.7,.2,1)'; d.el.style.transform = `translate(${p.x}px,${p.y}px)`; };
+    const up = e => { if (!drag) return; const d = drag; drag = null; d.el.style.cursor = 'grab'; const touch = e && e.pointerType !== 'mouse'; if (d.moved < (touch ? 14 : 5) && !(e && e.type === 'pointercancel')) { this.openFeat(d.el.dataset.slug); return; } if (this.state.sortBy === 'all') { const v = this.sortVel[d.i]; v.x = Math.max(-260, Math.min(260, d.vx || 0)); v.y = Math.max(-260, Math.min(260, d.vy || 0)); return; } const p = this.sortPos[d.i]; p.x = Math.round(p.x / 24) * 24; p.y = Math.round(p.y / 24) * 24; p.r = 0; d.el.style.transition = 'transform 260ms cubic-bezier(.2,.7,.2,1)'; d.el.style.transform = `translate(${p.x}px,${p.y}px)`; };
     const base = this.cards.map((el, i) => { const a = (i * 2.399) % (Math.PI * 2), s = 8 + (i * 7) % 7, cx = Math.cos(a), cy = Math.sin(a); return { x: (Math.abs(cx) < 0.35 ? Math.sign(cx || 1) * 0.35 : cx) * s, y: (Math.abs(cy) < 0.35 ? Math.sign(cy || 1) * 0.35 : cy) * s, vr: ((i % 5) - 2) * 0.3 }; });
     this.sortVel = base.map(b => ({ ...b }));
     let hov = -1, last = performance.now(), raf, hovEl = null;
@@ -237,8 +239,8 @@ class Component extends DCLogic {
   sortTo(by) { this.sortHold = true; clearTimeout(this.sortHoldT); this.setState({ sortBy: by }, () => { this.layoutSort(true); this.sortHoldT = setTimeout(() => { this.sortHold = false; }, 1400); }); }
 
   componentDidUpdate() { const el = this.featImgRef.current, lp = this.lastFeat; if (!el || !lp) return; const src = lp.images[(this.state.featI || 0) % lp.images.length]; if (el._src !== src) { el._src = src; el.style.backgroundImage = 'url("' + src + '")'; } }
-  openFeat(slug) { this.setState({ feat: slug, featI: 0 }); }
-  closeFeat = e => { if (e) e.stopPropagation(); this.setState({ feat: null }); };
+  openFeat(slug) { this.featAt = performance.now(); this.setState({ feat: slug, featI: 0 }); }
+  closeFeat = e => { if (e) e.stopPropagation(); if (e && performance.now() - (this.featAt || 0) < 450) return; this.setState({ feat: null }); };
   nextImg = () => { const p = this.by && this.by[this.state.feat]; if (p) this.setState(s => ({ featI: (s.featI + 1) % p.images.length })); };
   openRadio = () => { const w = window.open('radio', 'rmradio', 'width=400,height=420'); if (w) w.focus(); };
   renderVals() {
