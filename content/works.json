@@ -1,0 +1,594 @@
+[
+ {
+  "slug": "step",
+  "title": "step",
+  "category": "furniture",
+  "type": "project",
+  "description": "step, takes inspiration from ubiquitous utilitarian aluminium extrusion to stitch together a playful, brutalist and minimalist form adaptive to indoor settings or outdoor environments. made in sydney.",
+  "specs": {
+   "dimensions": "510L 470W 910H",
+   "materials": "kvadrat Maharam leather, aluminium"
+  },
+  "images": [
+   "images/work/step-1.webp",
+   "images/work/step-2.webp",
+   "images/work/step-3.webp",
+   "images/work/step-4.webp",
+   "images/work/step-5.webp",
+   "images/work/step-6.webp",
+   "images/work/step-7.webp",
+   "images/work/step-8.webp",
+   "images/work/step-9.webp"
+  ],
+  "group": "studio",
+  "honest": {
+   "made in": "sydney"
+  }
+ },
+ {
+  "slug": "weimar",
+  "title": "weimar",
+  "category": "lighting",
+  "type": "project",
+  "description": "‘weimar’ lamp was conceptualised whilst studying at the bauhaus university in weimar, germany. it is made from brass using traditional folding and brazing techniques. available in either natural, linished or aged finishes.",
+  "specs": {
+   "materials": "brass",
+   "finishes": "natural, linished, aged"
+  },
+  "images": [
+   "images/work/weimar-1.webp",
+   "images/work/weimar-2.webp",
+   "images/work/weimar-3.webp"
+  ],
+  "group": "studio"
+ },
+ {
+  "slug": "marly",
+  "title": "marly",
+  "category": "lighting",
+  "type": "project",
+  "description": "a simple, highly configurable light. utilitarian aesthetic in a modern minimalist form ‘marly’ is a cast aluminium light made in sydney, ‘marly’ can be specified as a sconce, wall washer, pendant (single or multiple configuration) table light and floor lamp. please e-mail for enquiries.",
+  "specs": {
+   "materials": "cast aluminium",
+   "configurations": "sconce, wall washer, pendant, table, floor"
+  },
+  "images": [
+   "images/work/marly-1.webp",
+   "images/work/marly-2.webp",
+   "images/work/marly-3.webp",
+   "images/work/marly-4.webp",
+   "images/work/marly-5.webp",
+   "images/work/marly-6.webp",
+   "images/work/marly-7.webp",
+   "images/work/marly-8.webp"
+  ],
+  "group": "studio"
+ },
+ {
+  "slug": "umbra",
+  "title": "umbra",
+  "category": "lighting",
+  "type": "project",
+  "description": "kate banazi and ryan mcgoldrick of rye. were introduced through localdesign. the two have similar ideologies on re-use, distortion and the manipulation of substrate and light and decided to work together to create an item that will be shown during milan design week 2017. the concept of the piece was to create a collaboration of two halves, where the juxtaposition of two practices and personalities meet whilst not compromising our individual voices. the aluminium light shades were hand spun in mittagong and hand finished at the workshop facilities in the university of canberra. they were then given their anodised finish by the team at f!nk design in queanbeyan.",
+  "specs": {
+   "collaboration": "kate banazi",
+   "exhibited": "milan design week 2017"
+  },
+  "images": [
+   "images/work/umbra-1.webp",
+   "images/work/umbra-2.webp",
+   "images/work/umbra-3.webp",
+   "images/work/umbra-4.webp",
+   "images/work/umbra-5.webp",
+   "images/work/umbra-6.webp",
+   "images/work/umbra-7.webp",
+   "images/work/umbra-8.webp"
+  ],
+  "group": "studio",
+  "honest": {
+   "made of": "spun aluminium shades",
+   "made in": "spun in mittagong, finished at the university of canberra, anodised by f!nk design in queanbeyan",
+   "finish": "anodised"
+  },
+  "detail": {
+   "image": 0,
+   "x": 60,
+   "y": 35,
+   "note": "the aluminium shades were hand spun in mittagong."
+  }
+ },
+ {
+  "slug": "kleingeld",
+  "title": "kleingeld",
+  "category": "object",
+  "type": "project",
+  "description": "Produced in either brass or aluminium the material selections are weighty and cool to the touch, the tactile feedback one experiences with metals has an innate value that subtly increases engagement and awareness of the present interaction. To remove coins that you need for the morning/day/evening you need to carefully extract them, the design features uncomfortably sharp lines to the touch, not harmful however if you are hasty in removing coins it is likely to be uncomfortable. Currently only produced for the Australian currency, other currencies can be made to order.",
+  "specs": {
+   "materials": "brass or aluminium"
+  },
+  "images": [
+   "images/work/kleingeld-1.webp",
+   "images/work/kleingeld-2.webp",
+   "images/work/kleingeld-3.webp"
+  ],
+  "group": "studio"
+ },
+ {
+  "slug": "kerbside",
+  "title": "kerbside",
+  "category": "packaging",
+  "type": "project",
+  "description": "working alongside local brewery ‘kerbside’ we were able to develop packaging designs for their debut packaged beer product. ‘kerbside’ have gone on since to receive multiple acolades from the craft beer community.",
+  "images": [
+   "images/work/kerbside-1.webp",
+   "images/work/kerbside-2.webp",
+   "images/work/kerbside-3.webp"
+  ],
+  "client": "Kerbside Brewery",
+  "group": "studio"
+ },
+ {
+  "slug": "dubai-world-expo",
+  "title": "dubai world expo",
+  "category": "product",
+  "type": "project",
+  "client": "S1T2 Creative",
+  "description": "Interactive pod stations for the world record breaking projection instalation for dubai world expo in 2022.",
+  "specs": {
+   "contribution": "Design and develop pod stations to resist extreme external temperature and dust conditions housing high powered computer hardware."
+  },
+  "images": [
+   "images/work/dubai-world-expo-1.webp",
+   "images/work/dubai-world-expo-2.webp",
+   "images/work/dubai-world-expo-3.webp",
+   "images/work/dubai-world-expo-4.webp",
+   "images/work/dubai-world-expo-5.webp",
+   "images/work/dubai-world-expo-6.webp"
+  ],
+  "group": "studio"
+ },
+ {
+  "slug": "frenchies-rebrand",
+  "title": "frenchies",
+  "category": "packaging",
+  "type": "project",
+  "client": "Frenchies Bistro & Brewery",
+  "description": "a collaboration with local bistro and brewery frenchies. the brief rebrand their entire beer range lineup for canning production.",
+  "specs": {
+   "award": "australian international beer awards 2018, silver medal, best packaging design"
+  },
+  "images": [
+   "images/work/frenchies-rebrand-1.webp",
+   "images/work/frenchies-rebrand-2.webp",
+   "images/work/frenchies-rebrand-3.webp",
+   "images/work/frenchies-rebrand-4.webp",
+   "images/work/frenchies-rebrand-5.webp",
+   "images/work/frenchies-rebrand-6.webp"
+  ],
+  "group": "studio"
+ },
+ {
+  "slug": "maltmade",
+  "title": "maltmade",
+  "category": "object",
+  "type": "project",
+  "group": "studio",
+  "client": "Bauhaus University Weimar",
+  "description": "MaltMade is a concept and proof of concept exploring what coasters within a commercial hospitality environment could be like, it looks to an alternative material perhaps better suited to disposability. malt roots, the material that is a by-product from the malting industry which this project is exploring the use of, are super absorbent and a natural fertiliser, which mean not only can they function as a coaster but they are actually good for the evironment when they are disposed of, and re-use what is already inter-industry waste to create a potential second income stream for pelleting manufacturers by making minor changes to the current infrastructure. the maltmade coasters when disposed act as a nutrious mulch, helping keep moisture in the soil, and when over time they breakdown provide substantial nutriants to the soil/compost.",
+  "specs": {
+   "course": "design a sustainable value chain, bauhaus exchange",
+   "material": "pelleted malt rootlets, guar / water binder"
+  },
+  "images": [
+   "images/work/maltmade-1.png",
+   "images/work/maltmade-2.jpg",
+   "images/work/maltmade-3.png",
+   "images/work/maltmade-4.png",
+   "images/work/maltmade-5.png"
+  ]
+ },
+ {
+  "slug": "osaka-world-expo-garden-totems",
+  "title": "osaka world expo garden totems",
+  "category": "product",
+  "client": "S1T2 Creative",
+  "description": "design a experience totem working with japanese manufacturer and international architecture firms for the United Arab Emirates.",
+  "type": "project",
+  "group": "studio",
+  "images": [
+   "images/work/osaka-hq-2.png",
+   "images/work/osaka-hq-1.png",
+   "images/work/osaka-hq-3.jpg",
+   "images/work/osaka-hq-4.png",
+   "images/work/osaka-hq-5.png"
+  ],
+  "specs": {
+   "contributions": "concept sketches, renderings, ideation and 3d cad and drawing package / dfm to install"
+  }
+ },
+ {
+  "slug": "rise-and-fall",
+  "title": "rise and fall",
+  "category": "object",
+  "client": "Jeremy Sheehan",
+  "description": "a collaboration with artist jeremy sheehan for sculptures by the sea.",
+  "specs": {
+   "medium": "recycled water bottles",
+   "exhibited": "sculptures by the sea, sydney, 2017"
+  },
+  "type": "project",
+  "group": "studio",
+  "images": [
+   "images/work/rise-hq-1.jpg",
+   "images/work/rise-hq-2.png",
+   "images/work/rise-hq-3.jpg",
+   "images/work/rise-hq-4.jpg",
+   "images/work/rise-hq-5.jpg"
+  ]
+ },
+ {
+  "slug": "tip-top",
+  "title": "top top",
+  "category": "object",
+  "type": "project",
+  "group": "studio",
+  "description": "a series of wall pieces made by melting down wasted single use plastic items from commonly used food packaging.",
+  "specs": {
+   "material": "reclaimed single use food packaging plastics"
+  },
+  "images": [
+   "images/work/tip-top-1.jpg",
+   "images/work/tip-top-2.jpg",
+   "images/work/tip-top-3.jpg",
+   "images/work/tip-top-4.jpg",
+   "images/work/tip-top-5.jpg"
+  ]
+ },
+ {
+  "slug": "heritage-dining-table",
+  "title": "heritage extension dining table",
+  "category": "furniture",
+  "type": "project",
+  "client": "King Living",
+  "description": "designed for king living the heritage extension dining table is a generous 6-10 seater extending dining table with a 1000mm extension (2.4m-3.4m). the design of the table features patent pending King SoftTouch Technology ® which was developed for this table. beyond the effortless assisted opening and closing the table features a unique steel frame that extends from the table top coupled through to the legs all the way to the floor. the table also smartly uses raw material resources with plywood making the core of the table design paired with thick american hardwood veneers. designed to last generations of dining moments. the table is also available as a 2.4m fixed version.",
+  "images": [
+   "images/heritage-dining-table-1.webp",
+   "images/work/heritage-new-1.png",
+   "images/work/heritage-new-2.png",
+   "images/work/heritage-new-3.png",
+   "images/work/heritage-new-4.png"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living.",
+  "honest": {
+   "made of": "plywood core with thick american hardwood veneers, steel frame",
+   "extends": "2.4m to 3.4m (1000mm extension)",
+   "designed to last": "generations of dining moments"
+  },
+  "exploded": {
+   "image": "images/work/heritage-new-4.png",
+   "ratio": "518/220",
+   "parts": [
+    {
+     "label": "hardwood veneer top",
+     "to": 39
+    },
+    {
+     "label": "steel frame + softtouch mechanism",
+     "to": 52
+    },
+    {
+     "label": "legs",
+     "to": 100
+    }
+   ]
+  },
+  "measure": {
+   "images/work/heritage-new-4.png": 3900
+  },
+  "detail": {
+   "image": 2,
+   "x": 50,
+   "y": 50,
+   "note": "patent pending king softtouch technology® assists opening and closing."
+  }
+ },
+ {
+  "slug": "heritage-oval-extension-dining-table",
+  "title": "heritage oval extension dining table",
+  "category": "furniture",
+  "type": "project",
+  "client": "King Living",
+  "description": "designed for king living the heritage extension dining table is a generous 6-8 seater extending dining table with a 800mm extension (1.8m-2.6m). the design of the table features patent pending King SoftTouch Technology ® which was developed for this table. beyond the effortless assisted opening and closing the table features a unique steel frame that extends from the table top coupled through to the legs all the way to the floor. the table also smartly uses raw material resources with plywood making the core of the table design paired with thick american hardwood veneers. designed to last generations of dining moments.",
+  "images": [
+   "images/heritage-oval-extension-dining-table-1.webp",
+   "images/heritage-oval-extension-dining-table-2.webp",
+   "images/heritage-oval-extension-dining-table-3.webp",
+   "images/heritage-oval-extension-dining-table-4.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living."
+ },
+ {
+  "slug": "heritage-coffee-table",
+  "title": "heritage coffee table",
+  "category": "furniture",
+  "type": "project",
+  "client": "King Living",
+  "description": "designed for king living the heritage coffee table range is made up of 6 unique shapes, sizes and heights. the design of the tables features elements from the heritage dining range generous proportions highlighting the natural beauty of timber grain with detailing underneath such as recessed steel plate mounting of the legs. the table also smartly uses raw material resources with plywood making the core of the table design paired with american hardwood veneers.",
+  "images": [
+   "images/heritage-coffee-table-1.webp",
+   "images/heritage-coffee-table-2.webp",
+   "images/heritage-coffee-table-3.webp",
+   "images/heritage-coffee-table-4.webp",
+   "images/heritage-coffee-table-5.webp",
+   "images/heritage-coffee-table-6.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living."
+ },
+ {
+  "slug": "tasman-dining-chair",
+  "title": "tasman dining chair",
+  "category": "furniture",
+  "type": "project",
+  "client": "King Living",
+  "description": "designed for king living the tasman dining chair feautres a slender profile and open-back creating the impression of minimal visual weight and spaciousness. stackable design up to 4 chairs it also integrates a steel frame and Postureflex® Seating System providing unparalleled comfort, surpassing that of traditional timber chairs. seat covers can be removed or replaced with ease. original design concept: pearson bulmer product development: ryan mcgoldrick, pearson bulmer.",
+  "images": [
+   "images/tasman-dining-chair-1.webp",
+   "images/tasman-dining-chair-2.webp",
+   "images/work/tasman-new-1.png",
+   "images/work/tasman-new-2.png",
+   "images/work/tasman-new-3.png"
+  ],
+  "group": "industry",
+  "credit": "Product development in my role as Industrial Designer at King Living, 2022–present. © King Living."
+ },
+ {
+  "slug": "magnolia-dining-table",
+  "title": "magnolia dining table",
+  "category": "furniture",
+  "type": "project",
+  "client": "King Living",
+  "description": "designed for king living, petite proportions unite with graceful form to create an understated silhouette at home in any space. select from two sizes and customise in four signature timber finishes. magnolia features an integrated lightweight steel frame to ensure longevity, a solid american hardwood timber border for the top, solid timber legs and generously thick veneer atop a plywood core. original design concept: pearson bulmer product development: ryan mcgoldrick, pearson bulmer",
+  "images": [
+   "images/magnolia-dining-table-1.webp",
+   "images/magnolia-dining-table-2.webp",
+   "images/magnolia-dining-table-3.webp",
+   "images/magnolia-dining-table-4.webp"
+  ],
+  "group": "industry",
+  "credit": "Product development in my role as Industrial Designer at King Living, 2022–present. © King Living."
+ },
+ {
+  "slug": "delta-coast-bed",
+  "title": "delta coast bed",
+  "category": "furniture",
+  "type": "project",
+  "client": "King Living",
+  "description": "designed for KING Living, the delta coast bed range features a relaxed coastal aesthetic with convienient hidden storage paired with an ultra plush head board perfect for lounging, reading and relaxing.",
+  "images": [
+   "images/work/delta-bed-1.png",
+   "images/work/delta-bed-2.png",
+   "images/work/delta-bed-3.png",
+   "images/work/delta-bed-4.png",
+   "images/work/delta-bed-5.png"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living."
+ },
+ {
+  "slug": "rodecasterpro2",
+  "title": "rodecaster pro II",
+  "category": "product",
+  "type": "project",
+  "client": "RØDE",
+  "description": "Working with the new product development team at RODE alongside two mechanical engineers we developed the Rodecaster Pro II an integrated audio production console for the consumer audio enthusiast market. Contributions: design and engineering of many facets of the product in addition to 3D rendering and visualisations for campaign imagery for packaging, socials, user guides and other areas.",
+  "images": [
+   "images/work/rodecasterpro2-1.webp",
+   "images/work/rodecasterpro2-2.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones."
+ },
+ {
+  "slug": "hullbot-autonomous-robot",
+  "title": "hullbot autonomous robot",
+  "category": "product",
+  "type": "project",
+  "client": "Hullbot",
+  "description": "Working with the team at Hullbot in their Sydney Office, Building the world’s most sophisticated underwater drone. Working as one of two industrial designers alongside a small team of electrical, software and mechanical engineers designed from the ground up to autonomously inspect, map and clean the hull of a boat without a human operator present. Hullbot stops the growth of marine organisms, improving performance and extending time between haul-outs. Since moving on from working with the team on the design and hardware I have assisted with generating visualisation assets.",
+  "images": [
+   "images/work/hullbot-autonomous-robot-1.webp",
+   "images/work/hullbot-autonomous-robot-2.webp",
+   "images/work/hullbot-autonomous-robot-3.webp",
+   "images/work/hullbot-autonomous-robot-4.jpg"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at Hullbot, 2017–2019. © Hullbot."
+ },
+ {
+  "slug": "evoriepackaging",
+  "title": "evorie baby packaging",
+  "category": "packaging",
+  "type": "project",
+  "client": "Blue Sky Design Group",
+  "description": "Designed with the team at blueskydesign group in their office in Sydney Australia for brand ‘evorie’. A comprehensive branding and packaging solution was developed along with visualisation assets.",
+  "images": [
+   "images/work/evoriepackaging-1.webp",
+   "images/work/evoriepackaging-2.webp",
+   "images/work/evoriepackaging-3.webp",
+   "images/work/evoriepackaging-4.webp",
+   "images/work/evoriepackaging-5.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at Blue Sky Design Group, 2019–2020. © Blue Sky Design Group."
+ },
+ {
+  "slug": "universal-thread-adapter-kit",
+  "title": "universal thread adapter kit",
+  "category": "product",
+  "type": "project",
+  "client": "RØDE",
+  "description": "Designed with the team at RØDE at their design and manufacturing facility in Sydney, Australia. The Thread Adaptor is a premium universal adaptor kit for mounting a range of devices onto any mic stand, boompole, tripod or studio arm. It features 1/4, 3/8, and 5/8 inch adaptors in a unique integrated set with a carabiner for safekeeping. These can be configured to connect any standard thread to any standard mount – a lifesaver on set, in the studio, or in the field – and it features a handy driver for tightening and loosening the adaptors. The Thread Adaptor features a bespoke design with a premium feel and finish – a must-have \"everyday carry\" accessory for sound engineers, filmmakers, and photographers.",
+  "images": [
+   "images/work/universal-thread-adapter-kit-1.webp",
+   "images/work/universal-thread-adapter-kit-2.webp",
+   "images/work/universal-thread-adapter-kit-3.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones."
+ },
+ {
+  "slug": "colours2",
+  "title": "colours 2",
+  "category": "product",
+  "type": "project",
+  "client": "RØDE",
+  "description": "colours 2 is a range of colour coding accessories to the wireless go 2 range to assist users with readily being able to identify what signal is attached to which audio channel.",
+  "specs": {
+   "contributions": "industrial design for the silicone cover attachment to the wireless go 2 product"
+  },
+  "images": [
+   "images/work/colours2-1.webp",
+   "images/work/colours2-2.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones."
+ },
+ {
+  "slug": "flex-clip-go-accessories",
+  "title": "flex clip go accessories",
+  "category": "product",
+  "type": "project",
+  "client": "RØDE",
+  "description": "Flex clip go accessories are a range of product solutioons to help improve the customer experience when using the Rode Wireless go II product range and micing up subjects for recordings.",
+  "specs": {
+   "contributions": "Industrial design and engineering"
+  },
+  "images": [
+   "images/work/flex-clip-go-accessories-main.png",
+   "images/work/flex-clip-go-accessories-1.webp",
+   "images/work/flex-clip-go-accessories-2.webp"
+  ],
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones."
+ },
+ {
+  "slug": "nth-100-headphones",
+  "title": "nth-100 headphones",
+  "category": "product",
+  "client": "RØDE",
+  "description": "product graphics for touch points, indicators and serial number, 3d model texturing for still and animation visualisations for outward marketing assets.",
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
+  "images": [
+   "images/work/nth-100-1.png",
+   "images/work/nth-100-2.png"
+  ]
+ },
+ {
+  "slug": "lavalier-2",
+  "title": "lavalier 2",
+  "category": "product",
+  "client": "RØDE",
+  "description": "to design a single shot over mould around newly specified microphone capsule, develop new strain relief design that can translate to future products with minimal mould complexity.",
+  "specs": {
+   "contributions": "early-mid stage product design 3d cad and dfm development, exploring possible new manufacturing methods to reduce cycle times and assembly costs."
+  },
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
+  "images": [
+   "images/work/lavalier-2-main.png",
+   "images/work/lavalier-2-r2.png"
+  ]
+ },
+ {
+  "slug": "micdrop",
+  "title": "micdrop",
+  "category": "product",
+  "client": "RØDE",
+  "description": "dfm to production design management, high volume cnc machining.",
+  "link": "https://rode.com/en-au/products/micdrop",
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
+  "images": [
+   "images/work/micdrop-main.png",
+   "images/work/micdrop-r2.png"
+  ]
+ },
+ {
+  "slug": "xdm-100",
+  "title": "xdm-100",
+  "category": "product",
+  "client": "RØDE",
+  "description": "dynamic usb microphone for streaming and gaming, part of the røde x range.",
+  "link": "https://rode.com/en-au/products/xdm-100",
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
+  "images": [
+   "images/work/xdm-100-main.png",
+   "images/work/xdm-100-r2.png",
+   "images/work/xdm-100-r3.png",
+   "images/work/xdm-100-r4.png",
+   "images/work/xdm-100-r5.png"
+  ]
+ },
+ {
+  "slug": "rode-hub",
+  "title": "rode hub",
+  "category": "product",
+  "client": "RØDE",
+  "description": "high-performance usb hub with six usb-c ports, sd and microsd card readers and pass-through charging.",
+  "link": "https://rode.com/en-au/products/rode-hub",
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
+  "images": [
+   "images/work/rode-hub-main.png",
+   "images/work/rode-hub-r2.png",
+   "images/work/rode-hub-r3.png",
+   "images/work/rode-hub-r4.png"
+  ]
+ },
+ {
+  "slug": "jasper-delta-coast-outdoor",
+  "title": "jasper / delta coast outdoor",
+  "category": "furniture",
+  "client": "King Living",
+  "description": "design an outdoor collection of furniture that carries over the indoor aesthetic of the range family whilst meaningfully differentiate the range from existing outdoor products and reduce the manufactured cost of the offerings.",
+  "specs": {
+   "contributions": "full end to end design of multiple modular sofas, reclining sunloungers, coffee tables, ottomans."
+  },
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living.",
+  "images": [
+   "images/work/coast-outdoor-circle-sofa.png"
+  ],
+  "thumb": "images/work/coast-outdoor-circle-sofa-thumb.png"
+ },
+ {
+  "slug": "magnolia-extension-dining-table",
+  "title": "magnolia extension dining table",
+  "category": "furniture",
+  "client": "King Living",
+  "description": "expand our offering of extension dining tables by creating a new mechanism and system to integrate into the magnolia dining table.",
+  "specs": {
+   "contributions": "full design end to end"
+  },
+  "type": "project",
+  "group": "industry",
+  "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living.",
+  "images": [
+   "images/work/magnolia-ext-a.png",
+   "images/work/magnolia-ext-b.png",
+   "images/work/magnolia-ext-c.png",
+   "images/work/magnolia-ext-d.png"
+  ]
+ }
+]
