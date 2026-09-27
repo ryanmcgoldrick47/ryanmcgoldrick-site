@@ -1,0 +1,97 @@
+[
+ {
+  "slug": "kleingeld",
+  "title": "kleingeld",
+  "category": "object",
+  "project": "kleingeld",
+  "price": "",
+  "description": "Produced in either brass or aluminium the material selections are weighty and cool to the touch, the tactile feedback one experiences with metals has an innate value that subtly increases engagement and awareness of the present interaction. To remove coins that you need for the morning/day/evening you need to carefully extract them, the design features uncomfortably sharp lines to the touch, not harmful however if you are hasty in removing coins it is likely to be uncomfortable. Currently only produced for the Australian currency, other currencies can be made to order.",
+  "options": [
+   {
+    "name": "brass",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   },
+   {
+    "name": "aluminium",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   }
+  ],
+  "specs": {
+   "made of": "brass or aluminium",
+   "made in": "wollongong, nsw",
+   "currency": "australian coins. other currencies made to order",
+   "dimensions": "to confirm",
+   "weight": "to confirm"
+  },
+  "shipping": "ships within australia. postage calculated at checkout.",
+  "images": [
+   "images/work/kleingeld-1.webp",
+   "images/work/kleingeld-2.webp",
+   "images/work/kleingeld-3.webp"
+  ],
+  "optionLabel": "finish"
+ },
+ {
+  "slug": "marly",
+  "title": "marly",
+  "category": "lighting",
+  "project": "marly",
+  "price": "",
+  "optionLabel": "configuration",
+  "description": "a simple, highly configurable light. utilitarian aesthetic in a modern minimalist form ‘marly’ is a cast aluminium light made in sydney, ‘marly’ can be specified as a sconce, wall washer, pendant (single or multiple configuration) table light and floor lamp.",
+  "options": [
+   {
+    "name": "sconce",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   },
+   {
+    "name": "wall washer",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   },
+   {
+    "name": "pendant",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   },
+   {
+    "name": "table",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   },
+   {
+    "name": "floor",
+    "price": "",
+    "status": "enquire",
+    "checkout": ""
+   }
+  ],
+  "specs": {
+   "made of": "cast aluminium",
+   "made in": "sydney",
+   "configurations": "sconce, wall washer, pendant (single or multiple), table, floor",
+   "dimensions": "to confirm",
+   "globe / fitting": "to confirm"
+  },
+  "shipping": "ships within australia. postage calculated at checkout.",
+  "images": [
+   "images/work/marly-1.webp",
+   "images/work/marly-2.webp",
+   "images/work/marly-3.webp",
+   "images/work/marly-4.webp",
+   "images/work/marly-5.webp",
+   "images/work/marly-6.webp",
+   "images/work/marly-7.webp",
+   "images/work/marly-8.webp"
+  ]
+ }
+]

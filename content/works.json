@@ -228,7 +228,7 @@
  },
  {
   "slug": "tip-top",
-  "title": "top top",
+  "title": "single use",
   "category": "object",
   "type": "project",
   "group": "studio",
@@ -401,8 +401,7 @@
   "images": [
    "images/work/hullbot-autonomous-robot-1.webp",
    "images/work/hullbot-autonomous-robot-2.webp",
-   "images/work/hullbot-autonomous-robot-3.webp",
-   "images/work/hullbot-autonomous-robot-4.jpg"
+   "images/work/hullbot-autonomous-robot-3.webp"
   ],
   "group": "industry",
   "credit": "Designed in my role as Industrial Designer at Hullbot, 2017–2019. © Hullbot."
