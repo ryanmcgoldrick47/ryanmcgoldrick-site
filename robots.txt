@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /1c/
+Disallow: /concepts.html
+Disallow: /*-1c.dc.html
