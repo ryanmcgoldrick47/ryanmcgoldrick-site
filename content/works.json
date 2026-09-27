@@ -188,7 +188,7 @@
       "material": "pelleted malt rootlets, guar / water binder"
     },
     "images": [
-      "images/work/maltmade-1.png",
+      "images/work/maltmade-1-web.webp",
       "images/work/maltmade-2.jpg",
       "images/work/maltmade-3.png",
       "images/work/maltmade-4.png",
@@ -205,7 +205,7 @@
     "type": "project",
     "group": "studio",
     "images": [
-      "images/work/osaka-hq-2.png",
+      "images/work/osaka-hq-2-web.webp",
       "images/work/osaka-hq-1.png",
       "images/work/osaka-hq-3.jpg",
       "images/work/osaka-hq-4.png",
@@ -229,7 +229,7 @@
     "type": "project",
     "group": "studio",
     "images": [
-      "images/work/rise-hq-1.jpg",
+      "images/work/rise-hq-1-web.webp",
       "images/work/rise-hq-2.png",
       "images/work/rise-hq-3.jpg",
       "images/work/rise-hq-4.jpg",
@@ -248,7 +248,7 @@
       "material": "reclaimed single use food packaging plastics"
     },
     "images": [
-      "images/work/tip-top-1.jpg",
+      "images/work/tip-top-1-web.webp",
       "images/work/tip-top-2.jpg",
       "images/work/tip-top-3.jpg",
       "images/work/tip-top-4.jpg",
@@ -385,7 +385,7 @@
     "client": "King Living",
     "description": "designed for KING Living, the delta coast bed range features a relaxed coastal aesthetic with convienient hidden storage paired with an ultra plush head board perfect for lounging, reading and relaxing.",
     "images": [
-      "images/work/delta-bed-1.png",
+      "images/work/delta-bed-1-web.webp",
       "images/work/delta-bed-2.png",
       "images/work/delta-bed-3.png",
       "images/work/delta-bed-4.png",
@@ -489,7 +489,7 @@
       "contributions": "Industrial design and engineering"
     },
     "images": [
-      "images/work/flex-clip-go-accessories-main.png",
+      "images/work/flex-clip-go-accessories-main-web.webp",
       "images/work/flex-clip-go-accessories-1.webp",
       "images/work/flex-clip-go-accessories-2.webp"
     ],
@@ -507,7 +507,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
     "images": [
-      "images/work/nth-100-1.png",
+      "images/work/nth-100-1-web.webp",
       "images/work/nth-100-2.png"
     ],
     "section": "products"
@@ -525,7 +525,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
     "images": [
-      "images/work/lavalier-2-main.png",
+      "images/work/lavalier-2-main-web.webp",
       "images/work/lavalier-2-r2.png"
     ],
     "section": "products"
@@ -541,7 +541,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
     "images": [
-      "images/work/micdrop-main.png",
+      "images/work/micdrop-main-web.webp",
       "images/work/micdrop-r2.png"
     ],
     "section": "products"
@@ -557,7 +557,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
     "images": [
-      "images/work/xdm-100-main.png",
+      "images/work/xdm-100-main-web.webp",
       "images/work/xdm-100-r2.png",
       "images/work/xdm-100-r3.png",
       "images/work/xdm-100-r4.png",
@@ -576,7 +576,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at RØDE, 2020–2022. © RØDE Microphones.",
     "images": [
-      "images/work/rode-hub-main.png",
+      "images/work/rode-hub-main-web.webp",
       "images/work/rode-hub-r2.png",
       "images/work/rode-hub-r3.png",
       "images/work/rode-hub-r4.png"
@@ -596,7 +596,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living.",
     "images": [
-      "images/work/coast-outdoor-circle-sofa.png"
+      "images/work/coast-outdoor-circle-sofa-web.webp"
     ],
     "thumb": "images/work/coast-outdoor-circle-sofa-thumb.png",
     "section": "products"
@@ -614,7 +614,7 @@
     "group": "industry",
     "credit": "Designed in my role as Industrial Designer at King Living, 2022–present. © King Living.",
     "images": [
-      "images/work/magnolia-ext-a.png",
+      "images/work/magnolia-ext-a-web.webp",
       "images/work/magnolia-ext-b.png",
       "images/work/magnolia-ext-c.png",
       "images/work/magnolia-ext-d.png"
