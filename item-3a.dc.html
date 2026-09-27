@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/svg+xml" href="favicon-3a.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#fff}
+  a{color:oklch(16% 0 0)}
+  a:hover{color:oklch(45% 0.16 320)}
+</style>
+<script src="./snake-3a.js"></script>
+<script src="./make-3a.js"></script>
+</helmet>
+<div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
+  <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="./" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
+    <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
+      <a href="projects" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">projects</a>
+      <a href="about" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
+      <a href="shop" style="background:oklch(84% 0 0);padding:6px 11px;text-decoration:none">shop</a>
+      <a href="contact" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+    </nav>
+  </header>
+
+  <section style="padding:40px clamp(20px,5vw,48px) 0">
+    <a href="shop" style="font-family:'Martian Mono',monospace;font-size:12px;text-decoration:none">← shop</a>
+  </section>
+
+  <section style="padding:40px clamp(20px,5vw,48px) 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
+    <div style="position:sticky;top:110px;display:flex;flex-direction:column;gap:24px">
+      <div data-snake="1">
+        <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-bottom:10px">shop / {{ category }}</div>
+        <h1 style="font-family:'Silkscreen',monospace;font-weight:400;font-size:clamp(40px,5.5vw,76px);line-height:0.95;margin:0;overflow-wrap:anywhere">{{ title }}</h1>
+        <div style="font-family:'DotGothic16',monospace;font-size:26px;margin-top:16px">{{ price }}</div>
+      </div>
+      <div data-snake="1" style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'Martian Mono',monospace;font-size:11px">{{ optionLabel }}</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ options }}" as="o" hint-placeholder-count="2">
+            <button onClick="{{ o.pick }}" style="font-family:'Martian Mono',monospace;font-size:12px;padding:9px 16px;cursor:pointer;border:2px solid oklch(16% 0 0);background:{{ o.bg }};color:oklch(16% 0 0)">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <sc-if value="{{ canBuy }}" hint-placeholder-val="{{ false }}">
+        <a data-snake="1" href="{{ checkout }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Silkscreen',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
+      </sc-if>
+      <sc-if value="{{ enquire }}" hint-placeholder-val="{{ false }}">
+        <a data-snake="1" href="{{ enquireHref }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Silkscreen',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
+        <span style="font-family:'Martian Mono',monospace;font-size:11px;margin-top:-12px">made to order. email for pricing and lead time.</span>
+      </sc-if>
+      <sc-if value="{{ cantBuy }}" hint-placeholder-val="{{ true }}">
+        <div data-snake="1" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(84% 0 0);padding:18px 22px;font-family:'Silkscreen',monospace;font-size:26px;color:oklch(40% 0 0)"><span>{{ buyLabel }}</span></div>
+        <a href="contact" style="font-family:'Martian Mono',monospace;font-size:12px;margin-top:-12px">→ ask about this piece</a>
+      </sc-if>
+      <p style="margin:0;font-family:'Martian Mono',monospace;font-size:11px;line-height:1.7;color:oklch(35% 0 0)"><span style="background:oklch(78% 0.08 300);padding:0 3px">{{ shipping }}</span>{{ checkoutNote }}</p>
+      <div data-snake="1" style="background:oklch(84% 0 0);padding:18px 20px;font-family:'Martian Mono',monospace;font-size:12.5px;line-height:1.7;text-wrap:pretty">{{ description }}</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <sc-for list="{{ images }}" as="img" hint-placeholder-count="0">
+        <div data-reveal="1" data-snake="1" style="position:relative;min-height:240px;background:oklch(84% 0 0);overflow:hidden">
+          <img loading="lazy" src="{{ img }}" alt="{{ title }}" style="width:100%;display:block" />
+          <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:0 clamp(20px,5vw,48px) 100px">
+    <div data-snake="1" style="background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:28px clamp(20px,3vw,36px) 20px;display:flex;flex-direction:column">
+      <div style="font-family:'Silkscreen',monospace;font-size:clamp(20px,2.4vw,28px);margin-bottom:18px;overflow-wrap:anywhere">honest specs // {{ title }}</div>
+      <sc-for list="{{ specs }}" as="r" hint-placeholder-count="0">
+        <div style="display:grid;grid-template-columns:minmax(110px,200px) minmax(0,1fr);gap:20px;padding:11px 0;border-top:1px dashed oklch(55% 0.1 105);font-family:'DotGothic16',monospace;font-size:15px;line-height:1.5"><span style="color:oklch(76% 0.14 105)">{{ r.k }}</span><span>{{ r.v }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ projectHref }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:0 clamp(20px,5vw,48px) 100px">
+      <a data-snake="1" href="{{ projectHref }}" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;text-decoration:none;border-top:1px solid oklch(85% 0 0);padding-top:28px">
+        <span style="font-family:'Silkscreen',monospace;font-size:clamp(36px,5vw,64px);line-height:1">the project →</span>
+        <span style="font-family:'DotGothic16',monospace;font-size:18px">how {{ title }} was made</span>
+      </a>
+    </section>
+  </sc-if>
+
+  <footer style="padding:24px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
+    <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
+    <span>wollongong, nsw</span>
+    <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { items: [], opt: 0 };
+  rootRef = React.createRef();
+  componentDidMount() {
+    const start = () => window.Snake3A ? (this.snake = window.Snake3A(this.rootRef.current, {})) : setTimeout(start, 50);
+    start();
+    fetch('content/shop.json').then(r => r.json()).then(items => this.setState({ items }));
+  }
+  componentWillUnmount() { this.snake && this.snake.destroy(); }
+  renderVals() {
+    const base = { rootRef: this.rootRef, options: [], images: [], specs: [], cantBuy: true, buyLabel: 'loading' };
+    const all = this.state.items; if (!all.length) return base;
+    const slug = new URLSearchParams(location.search).get('item');
+    const p = all.find(x => x.slug === slug) || all[0];
+    const opts = p.options || [];
+    const o = opts[this.state.opt] || {};
+    const price = o.price || p.price;
+    const canBuy = !!o.checkout && o.status === 'available';
+    return {
+      ...base, title: p.title, category: p.category, optionLabel: p.optionLabel || 'option', description: p.description, shipping: p.shipping || '',
+      price: price ? '$' + price + ' aud' : o.status === 'enquire' ? 'price on enquiry' : 'price tbc',
+      options: opts.map((x, i) => ({ label: x.name + (x.status === 'sold out' ? ' / sold out' : ''), bg: i === this.state.opt ? 'oklch(88% 0.18 105)' : '#fff', pick: () => this.setState({ opt: i }) })),
+      canBuy, enquire: o.status === 'enquire', cantBuy: !canBuy && o.status !== 'enquire', checkout: o.checkout || '',
+      enquireHref: 'contact',
+      checkoutNote: o.status === 'enquire' ? '' : ' secure checkout by square.',
+      buyLabel: o.status === 'sold out' ? 'sold out' : 'checkout soon',
+      images: p.images, specs: Object.entries(p.specs || {}).map(([k, v]) => ({ k, v })),
+      projectHref: p.project ? 'project?item=' + p.project : '',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -22,10 +22,10 @@
   <header style="position:sticky;top:0;z-index:10;background:oklch(97% 0.006 80);padding:22px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid oklch(86% 0.006 80)">
     <a href="#" style="font-family:'Martian Mono',monospace;font-weight:500;font-size:15px;letter-spacing:-0.02em;text-decoration:none">RYAN_MCGOLDRICK</a>
     <nav style="display:flex;flex-wrap:wrap;gap:28px;font-family:'Martian Mono',monospace;font-size:11px">
-      <a href="projects-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">01</span>projects</a>
-      <a href="about-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">02</span>about</a>
-      <a href="shop-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">03</span>shop</a>
-      <a href="contact-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">04</span>contact</a>
+      <a href="1c/projects" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">01</span>projects</a>
+      <a href="1c/about" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">02</span>about</a>
+      <a href="1c/shop" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">03</span>shop</a>
+      <a href="1c/contact" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">04</span>contact</a>
     </nav>
   </header>
 
@@ -58,7 +58,7 @@
         </a>
       </sc-for>
     </div>
-    <a href="projects-1c.dc.html" style="display:inline-block;margin-top:32px;font-family:'Martian Mono',monospace;font-size:11px;text-decoration:none;border-bottom:1px solid oklch(18% 0.01 60);padding-bottom:3px">all projects →</a>
+    <a href="1c/projects" style="display:inline-block;margin-top:32px;font-family:'Martian Mono',monospace;font-size:11px;text-decoration:none;border-bottom:1px solid oklch(18% 0.01 60);padding-bottom:3px">all projects →</a>
   </section>
 
   <section id="industry" style="padding:120px clamp(20px,5vw,48px) 0">
@@ -80,7 +80,7 @@
         </a>
       </sc-for>
     </div>
-    <a href="projects-1c.dc.html" style="display:inline-block;margin-top:32px;font-family:'Martian Mono',monospace;font-size:11px;text-decoration:none;border-bottom:1px solid oklch(18% 0.01 60);padding-bottom:3px">all projects →</a>
+    <a href="1c/projects" style="display:inline-block;margin-top:32px;font-family:'Martian Mono',monospace;font-size:11px;text-decoration:none;border-bottom:1px solid oklch(18% 0.01 60);padding-bottom:3px">all projects →</a>
   </section>
 
   <footer style="margin-top:140px;padding:22px clamp(20px,5vw,48px) 40px;border-top:1px solid oklch(18% 0.01 60);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
@@ -99,11 +99,11 @@ class Component extends DCLogic {
   renderVals() {
     const w = this.state.works;
     let n = 0;
-    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project-1c.dc.html?item=' + x.slug, index: String(++n).padStart(2, '0'),
+    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: '1c/project?item=' + x.slug, index: String(++n).padStart(2, '0'),
       meta: x.category + (x.group === 'industry' ? ' / ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
     return {
       studio: w.filter(x => x.group === 'studio' && x.images[0]).map(card).slice(0, 4),
-      industry: w.filter(x => x.group === 'industry' && x.images[0]).map(card).slice(0, 4),
+      industry: ['rodecasterpro2', 'xdm-100', 'hullbot-autonomous-robot', 'heritage-oval-extension-dining-table'].map(s => w.find(x => x.slug === s)).filter(x => x && x.images[0]).map(card),
     };
   }
 }

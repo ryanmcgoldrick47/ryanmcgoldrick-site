@@ -20,12 +20,12 @@
 </helmet>
 <div style="max-width:1440px;margin:0 auto;color:oklch(18% 0.01 60)">
   <header style="position:sticky;top:0;z-index:10;background:oklch(97% 0.006 80);padding:22px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid oklch(86% 0.006 80)">
-    <a href="concept-1c.dc.html" style="font-family:'Martian Mono',monospace;font-weight:500;font-size:15px;letter-spacing:-0.02em;text-decoration:none">RYAN_MCGOLDRICK</a>
+    <a href="1c/" style="font-family:'Martian Mono',monospace;font-weight:500;font-size:15px;letter-spacing:-0.02em;text-decoration:none">RYAN_MCGOLDRICK</a>
     <nav style="display:flex;flex-wrap:wrap;gap:28px;font-family:'Martian Mono',monospace;font-size:11px">
-      <a href="projects-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center"><span style="width:7px;height:7px;background:oklch(50% 0.11 40)"></span>projects</a>
-      <a href="about-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">02</span>about</a>
-      <a href="shop-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">03</span>shop</a>
-      <a href="contact-1c.dc.html" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">04</span>contact</a>
+      <a href="1c/projects" style="text-decoration:none;display:flex;gap:8px;align-items:center"><span style="width:7px;height:7px;background:oklch(50% 0.11 40)"></span>projects</a>
+      <a href="1c/about" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">02</span>about</a>
+      <a href="1c/shop" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">03</span>shop</a>
+      <a href="1c/contact" style="text-decoration:none;display:flex;gap:8px;align-items:center;color:oklch(46% 0.01 60)"><span style="font-size:9px;color:oklch(60% 0.01 60)">04</span>contact</a>
     </nav>
   </header>
   <section style="padding:40px clamp(20px,5vw,48px) 0;font-family:'Martian Mono',monospace;font-size:11px"><a href="{{ backHref }}" style="text-decoration:none;color:oklch(46% 0.01 60)">projects / {{ groupLabel }} /</a> {{ title }}</section>
@@ -109,8 +109,8 @@ class Component extends DCLogic {
       sqX: d && sqIn ? d.x : 4, sqY: d && sqIn ? d.y : 4, sqNoteOp: sqIn ? 1 : 0,
       title: w.title, description: w.description || '', specs,
       index: String(i + 1).padStart(2, '0'), eyebrow: ind ? 'industry' : 'studio', groupLabel: ind ? 'industry' : 'studio',
-      backHref: 'projects-1c.dc.html#' + (ind ? 'industry' : 'studio'), credit: w.credit ? w.credit.toLowerCase() : '',
-      nextHref: 'project-1c.dc.html?item=' + next.slug, nextLabel: String((i + 1) % ordered.length + 1).padStart(2, '0') + ' / ' + next.title,
+      backHref: '1c/projects#' + (ind ? 'industry' : 'studio'), credit: w.credit ? w.credit.toLowerCase() : '',
+      nextHref: '1c/project?item=' + next.slug, nextLabel: String((i + 1) % ordered.length + 1).padStart(2, '0') + ' / ' + next.title,
     };
   }
 }

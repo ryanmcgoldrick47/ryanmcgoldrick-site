@@ -24,17 +24,17 @@
   <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
     <a href="#" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
     <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
-      <a href="projects-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">projects</a>
-      <a href="about-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
-      <a href="shop-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
-      <a href="contact-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+      <a href="projects" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">projects</a>
+      <a href="about" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
+      <a href="shop" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
+      <a href="contact" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
     </nav>
   </header>
 
   <section style="position:relative;height:min(78vh,720px);min-height:460px;margin:0 clamp(20px,5vw,48px);overflow:hidden;background:oklch(93% 0 0)">
     <img src="images/work/step-1.webp" alt="step chair" style="width:100%;height:100%;object-fit:cover;display:block" />
     <div data-snake="1" style="position:absolute;left:32px;top:32px;max-width:calc(100% - 64px);width:460px;box-sizing:border-box;background:oklch(84% 0 0);padding:18px 20px;font-family:'Martian Mono',monospace;font-size:13px;line-height:1.65">a focus in honest, products that look to function, <span style="background:oklch(78% 0.08 300);padding:0 3px">material use</span> and playful spirit for inspiration.</div>
-    <a data-snake="1" href="project-3a.dc.html?item=step" style="position:absolute;right:0;bottom:0;background:oklch(84% 0 0);padding:14px 20px;font-family:'DotGothic16',monospace;font-size:16px;text-decoration:none">01 step / aluminium, kvadrat leather</a>
+    <a data-snake="1" href="project?item=step" style="position:absolute;right:0;bottom:0;background:oklch(84% 0 0);padding:14px 20px;font-family:'DotGothic16',monospace;font-size:16px;text-decoration:none">01 step / aluminium, kvadrat leather</a>
   </section>
 
   <section id="studio" style="padding:110px clamp(20px,5vw,48px) 0">
@@ -53,7 +53,7 @@
         </a>
       </sc-for>
     </div>
-    <a data-snake="1" href="projects-3a.dc.html" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
+    <a data-snake="1" href="projects" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
   </section>
 
   <section id="industry" style="padding:120px clamp(20px,5vw,48px) 0">
@@ -72,7 +72,7 @@
         </a>
       </sc-for>
     </div>
-    <a data-snake="1" href="projects-3a.dc.html" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
+    <a data-snake="1" href="projects" style="display:inline-block;margin-top:28px;font-family:'Martian Mono',monospace;font-size:12px;background:oklch(84% 0 0);padding:8px 12px;text-decoration:none">all projects →</a>
   </section>
 
   <section style="padding:120px clamp(20px,5vw,48px) 80px">
@@ -156,10 +156,10 @@ class Component extends DCLogic {
   renderVals() {
     const w = this.state.works;
     let n = 0;
-    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project-3a.dc.html?item=' + x.slug, index: String(++n).padStart(2, '0'),
+    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project?item=' + x.slug, index: String(++n).padStart(2, '0'),
       meta: x.category + (x.group === 'industry' ? ' / for ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
     const studio = w.filter(x => x.group === 'studio' && x.images[0]).map(card).slice(0, 4);
-    const industry = w.filter(x => x.group === 'industry' && x.images[0]).map(card).slice(0, 4);
+    const industry = ['rodecasterpro2', 'xdm-100', 'hullbot-autonomous-robot', 'heritage-oval-extension-dining-table'].map(s => w.find(x => x.slug === s)).filter(x => x && x.images[0]).map(card);
     const Y = 'oklch(88% 0.18 105)';
     const snake = (this.props.showSnake ?? true) ? React.createElement('svg', { ref: this.svgRef, style: { position: 'absolute', left: 0, top: 0, pointerEvents: 'none', zIndex: 20, overflow: 'visible' } },
       React.createElement('path', { ref: this.pathRef, fill: 'none', stroke: Y, strokeWidth: 4, strokeLinejoin: 'miter', strokeLinecap: 'square' }),

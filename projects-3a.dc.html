@@ -21,12 +21,12 @@
 </helmet>
 <div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
   <header style="position:sticky;top:0;z-index:10;background:#fff;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-    <a href="concept-3a.dc.html" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
+    <a href="./" style="font-family:'Silkscreen',monospace;font-size:24px;text-decoration:none">ryan mcgoldrick</a>
     <nav style="display:flex;flex-wrap:wrap;gap:6px;font-family:'Martian Mono',monospace;font-size:12px">
-      <a href="projects-3a.dc.html" style="background:oklch(84% 0 0);padding:6px 11px;text-decoration:none">projects</a>
-      <a href="about-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
-      <a href="shop-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
-      <a href="contact-3a.dc.html" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
+      <a href="projects" style="background:oklch(84% 0 0);padding:6px 11px;text-decoration:none">projects</a>
+      <a href="about" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">about</a>
+      <a href="shop" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">shop</a>
+      <a href="contact" style="padding:6px 11px;text-decoration:none" style-hover="background:oklch(84% 0 0)">contact</a>
     </nav>
   </header>
   <section style="padding:70px clamp(20px,5vw,48px) 50px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
@@ -40,7 +40,7 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
       <sc-for list="{{ studio }}" as="p" hint-placeholder-count="0">
-        <a data-snake="1" href="{{ p.href }}" onMouseEnter="{{ p.onEnter }}" style="text-decoration:none;display:block">
+        <a data-snake="1" data-read="{{ p.read }}" href="{{ p.href }}" onMouseEnter="{{ p.onEnter }}" style="text-decoration:none;display:block">
           <div data-reveal="1" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:oklch(93% 0 0)">
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
@@ -58,7 +58,7 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
       <sc-for list="{{ industry }}" as="p" hint-placeholder-count="0">
-        <a data-snake="1" href="{{ p.href }}" onMouseEnter="{{ p.onEnter }}" style="text-decoration:none;display:block">
+        <a data-snake="1" data-read="{{ p.read }}" href="{{ p.href }}" onMouseEnter="{{ p.onEnter }}" style="text-decoration:none;display:block">
           <div data-reveal="1" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:oklch(93% 0 0)">
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
@@ -69,7 +69,7 @@
       </sc-for>
     </div>
   </section>
-  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:11px clamp(20px,5vw,48px);font-family:'DotGothic16',monospace;font-size:14px;letter-spacing:0.04em;display:flex;gap:2px;white-space:nowrap;overflow:hidden"><span style="overflow:hidden;text-overflow:ellipsis">{{ typed }}</span><span style="opacity:{{ caretOp }}">█</span></div>
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:11px clamp(20px,5vw,48px);font-family:'DotGothic16',monospace;font-size:14px;letter-spacing:0.04em;display:flex;justify-content:flex-end;gap:2px;white-space:nowrap;overflow:hidden"><span style="overflow:hidden;text-overflow:ellipsis;max-width:60%">{{ typed }}</span><span style="opacity:{{ caretOp }}">█</span></div>
   <footer style="padding:24px clamp(20px,5vw,48px) 80px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:11px">
     <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
     <span>wollongong, nsw</span>
@@ -79,7 +79,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showSnake&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;snakeSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:420,&quot;min&quot;:100,&quot;max&quot;:1200,&quot;step&quot;:20,&quot;unit&quot;:&quot;px/s&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;snakeLength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:280,&quot;min&quot;:60,&quot;max&quot;:800,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
 class Component extends DCLogic {
-  state = { works: [], cv: null, read: 'HOVER A PROJECT TO READ ITS MATERIALS', n: 0, caret: true };
+  state = { works: [], cv: null, read: window.matchMedia('(hover: hover)').matches ? 'HOVER A PROJECT TO READ ITS MATERIALS' : 'SCROLL TO READ MATERIALS', n: 0, caret: true };
   rootRef = React.createRef();
   componentDidMount() {
     const start = () => window.Snake3A ? (this.snake = window.Snake3A(this.rootRef.current, { speed: this.props.snakeSpeed, length: this.props.snakeLength, show: this.props.showSnake })) : setTimeout(start, 50);
@@ -89,7 +89,12 @@ class Component extends DCLogic {
     this.tt = setInterval(() => { if (this.state.n < this.state.read.length) this.setState(s => ({ n: Math.min(s.read.length, s.n + 2) })); }, 30);
     this.ct = setInterval(() => this.setState(s => ({ caret: !s.caret })), 500);
   }
-  componentWillUnmount() { this.snake && this.snake.destroy(); clearInterval(this.tt); clearInterval(this.ct); }
+  componentDidUpdate() {
+    if (window.matchMedia('(hover: hover)').matches || !this.rootRef.current) return;
+    if (!this.rio) this.rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const t = e.target.getAttribute('data-read'); if (t && t !== this.state.read) this.setState({ read: t, n: 0 }); } }), { rootMargin: '-45% 0px -45% 0px' });
+    this.rootRef.current.querySelectorAll('[data-read]').forEach(el => { if (!el.dataset.rio) { el.dataset.rio = 1; this.rio.observe(el); } });
+  }
+  componentWillUnmount() { this.snake && this.snake.destroy(); clearInterval(this.tt); clearInterval(this.ct); this.rio && this.rio.disconnect(); }
   readout(x) {
     const h = x.honest || {}, sp = x.specs || {};
     const parts = [];
@@ -103,8 +108,8 @@ class Component extends DCLogic {
   renderVals() {
     const w = this.state.works, cv = this.state.cv || { academia: [], experience: [], awards: [] };
     let n = 0;
-    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project-3a.dc.html?item=' + x.slug, index: String(++n).padStart(2, '0'),
-      onEnter: () => { const t = this.readout(x); if (t !== this.state.read) this.setState({ read: t, n: 0 }); },
+    const card = x => ({ name: x.title, image: x.thumb || x.images[0], href: 'project?item=' + x.slug, index: String(++n).padStart(2, '0'),
+      read: this.readout(x), onEnter: () => { const t = this.readout(x); if (t !== this.state.read) this.setState({ read: t, n: 0 }); },
       meta: x.category + (x.group === 'industry' ? ' / for ' + x.client.toLowerCase() : x.client ? ' / w. ' + x.client.toLowerCase() : '') });
     const studio = w.filter(x => x.group === 'studio' && x.images[0]).map(card);
     const industry = w.filter(x => x.group === 'industry' && x.images[0]).map(card);
