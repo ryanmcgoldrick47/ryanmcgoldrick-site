@@ -3,14 +3,15 @@
   const NS = 'http://www.w3.org/2000/svg';
   function Snake3A(root, opts) {
     opts = opts || {};
+    const lite = matchMedia('(hover: none)').matches || (/Safari/.test(navigator.userAgent) && !/Chrome|Chromium|Android/.test(navigator.userAgent));
     const speed = () => opts.speed || 420, L = () => opts.length || 280;
     const svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('style', 'position:absolute;left:0;top:0;pointer-events:none;z-index:20;overflow:visible');
     const path = document.createElementNS(NS, 'path');
     const PB = 'oklch(42% 0.005 260)', fid = 'rmPencil' + Math.random().toString(36).slice(2, 7);
     const defs = document.createElementNS(NS, 'defs');
-    defs.innerHTML = '<filter id="' + fid + '" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/><feComponentTransfer in="n" result="g"><feFuncA type="linear" slope="1.6" intercept="-0.25"/></feComponentTransfer><feComposite in="d" in2="g" operator="in"/></filter>';
-    svg.appendChild(defs);
+    defs.innerHTML = '<filter id="' + fid + '" filterUnits="userSpaceOnUse" x="0" y="0" width="10" height="10"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/><feComponentTransfer in="n" result="g"><feFuncA type="linear" slope="1.6" intercept="-0.25"/></feComponentTransfer><feComposite in="d" in2="g" operator="in"/></filter>';
+    svg.appendChild(defs); const flt = defs.firstChild;
     path.setAttribute('fill', 'none'); path.setAttribute('stroke', PB); path.setAttribute('stroke-width', '1.8'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round'); path.setAttribute('opacity', '0.75'); path.setAttribute('filter', 'url(#' + fid + ')');
     const head = document.createElementNS(NS, 'rect');
     head.setAttribute('width', '3'); head.setAttribute('height', '3'); head.setAttribute('rx', '1.5'); head.setAttribute('fill', PB); head.setAttribute('transform', 'translate(3.5,3.5)');
@@ -39,12 +40,14 @@
       return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * k, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * k];
     }
     function tick(now) {
+      if (lite && last && now - last < 30) { raf = requestAnimationFrame(tick); return; }
       const dt = last ? Math.min(now - last, 50) : 16; last = now;
       if (pts.length > 1 && opts.show !== false) {
         pos = (pos + speed() * dt / 1000) % (total + L());
         path.setAttribute('stroke-dasharray', L() + ' ' + (total + L()));
         path.setAttribute('stroke-dashoffset', String(-(pos - L())));
-        const h = pointAt(Math.min(pos, total));
+        const h = pointAt(Math.min(pos, total)), m = L() + 16;
+        flt.setAttribute('x', h[0] - m); flt.setAttribute('y', h[1] - m); flt.setAttribute('width', m * 2); flt.setAttribute('height', m * 2);
         head.setAttribute('x', h[0] - 5); head.setAttribute('y', h[1] - 5); head.setAttribute('opacity', pos > total ? 0 : 1);
         const idx = nodeAt.findIndex(n => Math.abs(n - pos) < 14);
         if (idx >= 0 && idx !== lastNode) {
@@ -66,7 +69,7 @@
       const c = cv.getContext('2d'); c.fillStyle = G; c.fillRect(0, 0, W, H);
       const cell = Math.max(24, Math.round(W / 18)), cols = Math.ceil(W / cell), rows = Math.ceil(H / cell), order = [];
       for (let y = 0; y < rows; y++) for (let i = 0; i < cols; i++) order.push([y % 2 ? cols - 1 - i : i, y]);
-      const per = Math.max(1, Math.ceil(order.length / (opts.revealFrames || 55))), len = Math.max(6, Math.round(cols * 0.8));
+      const per = Math.max(1, Math.ceil(order.length / (opts.revealFrames || 18))), len = Math.max(6, Math.round(cols * 0.8));
       const body = []; let k = 0;
       (function frame() {
         body.forEach(([x, y]) => c.clearRect(x * cell, y * cell, cell, cell));
@@ -79,9 +82,8 @@
     }
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return; io.unobserve(e.target);
-      const img = e.target.querySelector('img'), go = () => requestAnimationFrame(() => reveal(e.target));
-      if (!img || (img.complete && img.naturalHeight)) go(); else img.addEventListener('load', go, { once: true });
-    }), { threshold: 0.15 });
+      requestAnimationFrame(() => reveal(e.target));
+    }), { threshold: 0.01, rootMargin: '0px 0px 120px 0px' });
     const ro = new ResizeObserver(relayout); ro.observe(root);
     const mo = new MutationObserver(m => { if (m.some(x => ![...x.addedNodes, ...x.removedNodes].includes(svg) && x.target !== svg && !svg.contains(x.target))) relayout(); });
     mo.observe(root, { childList: true, subtree: true });
