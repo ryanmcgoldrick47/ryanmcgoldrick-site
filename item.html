@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-AU">
 <head>
 <base href="item-3a.dc.html">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop | Ryan McGoldrick</title>
+<meta name="description" content="A piece designed and made in small runs by Ryan McGoldrick in Wollongong, Australia.">
+<link rel="canonical" href="https://ryanmcgoldrick.com/item">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ryan McGoldrick">
+<meta property="og:title" content="Shop | Ryan McGoldrick">
+<meta property="og:description" content="A piece designed and made in small runs by Ryan McGoldrick in Wollongong, Australia.">
+<meta property="og:image" content="https://ryanmcgoldrick.com/brand/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://ryanmcgoldrick.com/item">
+<meta name="twitter:card" content="summary_large_image">
+<script src="seo-3a.js" defer></script>
+
 <script src="./support.js"></script>
 </head>
 <body>
@@ -26,6 +40,8 @@
 <script>(function(){function chk(){document.querySelectorAll('[data-fadein]').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight-40)el.classList.add('on');else el.classList.remove('on');});}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);setInterval(chk,800);})();</script>
 <script src="radio-card.js"></script>
 <style>html,body{overflow-x:clip}</style>
+<script src="place-3a.js"></script>
+<script src="alert-3a.js"></script>
 </helmet>
 <div ref="{{ rootRef }}" style="position:relative;max-width:1440px;margin:0 auto;color:oklch(16% 0 0)">
   <header style="position:relative;z-index:10;padding:24px clamp(20px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
@@ -66,6 +82,16 @@
         <a data-snake="1" href="{{ enquireHref }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Silkscreen',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
         <span style="font-family:'Martian Mono',monospace;font-size:13px;margin-top:-12px">made to order. email for pricing and lead time.</span>
       </sc-if>
+      <sc-if value="{{ soldOut }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px"><span style="font-family:'Martian Mono',monospace;font-size:13px">sold out. get an email when it's back:</span>
+        <form data-alert="1" action="https://formspree.io/f/xppwonll" method="POST" style="display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;font-family:'Martian Mono',monospace;font-size:13px;max-width:640px">
+      <input type="hidden" name="_subject" value="stock alert sign-up">
+      <input type="hidden" name="item" value="{{ alertItem }}">
+      <input type="email" name="email" required="{{ true }}" placeholder="your email" aria-label="email for stock alerts" style="flex:1 1 220px;min-width:0;font:inherit;padding:14px 14px;border:none;box-shadow:inset 0 0 0 1px oklch(16% 0 0);background:#fff;color:oklch(16% 0 0);border-radius:0">
+      <button type="submit" style="font:inherit;padding:14px 18px;border:none;background:oklch(16% 0 0);color:#fff;cursor:pointer" style-hover="background:oklch(45% 0.16 320)">notify me</button>
+      <span data-alert-msg="1" aria-live="polite" style="flex-basis:100%;font-size:12px;line-height:1.6"></span>
+    </form></div>
+      </sc-if>
       <sc-if value="{{ cantBuy }}" hint-placeholder-val="{{ true }}">
         <div data-snake="1" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(84% 0 0);padding:18px 22px;font-family:'Silkscreen',monospace;font-size:26px;color:oklch(40% 0 0)"><span>{{ buyLabel }}</span></div>
         <a href="contact" style="font-family:'Martian Mono',monospace;font-size:12px;margin-top:-12px">→ ask about this piece</a>
@@ -104,7 +130,7 @@
 
   <footer style="padding:14px clamp(20px,5vw,48px) 14px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:13px">
     <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
-    <span>wollongong, nsw</span>
+    <span data-place="type">wollongong, australia</span>
     <a href="https://www.instagram.com/ryan__mcgoldrick" style="text-decoration:none">instagram</a>
   </footer>
   <footer data-fadein="1" style="position:relative;z-index:10;padding:14px clamp(20px,5vw,48px) 64px;margin-top:0;border-top:1px solid oklch(16% 0 0);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
@@ -144,7 +170,7 @@ class Component extends DCLogic {
       price: price ? '$' + price + ' aud' : o.status === 'enquire' ? 'price on enquiry' : 'price tbc',
       options: opts.map((x, i) => ({ label: x.name + (x.status === 'sold out' ? ' / sold out' : ''), bg: i === this.state.opt ? 'oklch(88% 0.18 105)' : '#fff', pick: () => this.setState({ opt: i }) })),
       canBuy, enquire: o.status === 'enquire', cantBuy: !canBuy && o.status !== 'enquire', checkout: o.checkout || '',
-      enquireHref: 'contact',
+      enquireHref: 'contact', soldOut: o.status === 'sold out', alertItem: p.title + (o.name ? ' / ' + o.name : ''),
       checkoutNote: o.status === 'enquire' ? '' : ' secure checkout by square.',
       buyLabel: o.status === 'sold out' ? 'sold out' : 'checkout soon',
       images: p.images, specs: Object.entries(p.specs || {}).map(([k, v]) => ({ k, v })),

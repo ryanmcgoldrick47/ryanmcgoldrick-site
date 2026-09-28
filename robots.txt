@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /1c/
 Disallow: /concepts.html
 Disallow: /*-1c.dc.html
+
+Sitemap: https://ryanmcgoldrick.com/sitemap.xml
