@@ -18,8 +18,17 @@
       document.title = p.title + (p.client ? ' for ' + p.client : '') + ' | ' + NAME;
       meta('name', 'description', desc); meta('property', 'og:title', document.title); meta('property', 'og:description', desc); meta('property', 'og:image', img); meta('property', 'og:url', location.href);
       var c = document.head.querySelector('link[rel="canonical"]'); if (c) c.href = SITE + location.pathname + '?item=' + slug;
-      ld(isItem ? { '@context': 'https://schema.org', '@type': 'Product', name: p.title, description: desc, image: (p.images || []).map(abs), brand: { '@type': 'Brand', name: NAME }, material: p.specs && p.specs.materials }
-        : { '@context': 'https://schema.org', '@type': 'CreativeWork', name: p.title, description: desc, image: (p.images || []).map(abs), creator: { '@type': 'Person', name: NAME } }, 'rm-ld-page');
+      var work = { '@context': 'https://schema.org', '@type': 'CreativeWork', name: p.title, description: desc, image: (p.images || []).map(abs), creator: { '@type': 'Person', name: NAME } };
+      if (!isItem) { ld(work, 'rm-ld-page'); return; }
+      // Product markup only when the shop item has a real price; Google flags a Product with no offer as invalid.
+      fetch('content/shop.json').then(function (r) { return r.json(); }).then(function (shop) {
+        var it = shop.filter(function (x) { return x.slug === slug; })[0] || {};
+        var offers = (it.options || [{ name: '', price: it.price, status: it.status }]).map(function (o) {
+          var n = parseFloat(String(o.price || '').replace(/[^0-9.]/g, ''));
+          return isNaN(n) || !n ? null : { '@type': 'Offer', name: o.name || undefined, price: n.toFixed(2), priceCurrency: 'AUD', url: location.href, availability: 'https://schema.org/' + (o.status === 'sold out' ? 'OutOfStock' : 'InStock') };
+        }).filter(Boolean);
+        ld(offers.length ? { '@context': 'https://schema.org', '@type': 'Product', name: p.title, description: desc, image: (p.images || []).map(abs), brand: { '@type': 'Brand', name: NAME }, material: p.specs && p.specs.materials, offers: offers } : work, 'rm-ld-page');
+      }).catch(function () { ld(work, 'rm-ld-page'); });
     }
   }).catch(function () {});
 })();
