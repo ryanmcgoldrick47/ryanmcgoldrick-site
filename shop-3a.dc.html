@@ -22,11 +22,12 @@
 <body>
 <x-dc>
 <helmet>
+<script src="frost-3a.js"></script>
 <meta name="color-scheme" content="light only">
 <style>html{background:#fff;color-scheme:light only}</style>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   body{margin:0;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px}
   a{color:oklch(16% 0 0)}
@@ -59,7 +60,7 @@
   </section>
   <sc-if value="{{ thanks }}" hint-placeholder-val="{{ false }}">
     <section style="padding:0 clamp(20px,5vw,48px) 40px">
-      <div style="background:oklch(88% 0.18 105);padding:20px 24px;font-family:'DotGothic16',monospace;font-size:17px;line-height:1.5">thanks for your order. a receipt is on its way to your inbox, and your piece ships within a few business days.</div>
+      <div style="background:oklch(88% 0.18 105);padding:20px 24px;font-family:'Martian Mono',monospace;font-size:17px;line-height:1.5">thanks for your order. a receipt is on its way to your inbox, and your piece ships within a few business days.</div>
     </section>
   </sc-if>
   <section style="padding:0 clamp(20px,5vw,48px) 80px">
@@ -73,7 +74,7 @@
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
           </div>
-          <div style="display:flex;justify-content:space-between;gap:12px;font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px"><span>{{ p.name }}</span><span>{{ p.price }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:12px;font-family:'Martian Mono',monospace;font-size:16px;margin-top:12px"><span>{{ p.name }}</span><span>{{ p.price }}</span></div>
           <div style="margin-top:5px"><span style="font-family:'Martian Mono',monospace;font-size:12.5px;background:oklch(78% 0.08 300);padding:2px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.meta }}</span></div>
         </a>
       </sc-for>
@@ -81,7 +82,7 @@
   </section>
   <section style="padding:0 clamp(20px,5vw,48px) 110px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:24px">
-      <span style="font-family:'DotGothic16',monospace;font-size:18px">not listed yet</span>
+      <span style="font-family:'Martian Mono',monospace;font-size:18px">not listed yet</span>
       <a href="contact" style="display:inline-block;padding:12px 0;font-family:'Martian Mono',monospace;font-size:14px">→ ask about a piece</a>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:24px">
@@ -91,7 +92,7 @@
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
           </div>
-          <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
+          <div style="font-family:'Martian Mono',monospace;font-size:16px;margin-top:12px">{{ p.index }} {{ p.name }}</div>
           <div style="margin-top:5px"><span style="font-family:'Martian Mono',monospace;font-size:12.5px;background:oklch(78% 0.08 300);padding:2px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.meta }}</span></div>
         </a>
       </sc-for>

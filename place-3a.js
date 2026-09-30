@@ -22,7 +22,7 @@
       var idx = 0, mode = el.getAttribute('data-place'), L = el.hasAttribute('data-place-short') ? ['wollongong', 'dharawal country', 'south coast'] : PL;
       setTimeout(function tick() {
         var from = el.textContent, to = L[(idx = (idx + 1) % L.length)];
-        (mode === 'type' ? type : scramble)(el, from, to);
+        type(el, from, to);
         setTimeout(tick, 5200);
       }, 3200 + j * 900);
     });

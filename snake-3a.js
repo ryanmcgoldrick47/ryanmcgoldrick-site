@@ -24,7 +24,14 @@
       nodes = [...root.querySelectorAll('[data-snake]')].filter(n => n.offsetParent !== null);
       const a = nodes.map(n => { const r = n.getBoundingClientRect(); return [Math.round(r.left - rb.left - 12), Math.round(r.top - rb.top - 12)]; });
       pts = [];
-      a.forEach((p, i) => { if (i) pts.push([p[0], pts[pts.length - 1][1]]); pts.push(p); });
+      if (opts.serpentine) {
+        const idx = a.map((p, i) => i).sort((i, j) => a[i][1] - a[j][1] || a[i][0] - a[j][0]);
+        const rows = []; idx.forEach(i => { const r = rows[rows.length - 1]; if (r && Math.abs(a[r[0]][1] - a[i][1]) < 40) r.push(i); else rows.push([i]); });
+        const ord = []; let lx = a[rows[0][0]][0]; rows.forEach(r => { r.sort((i, j) => a[i][0] - a[j][0]); if (Math.abs(a[r[r.length - 1]][0] - lx) < Math.abs(a[r[0]][0] - lx)) r.reverse(); ord.push(...r); lx = a[r[r.length - 1]][0]; });
+        nodes = ord.map(i => nodes[i]); const b = ord.map(i => a[i]);
+        b.forEach((p, i) => { if (i) pts.push([pts[pts.length - 1][0], p[1]]); pts.push(p); });
+        a.length = 0; a.push(...b);
+      } else a.forEach((p, i) => { if (i) pts.push([p[0], pts[pts.length - 1][1]]); pts.push(p); });
       cum = [0];
       for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.abs(pts[i][0] - pts[i - 1][0]) + Math.abs(pts[i][1] - pts[i - 1][1]));
       total = cum[cum.length - 1] || 1;
@@ -50,7 +57,7 @@
         flt.setAttribute('x', h[0] - m); flt.setAttribute('y', h[1] - m); flt.setAttribute('width', m * 2); flt.setAttribute('height', m * 2);
         head.setAttribute('x', h[0] - 5); head.setAttribute('y', h[1] - 5); head.setAttribute('opacity', pos > total ? 0 : 1);
         const idx = nodeAt.findIndex(n => Math.abs(n - pos) < 14);
-        if (idx >= 0 && idx !== lastNode) {
+        if (idx >= 0 && idx !== lastNode && !opts.noHighlight) {
           lastNode = idx; const el = nodes[idx];
           if (el) { el.style.transition = 'outline-color 0.8s'; el.style.outline = '3px solid ' + YEL; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outlineColor = 'transparent'; }, 700); }
         }
@@ -58,28 +65,10 @@
       raf = requestAnimationFrame(tick);
     }
     function cover(w) {
-      const cv = w.querySelector('canvas'); if (!cv) return;
-      const r = w.getBoundingClientRect(); cv.width = Math.max(1, r.width); cv.height = Math.max(1, r.height);
-      const c = cv.getContext('2d'); c.fillStyle = G; c.fillRect(0, 0, cv.width, cv.height);
+      const cv = w.querySelector('canvas'); if (cv) cv.style.display = 'none';
+      w.style.background = '#fff';
     }
-    function reveal(w) {
-      w.style.minHeight = '0';
-      const cv = w.querySelector('canvas'); if (!cv) return;
-      const r = w.getBoundingClientRect(), W = r.width, H = r.height; cv.width = W; cv.height = H;
-      const c = cv.getContext('2d'); c.fillStyle = G; c.fillRect(0, 0, W, H);
-      const cell = Math.max(24, Math.round(W / 18)), cols = Math.ceil(W / cell), rows = Math.ceil(H / cell), order = [];
-      for (let y = 0; y < rows; y++) for (let i = 0; i < cols; i++) order.push([y % 2 ? cols - 1 - i : i, y]);
-      const per = Math.max(1, Math.ceil(order.length / (opts.revealFrames || 18))), len = Math.max(6, Math.round(cols * 0.8));
-      const body = []; let k = 0;
-      (function frame() {
-        body.forEach(([x, y]) => c.clearRect(x * cell, y * cell, cell, cell));
-        for (let s = 0; s < per && k < order.length; s++, k++) { const p = order[k]; c.clearRect(p[0] * cell, p[1] * cell, cell, cell); body.push(p); if (body.length > len) body.shift(); }
-        if (k >= order.length && body.length) body.splice(0, per);
-        c.fillStyle = YEL;
-        body.forEach(([x, y], i) => { const g = i === body.length - 1 ? 1 : 3; c.fillRect(x * cell + g, y * cell + g, cell - g * 2, cell - g * 2); });
-        if (k < order.length || body.length) requestAnimationFrame(frame); else cv.style.display = 'none';
-      })();
-    }
+    function reveal(w) { w.dataset.rv = '1'; w.style.minHeight = '0'; }
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return; io.unobserve(e.target);
       requestAnimationFrame(() => reveal(e.target));
@@ -88,6 +77,8 @@
     const mo = new MutationObserver(m => { if (m.some(x => ![...x.addedNodes, ...x.removedNodes].includes(svg) && x.target !== svg && !svg.contains(x.target))) relayout(); });
     mo.observe(root, { childList: true, subtree: true });
     relayout(); raf = requestAnimationFrame(tick);
+    [600, 1500, 3000].forEach(ms => setTimeout(relayout, ms));
+    if (document.readyState !== 'complete') addEventListener('load', relayout, { once: true });
     return { destroy() { cancelAnimationFrame(raf); ro.disconnect(); mo.disconnect(); io.disconnect(); svg.remove(); }, layout };
   }
   window.Snake3A = Snake3A;

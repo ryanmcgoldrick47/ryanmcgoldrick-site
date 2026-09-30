@@ -23,11 +23,12 @@
 <body>
 <x-dc>
 <helmet>
+<script src="frost-3a.js"></script>
 <meta name="color-scheme" content="light only">
 <style>html{background:#fff;color-scheme:light only}</style>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   body{margin:0;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px}
   a{color:oklch(16% 0 0)}
@@ -73,22 +74,22 @@
   </section>
   <section style="padding:0 clamp(20px,5vw,48px) 110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:28px;align-items:start">
     <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:22px 26px">
-        <div style="font-family:'Silkscreen',monospace;font-size:22px;margin-bottom:16px">experience</div>
+        <div style="font-family:'Martian Mono',monospace;font-size:22px;margin-bottom:16px">experience</div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 32px;font-family:'Martian Mono',monospace;font-size:12px;line-height:1.6">
-          <sc-for list="{{ experience }}" as="r" hint-placeholder-count="0"><span style="font-family:'DotGothic16',monospace;font-size:13px;white-space:nowrap">{{ r.y }}</span><span>{{ r.t }}</span></sc-for>
+          <sc-for list="{{ experience }}" as="r" hint-placeholder-count="0"><span style="font-family:'Martian Mono',monospace;font-size:13px;white-space:nowrap">{{ r.y }}</span><span>{{ r.t }}</span></sc-for>
         </div>
       </div>
     <div style="display:flex;flex-direction:column;gap:28px">
       <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:22px 26px">
-        <div style="font-family:'Silkscreen',monospace;font-size:22px;margin-bottom:16px">academia</div>
+        <div style="font-family:'Martian Mono',monospace;font-size:22px;margin-bottom:16px">academia</div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 32px;font-family:'Martian Mono',monospace;font-size:12px;line-height:1.6">
-          <sc-for list="{{ academia }}" as="r" hint-placeholder-count="0"><span style="font-family:'DotGothic16',monospace;font-size:13px;white-space:nowrap">{{ r.y }}</span><span>{{ r.t }}</span></sc-for>
+          <sc-for list="{{ academia }}" as="r" hint-placeholder-count="0"><span style="font-family:'Martian Mono',monospace;font-size:13px;white-space:nowrap">{{ r.y }}</span><span>{{ r.t }}</span></sc-for>
         </div>
       </div>
       <div data-snake="1" style="border:2px solid oklch(88% 0.18 105);padding:22px 26px">
-        <div style="font-family:'Silkscreen',monospace;font-size:22px;margin-bottom:16px">awards</div>
+        <div style="font-family:'Martian Mono',monospace;font-size:22px;margin-bottom:16px">awards</div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 32px;font-family:'Martian Mono',monospace;font-size:12px;line-height:1.6">
-          <sc-for list="{{ awards }}" as="r" hint-placeholder-count="0"><span style="font-family:'DotGothic16',monospace;font-size:13px;white-space:nowrap">{{ r.y }}</span><span>{{ r.t }}</span></sc-for>
+          <sc-for list="{{ awards }}" as="r" hint-placeholder-count="0"><span style="font-family:'Martian Mono',monospace;font-size:13px;white-space:nowrap">{{ r.y }}</span><span>{{ r.t }}</span></sc-for>
         </div>
       </div>
     </div>

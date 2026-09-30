@@ -23,11 +23,12 @@
 <body>
 <x-dc>
 <helmet>
+<script src="frost-3a.js"></script>
 <meta name="color-scheme" content="light only">
 <style>html{background:#fff;color-scheme:light only}</style>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   body{margin:0;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px}
   a{color:oklch(16% 0 0)}
@@ -63,9 +64,9 @@
   <section style="padding:40px clamp(20px,5vw,48px) 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
     <div style="position:sticky;top:110px;display:flex;flex-direction:column;gap:24px">
       <div data-snake="1">
-        <div style="font-family:'DotGothic16',monospace;font-size:16px;margin-bottom:10px">shop / {{ category }}</div>
+        <div style="font-family:'Martian Mono',monospace;font-size:16px;margin-bottom:10px">shop / {{ category }}</div>
         <h1 style="font-family:'Martian Mono',monospace;font-weight:200;letter-spacing:-0.03em;text-transform:lowercase;font-size:clamp(40px,5.5vw,76px);line-height:0.95;margin:0;overflow-wrap:anywhere">{{ title }}</h1>
-        <div style="font-family:'DotGothic16',monospace;font-size:26px;margin-top:16px">{{ price }}</div>
+        <div style="font-family:'Martian Mono',monospace;font-size:26px;margin-top:16px">{{ price }}</div>
       </div>
       <div data-snake="1" style="display:flex;flex-direction:column;gap:10px">
         <span style="font-family:'Martian Mono',monospace;font-size:13px">{{ optionLabel }}</span>
@@ -76,10 +77,10 @@
         </div>
       </div>
       <sc-if value="{{ canBuy }}" hint-placeholder-val="{{ false }}">
-        <a data-snake="1" href="{{ checkout }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Silkscreen',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
+        <a data-snake="1" href="{{ checkout }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Martian Mono',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
       </sc-if>
       <sc-if value="{{ enquire }}" hint-placeholder-val="{{ false }}">
-        <a data-snake="1" href="{{ enquireHref }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Silkscreen',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
+        <a data-snake="1" href="{{ enquireHref }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(88% 0.18 105);padding:18px 22px;text-decoration:none;font-family:'Martian Mono',monospace;font-size:26px" style-hover="background:oklch(16% 0 0);color:oklch(88% 0.18 105)"><span>buy</span><span>→</span></a>
         <span style="font-family:'Martian Mono',monospace;font-size:13px;margin-top:-12px">made to order. email for pricing and lead time.</span>
       </sc-if>
       <sc-if value="{{ soldOut }}" hint-placeholder-val="{{ false }}">
@@ -93,7 +94,7 @@
     </form></div>
       </sc-if>
       <sc-if value="{{ cantBuy }}" hint-placeholder-val="{{ true }}">
-        <div data-snake="1" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(84% 0 0);padding:18px 22px;font-family:'Silkscreen',monospace;font-size:26px;color:oklch(40% 0 0)"><span>{{ buyLabel }}</span></div>
+        <div data-snake="1" style="display:flex;justify-content:space-between;align-items:center;gap:16px;background:oklch(84% 0 0);padding:18px 22px;font-family:'Martian Mono',monospace;font-size:26px;color:oklch(40% 0 0)"><span>{{ buyLabel }}</span></div>
         <a href="contact" style="font-family:'Martian Mono',monospace;font-size:12px;margin-top:-12px">→ ask about this piece</a>
       </sc-if>
       <p style="margin:0;font-family:'Martian Mono',monospace;font-size:13px;line-height:1.7;color:oklch(35% 0 0)"><span style="background:oklch(78% 0.08 300);padding:0 3px">{{ shipping }}</span>{{ checkoutNote }}</p>
@@ -112,9 +113,9 @@
 
   <section style="padding:0 clamp(20px,5vw,48px) 100px">
     <div data-snake="1" style="background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:28px clamp(20px,3vw,36px) 20px;display:flex;flex-direction:column">
-      <div style="font-family:'Silkscreen',monospace;font-size:clamp(20px,2.4vw,28px);margin-bottom:18px;overflow-wrap:anywhere">honest specs // {{ title }}</div>
+      <div style="font-family:'Martian Mono',monospace;font-size:clamp(20px,2.4vw,28px);margin-bottom:18px;overflow-wrap:anywhere">honest specs // {{ title }}</div>
       <sc-for list="{{ specs }}" as="r" hint-placeholder-count="0">
-        <div style="display:grid;grid-template-columns:minmax(110px,200px) minmax(0,1fr);gap:20px;padding:11px 0;border-top:1px dashed oklch(55% 0.1 105);font-family:'DotGothic16',monospace;font-size:15px;line-height:1.5"><span style="color:oklch(76% 0.14 105)">{{ r.k }}</span><span>{{ r.v }}</span></div>
+        <div style="display:grid;grid-template-columns:minmax(110px,200px) minmax(0,1fr);gap:20px;padding:11px 0;border-top:1px dashed oklch(55% 0.1 105);font-family:'Martian Mono',monospace;font-size:15px;line-height:1.5"><span style="color:oklch(76% 0.14 105)">{{ r.k }}</span><span>{{ r.v }}</span></div>
       </sc-for>
     </div>
   </section>
@@ -122,8 +123,8 @@
   <sc-if value="{{ projectHref }}" hint-placeholder-val="{{ false }}">
     <section style="padding:0 clamp(20px,5vw,48px) 100px">
       <a data-snake="1" href="{{ projectHref }}" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;text-decoration:none;border-top:1px solid oklch(85% 0 0);padding-top:28px">
-        <span style="font-family:'Silkscreen',monospace;font-size:clamp(36px,5vw,64px);line-height:1">the project →</span>
-        <span style="font-family:'DotGothic16',monospace;font-size:18px">how {{ title }} was made</span>
+        <span style="font-family:'Martian Mono',monospace;font-size:clamp(36px,5vw,64px);line-height:1">the project →</span>
+        <span style="font-family:'Martian Mono',monospace;font-size:18px">how {{ title }} was made</span>
       </a>
     </section>
   </sc-if>

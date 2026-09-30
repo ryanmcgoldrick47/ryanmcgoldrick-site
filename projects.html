@@ -23,11 +23,12 @@
 <body>
 <x-dc>
 <helmet>
+<script src="frost-3a.js"></script>
 <meta name="color-scheme" content="light only">
 <style>html{background:#fff;color-scheme:light only}</style>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="brand/favicon-512.png"><link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   body{margin:0;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px}
   a{color:oklch(16% 0 0)}
@@ -66,7 +67,7 @@
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
           </div>
-          <div style="margin-top:12px;line-height:1.5"><span style="font-family:'DotGothic16',monospace;font-size:16px;background:oklch(78% 0.08 300);padding:1px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.index }} {{ p.name }}</span></div>
+          <div style="margin-top:12px;line-height:1.5"><span style="font-family:'Martian Mono',monospace;font-size:16px;background:oklch(78% 0.08 300);padding:1px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.index }} {{ p.name }}</span></div>
           
         </a>
       </sc-for>
@@ -83,13 +84,13 @@
             <img loading="lazy" src="{{ p.image }}" alt="{{ p.name }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.04)" />
             <canvas style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
           </div>
-          <div style="margin-top:12px;line-height:1.5"><span style="font-family:'DotGothic16',monospace;font-size:16px;background:oklch(78% 0.08 300);padding:1px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.index }} {{ p.name }}</span></div>
+          <div style="margin-top:12px;line-height:1.5"><span style="font-family:'Martian Mono',monospace;font-size:16px;background:oklch(78% 0.08 300);padding:1px 5px;box-decoration-break:clone;-webkit-box-decoration-break:clone">{{ p.index }} {{ p.name }}</span></div>
           
         </a>
       </sc-for>
     </div>
   </section>
-  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:11px clamp(20px,5vw,48px);font-family:'DotGothic16',monospace;font-size:14px;letter-spacing:0.04em;display:flex;justify-content:flex-end;gap:2px;white-space:nowrap;overflow:hidden"><span style="overflow:hidden;text-overflow:ellipsis;max-width:60%">{{ typed }}</span><span style="opacity:{{ caretOp }}">█</span></div>
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:oklch(16% 0 0);color:oklch(88% 0.18 105);padding:11px clamp(20px,5vw,48px);font-family:'Martian Mono',monospace;font-size:14px;letter-spacing:0.04em;display:flex;justify-content:flex-end;gap:2px;white-space:nowrap;overflow:hidden"><span style="overflow:hidden;text-overflow:ellipsis;max-width:60%">{{ typed }}</span><span style="opacity:{{ caretOp }}">█</span></div>
   <footer style="padding:14px clamp(20px,5vw,48px) 14px;border-top:1px solid oklch(85% 0 0);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Martian Mono',monospace;font-size:13px">
     <a data-snake="1" href="mailto:studio@ryanmcgoldrick.com" style="text-decoration:none">studio@ryanmcgoldrick.com</a>
     <span data-place="type">wollongong, australia</span>
@@ -113,7 +114,7 @@ class Component extends DCLogic {
   state = { works: [], cv: null, read: window.matchMedia('(hover: hover)').matches ? 'HOVER A PROJECT TO READ ITS MATERIALS' : 'SCROLL TO READ MATERIALS', n: 0, caret: true };
   rootRef = React.createRef();
   componentDidMount() {
-    const start = () => window.Snake3A ? (this.snake = window.Snake3A(this.rootRef.current, { speed: this.props.snakeSpeed, length: this.props.snakeLength, show: this.props.showSnake })) : setTimeout(start, 50);
+    const start = () => window.Snake3A ? (this.snake = window.Snake3A(this.rootRef.current, { speed: this.props.snakeSpeed, length: this.props.snakeLength, show: this.props.showSnake, serpentine: true, noHighlight: true })) : setTimeout(start, 50);
     start();
     fetch('content/works.json').then(r => r.json()).then(works => this.setState({ works }));
     fetch('content/cv.json').then(r => r.json()).then(cv => this.setState({ cv }));

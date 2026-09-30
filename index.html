@@ -37,7 +37,6 @@
 <style>@keyframes rmMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}[data-fadein]{opacity:0;transform:translateY(12px);transition:opacity 2.4s ease,transform 2.4s ease}[data-fadein].on{opacity:1;transform:none}</style>
 <script>(function(){function chk(){document.querySelectorAll('[data-fadein]').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight-40)el.classList.add('on');else el.classList.remove('on');});}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);setInterval(chk,800);})();</script>
 <script src="radio-card.js"></script>
-<script src="snitch-3a.js"></script>
 <style>html,body{overflow-x:clip}</style>
 </helmet>
 <div ref="{{ rootRef }}" style="position:relative;box-sizing:border-box;min-height:100vh;padding:30px;color:oklch(16% 0 0);font-family:'Martian Mono',monospace">
@@ -48,7 +47,8 @@
   <div ref="{{ wrapRef }}" style="position:relative;display:flex;flex-direction:column;background-color:#fff;background-image:linear-gradient(oklch(92% 0.02 250) 1px, transparent 1px),linear-gradient(90deg, oklch(92% 0.02 250) 1px, transparent 1px);background-size:24px 24px;border:1px solid oklch(88% 0.02 250)">
     <div ref="{{ topRef }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;font-size:13px">
       <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><button data-radio-btn="1" style="font-family:'Martian Mono',monospace;font-size:13px;padding:8px 12px;border:none;cursor:pointer;background:oklch(16% 0 0);color:#fff" style-hover="background:oklch(45% 0.16 320)"><span style="display:inline-flex;align-items:center;gap:8px"><span>▶</span><span style="display:block;width:110px;overflow:hidden;white-space:nowrap"><span style="display:inline-block;animation:rmMarq 7s linear infinite">radio player · rm studio radio · radio player · rm studio radio · </span></span></span></button><span ref="{{ readRef }}" style="background:oklch(84% 0 0);padding:8px 10px">hover a piece, click to see it big</span></div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <div ref="{{ sortBarRef }}" style="position:relative;display:flex;gap:6px;flex-wrap:wrap;padding-bottom:8px">
+        <div ref="{{ pencilRef }}" aria-hidden="true" style="position:absolute;left:0;top:0;width:0;height:3px;border-radius:2px;pointer-events:none;opacity:0;background:repeating-linear-gradient(90deg,oklch(28% 0 0 / .9) 0 2px,oklch(48% 0 0 / .55) 2px 3px,oklch(32% 0 0 / .8) 3px 5px,oklch(55% 0 0 / .4) 5px 6px);transform:rotate(-0.5deg);transition:left 900ms cubic-bezier(.45,.05,.3,1),width 900ms cubic-bezier(.45,.05,.3,1),top 300ms,opacity 400ms"></div>
         <sc-for list="{{ sortBtns }}" as="m" hint-placeholder-count="4">
           <button onClick="{{ m.go }}" style="{{ m.style }}">{{ m.label }}</button>
         </sc-for>
@@ -93,7 +93,40 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { feat: null, featI: 0, ready: false, sortBy: 'all', sortLabels: [] };
+  state = { feat: null, featI: 0, ready: false, sortBy: (typeof window !== 'undefined' && window.innerWidth < 700) ? 'type' : 'all', sortLabels: [] };
+  sortBarRef = React.createRef(); pencilRef = React.createRef();
+  setupPencil() {
+    const bar = this.sortBarRef.current, line = this.pencilRef.current; if (!bar || !line) return;
+    const keys = ['all', 'type', 'client', 'origin'];
+    const place = i => { const b = bar.querySelectorAll('button')[i]; if (!b) return; line.style.left = (b.offsetLeft + 3) + 'px'; line.style.width = (b.offsetWidth - 6) + 'px'; line.style.top = (b.offsetTop + b.offsetHeight + 3) + 'px'; line.style.opacity = '1'; };
+    this.placePencil = () => place(keys.indexOf(this.state.sortBy));
+    let i = keys.indexOf(this.state.sortBy), dir = 1;
+    place(i);
+    if (window.innerWidth >= 700 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      this.pencilIv = setInterval(() => { if (this.userSorted) return clearInterval(this.pencilIv); if (i + dir > 3 || i + dir < 0) dir = -dir; i += dir; place(i); }, 1500);
+    }
+    const ro = new ResizeObserver(() => this.userSorted ? this.placePencil() : place(i)); ro.observe(bar);
+    (this.cleanups = this.cleanups || []).push(() => { clearInterval(this.pencilIv); ro.disconnect(); });
+  }
+  setupRail() {
+    if (window.innerWidth >= 700) return;
+    const rail = document.createElement('div'), thumb = document.createElement('div');
+    rail.setAttribute('aria-hidden', 'true');
+    rail.style.cssText = 'position:fixed;right:0;top:12vh;bottom:12vh;width:26px;z-index:40;touch-action:none;display:flex;justify-content:center';
+    rail.innerHTML = '<div style="position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:repeating-linear-gradient(180deg,oklch(40% 0 0 / .55) 0 3px,transparent 3px 6px)"></div>';
+    thumb.style.cssText = 'position:absolute;left:50%;width:10px;margin-left:-5px;height:52px;background:oklch(16% 0 0);box-shadow:0 0 0 2px #fff;transition:background 150ms';
+    rail.appendChild(thumb); document.body.appendChild(rail);
+    const max = () => Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const upd = () => { const h = rail.clientHeight - 52; thumb.style.top = (scrollY / max() * h) + 'px'; rail.style.opacity = max() > 40 ? '1' : '0'; };
+    let drag = null;
+    const to = y => { const r = rail.getBoundingClientRect(); window.scrollTo(0, Math.min(1, Math.max(0, (y - r.top - 26) / (r.height - 52))) * max()); };
+    rail.addEventListener('pointerdown', e => { drag = true; rail.setPointerCapture(e.pointerId); thumb.style.background = 'oklch(78% 0.08 300)'; to(e.clientY); e.preventDefault(); });
+    rail.addEventListener('pointermove', e => { if (drag) to(e.clientY); });
+    const end = () => { drag = null; thumb.style.background = 'oklch(16% 0 0)'; };
+    rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
+    addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd(); const iv = setInterval(upd, 800);
+    (this.cleanups = this.cleanups || []).push(() => { rail.remove(); removeEventListener('scroll', upd); removeEventListener('resize', upd); clearInterval(iv); });
+  }
   featImgRef = React.createRef(); rootRef = React.createRef(); readRef = React.createRef(); sortRef = React.createRef(); wrapRef = React.createRef(); topRef = React.createRef(); botRef = React.createRef(); pathRef = React.createRef(); tpRef = React.createRef();
 
   componentDidMount() {
@@ -105,6 +138,8 @@ class Component extends DCLogic {
     this.onOver = e => { const el = e.target.closest && e.target.closest('[data-slug]'); if (el && el.dataset.slug !== this.lastSlug) { this.lastSlug = el.dataset.slug; this.readout(el.dataset.slug); } };
     root.addEventListener('pointerover', this.onOver);
     this.setupSnake();
+    this.setupRail();
+    setTimeout(() => this.setupPencil(), 60);
     this.onKey = e => { if (e.key === 'Escape') this.closeFeat(); }; window.addEventListener('keydown', this.onKey);
   }
   componentWillUnmount() { (this.cleanups || []).forEach(f => f()); this.rootRef.current && this.rootRef.current.removeEventListener('pointerover', this.onOver); clearInterval(this.typer); cancelAnimationFrame(this.snakeRaf); this.ro && this.ro.disconnect(); }
@@ -201,7 +236,14 @@ class Component extends DCLogic {
     this.cleanups = [];
     this.cards = [...box.querySelectorAll('[data-card]')];
     this.heroIdx = ['step', 'marly', 'kleingeld', 'umbra'].map(s => this.cards.findIndex(el => el.dataset.slug === s)).filter(i => i >= 0);
+    box.style.transition = 'opacity 500ms ease'; box.style.opacity = '0';
     this.layoutSort(false);
+    let lastW = box.clientWidth;
+    const settle = () => { lastW = box.clientWidth; this.layoutSort(false); };
+    requestAnimationFrame(() => requestAnimationFrame(() => { settle(); box.style.opacity = '1'; }));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+    if (document.readyState !== 'complete') addEventListener('load', settle, { once: true });
+    [300, 900].forEach(ms => setTimeout(settle, ms));
     let drag = null, z = 10;
     const down = e => { const el = e.target.closest('[data-card]'); if (!el) return; const i = +el.dataset.card; el.setPointerCapture(e.pointerId); el.style.zIndex = ++z; el.style.cursor = 'grabbing'; el.style.transition = 'none'; drag = { el, i, sx: e.clientX, sy: e.clientY, ox: this.sortPos[i].x, oy: this.sortPos[i].y, moved: 0 }; };
     const move = e => { if (!drag) return; const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy; drag.moved = Math.max(drag.moved, Math.hypot(dx, dy)); const p = this.sortPos[drag.i], now = performance.now(), dtm = Math.max(1, now - (drag.t || now - 16)) / 1000; drag.vx = (drag.ox + dx - p.x) / dtm; drag.vy = (drag.oy + dy - p.y) / dtm; drag.t = now; p.x = drag.ox + dx; p.y = drag.oy + dy; drag.el.style.transform = `translate(${p.x}px,${p.y}px) rotate(${p.r}deg) scale(1.05)`; };
@@ -252,12 +294,12 @@ class Component extends DCLogic {
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    const rs = () => this.layoutSort(false);
+    const rs = () => { const w = box.clientWidth; if (Math.abs(w - lastW) < 2) return; lastW = w; this.layoutSort(false); };
     box.addEventListener('pointerover', over); box.addEventListener('pointerleave', out);
     box.addEventListener('pointerdown', down); box.addEventListener('pointermove', move); box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up); window.addEventListener('resize', rs);
     this.cleanups.push(() => { cancelAnimationFrame(raf); box.removeEventListener('pointerover', over); box.removeEventListener('pointerleave', out); box.removeEventListener('pointerdown', down); box.removeEventListener('pointermove', move); box.removeEventListener('pointerup', up); box.removeEventListener('pointercancel', up); window.removeEventListener('resize', rs); });
   }
-  sortTo(by) { this.sortHold = true; clearTimeout(this.sortHoldT); this.setState({ sortBy: by }, () => { this.layoutSort(true); this.sortHoldT = setTimeout(() => { this.sortHold = false; }, 1400); }); }
+  sortTo(by) { this.userSorted = true; clearInterval(this.pencilIv); this.sortHold = true; clearTimeout(this.sortHoldT); this.setState({ sortBy: by }, () => { this.placePencil && this.placePencil(); this.layoutSort(true); this.sortHoldT = setTimeout(() => { this.sortHold = false; }, 1400); }); }
 
   componentDidUpdate() { const el = this.featImgRef.current, lp = this.lastFeat; if (!el || !lp) return; const src = lp.images[(this.state.featI || 0) % lp.images.length]; if (el._src !== src) { el._src = src; el.style.backgroundImage = 'url("' + src + '")'; } }
   openFeat(slug) { this.featAt = performance.now(); this.setState({ feat: slug, featI: 0 }); }
@@ -271,7 +313,7 @@ class Component extends DCLogic {
     const feat = lp ? { src: lp.images[fi % lp.images.length], title: lp.title, num: lp.num, mat: this.mat(lp), href: this.href(lp.slug), count: (fi % lp.images.length + 1) + ' / ' + lp.images.length + (lp.images.length > 1 ? '  click for next' : '') } : { src: '', title: '', num: '', mat: '', href: '#', count: '' };
     const sortCards = this.state.ready ? this.list.map(p => { const src = p.thumb || p.images[0], alt = p.images.find(x => x !== src) || src; return { slug: p.slug, title: p.title, num: p.num, src, alt, tag: [p.category, p.client].filter(Boolean).join(' / ') }; }) : [];
     return {
-      rootRef: this.rootRef, readRef: this.readRef, sortRef: this.sortRef, wrapRef: this.wrapRef, topRef: this.topRef, botRef: this.botRef, pathRef: this.pathRef, tpRef: this.tpRef,
+      rootRef: this.rootRef, readRef: this.readRef, sortRef: this.sortRef, wrapRef: this.wrapRef, topRef: this.topRef, botRef: this.botRef, pathRef: this.pathRef, tpRef: this.tpRef, sortBarRef: this.sortBarRef, pencilRef: this.pencilRef,
       sortCards, sortLabels: this.state.sortLabels, feat, closeFeat: this.closeFeat, nextImg: this.nextImg, openRadio: this.openRadio,
       featImgRef: this.featImgRef, panelT: fp ? 'translateX(0)' : 'translateX(101%)', scrimOp: fp ? 1 : 0, scrimPe: fp ? 'auto' : 'none',
       sortBtns: [['all', 'everything'], ['type', 'by type'], ['client', 'by client'], ['origin', 'studio / client']].map(([k, label]) => ({ label, go: () => this.sortTo(k), style: `font-family:'Martian Mono',monospace;font-size:13px;padding:8px 12px;border:none;cursor:pointer;background:${this.state.sortBy === k ? 'oklch(78% 0.08 300)' : 'oklch(93% 0 0)'};color:oklch(16% 0 0)` })),
