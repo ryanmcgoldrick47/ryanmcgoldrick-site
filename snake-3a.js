@@ -57,7 +57,7 @@
         flt.setAttribute('x', h[0] - m); flt.setAttribute('y', h[1] - m); flt.setAttribute('width', m * 2); flt.setAttribute('height', m * 2);
         head.setAttribute('x', h[0] - 5); head.setAttribute('y', h[1] - 5); head.setAttribute('opacity', pos > total ? 0 : 1);
         const idx = nodeAt.findIndex(n => Math.abs(n - pos) < 14);
-        if (idx >= 0 && idx !== lastNode && !opts.noHighlight) {
+        if (idx >= 0 && idx !== lastNode && opts.highlight) {
           lastNode = idx; const el = nodes[idx];
           if (el) { el.style.transition = 'outline-color 0.8s'; el.style.outline = '3px solid ' + YEL; el.style.outlineOffset = '4px'; setTimeout(() => { el.style.outlineColor = 'transparent'; }, 700); }
         }
