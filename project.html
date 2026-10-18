@@ -229,7 +229,10 @@ class Component extends DCLogic {
     const next = ordered[(i + 1) % ordered.length];
     const ind = w.group === 'industry';
     const specs = [{ k: 'category', v: w.category }];
-    if (w.client) specs.push({ k: ind ? 'client' : 'with', v: w.client.toLowerCase() });
+    if (w.client) {
+      const cv = w.client.toLowerCase();
+      specs.push({ k: ind ? 'client' : 'with', v: w.client_url ? React.createElement('a', { href: w.client_url, target: '_blank', rel: 'noopener' }, cv) : cv });
+    }
     Object.entries(w.specs || {}).forEach(([k, v]) => specs.push({ k, v }));
     const h = w.honest || {}, sp = w.specs || {};
     const hk = { 'made of': h['made of'] || sp.materials, 'made in': h['made in'], finish: h.finish || sp.finishes };
