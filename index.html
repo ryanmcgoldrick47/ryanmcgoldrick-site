@@ -235,7 +235,7 @@ class Component extends DCLogic {
     const box = this.sortRef.current; if (!box) return;
     this.cleanups = [];
     this.cards = [...box.querySelectorAll('[data-card]')];
-    this.heroIdx = ['step', 'marly', 'kleingeld', 'umbra'].map(s => this.cards.findIndex(el => el.dataset.slug === s)).filter(i => i >= 0);
+    this.heroIdx = ['al-pine', 'step', 'marly', 'kleingeld', 'umbra'].map(s => this.cards.findIndex(el => el.dataset.slug === s)).filter(i => i >= 0);
     box.style.transition = 'opacity 500ms ease'; box.style.opacity = '0';
     this.layoutSort(false);
     let lastW = box.clientWidth;

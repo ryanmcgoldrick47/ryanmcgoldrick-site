@@ -1,5 +1,27 @@
 [
   {
+    "slug": "al-pine",
+    "title": "al-pine",
+    "category": "lighting",
+    "type": "project",
+    "description": "post consumer recycled spun aluminium with cast recycled glass a collection of large and small pendants and wall sconces designed for gohome.",
+    "images": [
+      "images/work/al-pine-1.webp",
+      "images/work/al-pine-2.webp",
+      "images/work/al-pine-3.webp",
+      "images/work/al-pine-4.webp",
+      "images/work/al-pine-5.webp",
+      "images/work/al-pine-6.webp",
+      "images/work/al-pine-7.webp",
+      "images/work/al-pine-8.webp",
+      "images/work/al-pine-9.webp"
+    ],
+    "client": "GoHome",
+    "group": "industry",
+    "section": "products"
+  }
+,
+  {
     "slug": "step",
     "title": "step",
     "category": "furniture",
@@ -620,26 +642,6 @@
       "images/work/magnolia-ext-d.png"
     ],
     "section": "products"
-  },
-  {
-    "slug": "al-pine",
-    "title": "al-pine",
-    "category": "lighting",
-    "type": "project",
-    "description": "post consumer recycled spun aluminium with cast recycled glass a collection of large and small pendants and wall sconces designed for gohome.",
-    "images": [
-      "images/work/al-pine-1.webp",
-      "images/work/al-pine-2.webp",
-      "images/work/al-pine-3.webp",
-      "images/work/al-pine-4.webp",
-      "images/work/al-pine-5.webp",
-      "images/work/al-pine-6.webp",
-      "images/work/al-pine-7.webp",
-      "images/work/al-pine-8.webp",
-      "images/work/al-pine-9.webp"
-    ],
-    "client": "GoHome",
-    "group": "industry",
-    "section": "products"
   }
+
 ]
